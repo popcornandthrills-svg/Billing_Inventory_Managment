@@ -1,0 +1,198 @@
+[
+    {
+        "date": "2026-02-03",
+        "particulars": "Cash Sale INV0044",
+        "cash_in": 85.0,
+        "cash_out": 0.0,
+        "reference": "INV0044"
+    },
+    {
+        "date": "2026-02-03",
+        "particulars": "Cash Sale INV0045",
+        "cash_in": 85.0,
+        "cash_out": 0.0,
+        "reference": "INV0045"
+    },
+    {
+        "date": "2026-02-03",
+        "particulars": "Cash Sale INV0046",
+        "cash_in": 85.0,
+        "cash_out": 0.0,
+        "reference": "INV0046"
+    },
+    {
+        "date": "2026-02-03",
+        "particulars": "Customer Payment INV0008",
+        "cash_in": 1000.0,
+        "cash_out": 0.0,
+        "reference": "INV0008"
+    },
+    {
+        "date": "2026-02-03",
+        "particulars": "Supplier Payment P0005",
+        "cash_in": 0.0,
+        "cash_out": 130.0,
+        "reference": "P0005"
+    },
+    {
+        "date": "2026-02-12",
+        "particulars": "Cash Purchase P0013",
+        "cash_in": 0.0,
+        "cash_out": 13000.0,
+        "reference": "P0013"
+    },
+    {
+        "date": "2026-02-12",
+        "particulars": "Cash Purchase P0014",
+        "cash_in": 0.0,
+        "cash_out": 3500.0,
+        "reference": "P0014"
+    },
+    {
+        "date": "2026-02-13",
+        "particulars": "Cash Purchase P0017",
+        "cash_in": 0.0,
+        "cash_out": 9500.0,
+        "reference": "P0017"
+    },
+    {
+        "date": "2026-02-13",
+        "particulars": "Cash Purchase P0018",
+        "cash_in": 0.0,
+        "cash_out": 2000.0,
+        "reference": "P0018"
+    },
+    {
+        "date": "2026-02-17",
+        "particulars": "Cash Sale INV0054",
+        "cash_in": 20.0,
+        "cash_out": 0.0,
+        "reference": "INV0054"
+    },
+    {
+        "date": "2026-02-18",
+        "particulars": "Supplier Payment - Durga Electronics",
+        "cash_in": 0.0,
+        "cash_out": 800.0,
+        "reference": "Durga Electronics"
+    },
+    {
+        "date": "2026-02-18",
+        "particulars": "UPI Supplier Payment - Bharat Traders",
+        "cash_in": 0.0,
+        "cash_out": 800.0,
+        "reference": "Bharat Traders"
+    },
+    {
+        "date": "2026-02-18",
+        "particulars": "UPI Supplier Payment - Durga Electronics",
+        "cash_in": 0.0,
+        "cash_out": 200.0,
+        "reference": "Durga Electronics"
+    },
+    {
+        "date": "2026-02-18",
+        "particulars": "UPI Supplier Payment - Maruthi Electroincs",
+        "cash_in": 0.0,
+        "cash_out": 2340.0,
+        "reference": "Maruthi Electroincs"
+    },
+    {
+        "date": "2026-02-20",
+        "particulars": "Cash Purchase P0019",
+        "cash_in": 0.0,
+        "cash_out": 2000.0,
+        "reference": "P0019"
+    },
+    {
+        "date": "2026-02-20",
+        "particulars": "Cash Purchase P0020",
+        "cash_in": 0.0,
+        "cash_out": 100000.0,
+        "reference": "P0020"
+    },
+    {
+        "date": "2026-02-27",
+        "particulars": "Cash Supplier Payment - Maruthi Electroincs",
+        "cash_in": 0.0,
+        "cash_out": 10000.0,
+        "reference": "Maruthi Electroincs"
+    },
+    {
+        "date": "2026-02-27",
+        "particulars": "Cash Purchase P0021",
+        "cash_in": 0.0,
+        "cash_out": 20000.0,
+        "reference": "P0021"
+    },
+    {
+        "date": "2026-02-27",
+        "particulars": "UPI Supplier Payment - Maruthi Electroincs",
+        "cash_in": 0.0,
+        "cash_out": 100000.0,
+        "reference": "Maruthi Electroincs"
+    },
+    {
+        "date": "2026-02-27",
+        "particulars": "UPI Supplier Payment - Rohit",
+        "cash_in": 0.0,
+        "cash_out": 39000.0,
+        "reference": "Rohit"
+    },
+    {
+        "date": "2026-02-27",
+        "particulars": "Card Supplier Payment - Maruthi Electroincs",
+        "cash_in": 0.0,
+        "cash_out": 200.0,
+        "reference": "Maruthi Electroincs"
+    },
+    {
+        "date": "2026-02-27",
+        "particulars": "Cash Sale INV0056",
+        "cash_in": 680.0,
+        "cash_out": 0.0,
+        "reference": "INV0056"
+    },
+    {
+        "date": "2026-02-27",
+        "particulars": "Cash Supplier Payment - Sri Rama Traders",
+        "cash_in": 0.0,
+        "cash_out": 2000.0,
+        "reference": "Sri Rama Traders"
+    },
+    {
+        "date": "2026-02-27",
+        "particulars": "Cash Sale INV0058",
+        "cash_in": 500.0,
+        "cash_out": 0.0,
+        "reference": "INV0058"
+    },
+    {
+        "date": "2026-02-27",
+        "particulars": "Customer Payment INV0058",
+        "cash_in": 244.0,
+        "cash_out": 0.0,
+        "reference": "INV0058"
+    },
+    {
+        "date": "2026-02-28",
+        "particulars": "Cash Purchase P0023",
+        "cash_in": 0.0,
+        "cash_out": 600.0,
+        "reference": "P0023"
+    },
+    {
+        "date": "2026-02-28",
+        "particulars": "Cash Purchase P0025",
+        "cash_in": 0.0,
+        "cash_out": 826.0,
+        "reference": "P0025"
+    },
+    {
+        "date": "2026-02-28",
+        "particulars": "Cash Sale INV0060",
+        "cash_in": 637.0,
+        "cash_out": 0.0,
+        "reference": "INV0060"
+    }
+]

@@ -1,0 +1,90 @@
+[
+    {
+        "payment_id": "SP00001",
+        "date": "2026-02-18",
+        "supplier_name": "Bharat Traders",
+        "amount": 800.0,
+        "payment_mode": "UPI",
+        "reference": "Bharat Traders",
+        "note": "Supplier due payment",
+        "due_before": 80000.0,
+        "due_after": 79200.0
+    },
+    {
+        "payment_id": "SP00002",
+        "date": "2026-02-18",
+        "supplier_name": "Durga Electronics",
+        "amount": 200.0,
+        "payment_mode": "UPI",
+        "reference": "Durga Electronics",
+        "note": "Supplier due payment",
+        "due_before": 118063.2,
+        "due_after": 117863.2
+    },
+    {
+        "payment_id": "SP00003",
+        "date": "2026-02-18",
+        "supplier_name": "Maruthi Electroincs",
+        "amount": 2340.0,
+        "payment_mode": "UPI",
+        "reference": "Maruthi Electroincs",
+        "note": "Supplier due payment",
+        "due_before": 501540.0,
+        "due_after": 499200.0
+    },
+    {
+        "payment_id": "SP00004",
+        "date": "2026-02-27",
+        "supplier_name": "Maruthi Electroincs",
+        "amount": 10000.0,
+        "payment_mode": "Cash",
+        "reference": "Maruthi Electroincs",
+        "note": "Supplier due payment",
+        "due_before": 499200.0,
+        "due_after": 489200.0
+    },
+    {
+        "payment_id": "SP00005",
+        "date": "2026-02-27",
+        "supplier_name": "Maruthi Electroincs",
+        "amount": 100000.0,
+        "payment_mode": "UPI",
+        "reference": "Maruthi Electroincs",
+        "note": "Supplier due payment",
+        "due_before": 489200.0,
+        "due_after": 389200.0
+    },
+    {
+        "payment_id": "SP00006",
+        "date": "2026-02-27",
+        "supplier_name": "Rohit",
+        "amount": 39000.0,
+        "payment_mode": "UPI",
+        "reference": "Rohit",
+        "note": "Supplier due payment",
+        "due_before": 39000.0,
+        "due_after": 0.0
+    },
+    {
+        "payment_id": "SP00007",
+        "date": "2026-02-27",
+        "supplier_name": "Maruthi Electroincs",
+        "amount": 200.0,
+        "payment_mode": "Card",
+        "reference": "Maruthi Electroincs",
+        "note": "Supplier due payment",
+        "due_before": 389200.0,
+        "due_after": 389000.0
+    },
+    {
+        "payment_id": "SP00008",
+        "date": "2026-02-27",
+        "supplier_name": "Sri Rama Traders",
+        "amount": 2000.0,
+        "payment_mode": "Cash",
+        "reference": "Sri Rama Traders",
+        "note": "Supplier due payment",
+        "due_before": 2000.0,
+        "due_after": 0.0
+    }
+]

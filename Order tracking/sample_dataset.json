@@ -1,0 +1,1584 @@
+﻿{
+    "orders":  [
+                   {
+                       "order_code":  "001",
+                       "customer_name":  "Aster Jewels",
+                       "order_placed_date":  "05-02-2026",
+                       "due_date":  "05-03-2026",
+                       "created_at":  "2026-02-05 09:10:00",
+                       "articles":  [
+                                        {
+                                            "article_number":  "A100",
+                                            "quantity":  120,
+                                            "stage_progress":  [
+                                                                   {
+                                                                       "stage_name":  "CAD Design",
+                                                                       "status":  "In Progress",
+                                                                       "note":  "Design started",
+                                                                       "updated_at":  "2026-02-10 10:00:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Camera",
+                                                                       "status":  "In Progress",
+                                                                       "note":  "",
+                                                                       "updated_at":  "2026-02-11 10:07:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "3D Printing",
+                                                                       "status":  "In Progress",
+                                                                       "note":  "",
+                                                                       "updated_at":  "2026-02-12 10:14:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Moulding",
+                                                                       "status":  "In Progress",
+                                                                       "note":  "",
+                                                                       "updated_at":  "2026-02-13 10:21:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Production",
+                                                                       "status":  "In Progress",
+                                                                       "note":  "",
+                                                                       "updated_at":  "2026-02-14 10:28:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Filing Unwanted Material",
+                                                                       "status":  "In Progress",
+                                                                       "note":  "",
+                                                                       "updated_at":  "2026-02-15 10:35:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Painting",
+                                                                       "status":  "In Progress",
+                                                                       "note":  "",
+                                                                       "updated_at":  "2026-02-16 10:42:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Stone Work (If Needed)",
+                                                                       "status":  "In Progress",
+                                                                       "note":  "",
+                                                                       "updated_at":  "2026-02-17 10:49:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Packing Finished Product",
+                                                                       "status":  "In Progress",
+                                                                       "note":  "",
+                                                                       "updated_at":  "2026-02-18 10:56:00"
+                                                                   }
+                                                               ],
+                                            "quality_checks":  [
+                                                                   {
+                                                                       "stage_name":  "CAD Design",
+                                                                       "qc_result":  "Pending",
+                                                                       "inspector":  "",
+                                                                       "defects_found":  0,
+                                                                       "remarks":  "",
+                                                                       "checked_at":  "2026-02-10 16:00:00",
+                                                                       "qc_code":  ""
+                                                                   }
+                                                               ]
+                                        }
+                                    ]
+                   },
+                   {
+                       "order_code":  "002",
+                       "customer_name":  "Blue Mint",
+                       "order_placed_date":  "06-02-2026",
+                       "due_date":  "06-03-2026",
+                       "created_at":  "2026-02-06 09:15:00",
+                       "articles":  [
+                                        {
+                                            "article_number":  "A200",
+                                            "quantity":  150,
+                                            "stage_progress":  [
+                                                                   {
+                                                                       "stage_name":  "CAD Design",
+                                                                       "status":  "Completed",
+                                                                       "note":  "Completed",
+                                                                       "updated_at":  "2026-02-10 10:00:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Camera",
+                                                                       "status":  "In Progress",
+                                                                       "note":  "Imaging underway",
+                                                                       "updated_at":  "2026-02-11 10:07:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "3D Printing",
+                                                                       "status":  "In Progress",
+                                                                       "note":  "",
+                                                                       "updated_at":  "2026-02-12 10:14:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Moulding",
+                                                                       "status":  "In Progress",
+                                                                       "note":  "",
+                                                                       "updated_at":  "2026-02-13 10:21:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Production",
+                                                                       "status":  "In Progress",
+                                                                       "note":  "",
+                                                                       "updated_at":  "2026-02-14 10:28:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Filing Unwanted Material",
+                                                                       "status":  "In Progress",
+                                                                       "note":  "",
+                                                                       "updated_at":  "2026-02-15 10:35:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Painting",
+                                                                       "status":  "In Progress",
+                                                                       "note":  "",
+                                                                       "updated_at":  "2026-02-16 10:42:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Stone Work (If Needed)",
+                                                                       "status":  "In Progress",
+                                                                       "note":  "",
+                                                                       "updated_at":  "2026-02-17 10:49:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Packing Finished Product",
+                                                                       "status":  "In Progress",
+                                                                       "note":  "",
+                                                                       "updated_at":  "2026-02-18 10:56:00"
+                                                                   }
+                                                               ],
+                                            "quality_checks":  [
+                                                                   {
+                                                                       "stage_name":  "CAD Design",
+                                                                       "qc_result":  "Pass",
+                                                                       "inspector":  "Inspector-1",
+                                                                       "defects_found":  0,
+                                                                       "remarks":  "OK",
+                                                                       "checked_at":  "2026-02-10 16:00:00",
+                                                                       "qc_code":  ""
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Camera",
+                                                                       "qc_result":  "Pass",
+                                                                       "inspector":  "Inspector-2",
+                                                                       "defects_found":  0,
+                                                                       "remarks":  "OK",
+                                                                       "checked_at":  "2026-02-11 16:05:00",
+                                                                       "qc_code":  ""
+                                                                   }
+                                                               ]
+                                        }
+                                    ]
+                   },
+                   {
+                       "order_code":  "003",
+                       "customer_name":  "Craft Aura",
+                       "order_placed_date":  "07-02-2026",
+                       "due_date":  "07-03-2026",
+                       "created_at":  "2026-02-07 09:20:00",
+                       "articles":  [
+                                        {
+                                            "article_number":  "A300",
+                                            "quantity":  180,
+                                            "stage_progress":  [
+                                                                   {
+                                                                       "stage_name":  "CAD Design",
+                                                                       "status":  "Completed",
+                                                                       "note":  "Completed",
+                                                                       "updated_at":  "2026-02-10 10:00:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Camera",
+                                                                       "status":  "Completed",
+                                                                       "note":  "Completed",
+                                                                       "updated_at":  "2026-02-11 10:07:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "3D Printing",
+                                                                       "status":  "In Progress",
+                                                                       "note":  "Print variation found",
+                                                                       "updated_at":  "2026-02-12 10:14:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Moulding",
+                                                                       "status":  "In Progress",
+                                                                       "note":  "",
+                                                                       "updated_at":  "2026-02-13 10:21:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Production",
+                                                                       "status":  "In Progress",
+                                                                       "note":  "",
+                                                                       "updated_at":  "2026-02-14 10:28:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Filing Unwanted Material",
+                                                                       "status":  "In Progress",
+                                                                       "note":  "",
+                                                                       "updated_at":  "2026-02-15 10:35:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Painting",
+                                                                       "status":  "In Progress",
+                                                                       "note":  "",
+                                                                       "updated_at":  "2026-02-16 10:42:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Stone Work (If Needed)",
+                                                                       "status":  "In Progress",
+                                                                       "note":  "",
+                                                                       "updated_at":  "2026-02-17 10:49:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Packing Finished Product",
+                                                                       "status":  "In Progress",
+                                                                       "note":  "",
+                                                                       "updated_at":  "2026-02-18 10:56:00"
+                                                                   }
+                                                               ],
+                                            "quality_checks":  [
+                                                                   {
+                                                                       "stage_name":  "CAD Design",
+                                                                       "qc_result":  "Pass",
+                                                                       "inspector":  "Inspector-1",
+                                                                       "defects_found":  0,
+                                                                       "remarks":  "OK",
+                                                                       "checked_at":  "2026-02-10 16:00:00",
+                                                                       "qc_code":  ""
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Camera",
+                                                                       "qc_result":  "Pass",
+                                                                       "inspector":  "Inspector-2",
+                                                                       "defects_found":  0,
+                                                                       "remarks":  "OK",
+                                                                       "checked_at":  "2026-02-11 16:05:00",
+                                                                       "qc_code":  ""
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "3D Printing",
+                                                                       "qc_result":  "Fail",
+                                                                       "inspector":  "Inspector-3",
+                                                                       "defects_found":  2,
+                                                                       "remarks":  "Needs correction",
+                                                                       "checked_at":  "2026-02-12 16:10:00",
+                                                                       "qc_code":  ""
+                                                                   }
+                                                               ]
+                                        }
+                                    ]
+                   },
+                   {
+                       "order_code":  "004",
+                       "customer_name":  "Dazzle House",
+                       "order_placed_date":  "08-02-2026",
+                       "due_date":  "08-03-2026",
+                       "created_at":  "2026-02-08 09:25:00",
+                       "articles":  [
+                                        {
+                                            "article_number":  "A400",
+                                            "quantity":  90,
+                                            "stage_progress":  [
+                                                                   {
+                                                                       "stage_name":  "CAD Design",
+                                                                       "status":  "Completed",
+                                                                       "note":  "Completed",
+                                                                       "updated_at":  "2026-02-10 10:00:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Camera",
+                                                                       "status":  "Completed",
+                                                                       "note":  "Completed",
+                                                                       "updated_at":  "2026-02-11 10:07:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "3D Printing",
+                                                                       "status":  "Completed",
+                                                                       "note":  "Completed",
+                                                                       "updated_at":  "2026-02-12 10:14:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Moulding",
+                                                                       "status":  "Blocked",
+                                                                       "note":  "Mould issue",
+                                                                       "updated_at":  "2026-02-13 10:21:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Production",
+                                                                       "status":  "In Progress",
+                                                                       "note":  "",
+                                                                       "updated_at":  "2026-02-14 10:28:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Filing Unwanted Material",
+                                                                       "status":  "In Progress",
+                                                                       "note":  "",
+                                                                       "updated_at":  "2026-02-15 10:35:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Painting",
+                                                                       "status":  "In Progress",
+                                                                       "note":  "",
+                                                                       "updated_at":  "2026-02-16 10:42:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Stone Work (If Needed)",
+                                                                       "status":  "In Progress",
+                                                                       "note":  "",
+                                                                       "updated_at":  "2026-02-17 10:49:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Packing Finished Product",
+                                                                       "status":  "In Progress",
+                                                                       "note":  "",
+                                                                       "updated_at":  "2026-02-18 10:56:00"
+                                                                   }
+                                                               ],
+                                            "quality_checks":  [
+                                                                   {
+                                                                       "stage_name":  "CAD Design",
+                                                                       "qc_result":  "Pass",
+                                                                       "inspector":  "Inspector-1",
+                                                                       "defects_found":  0,
+                                                                       "remarks":  "OK",
+                                                                       "checked_at":  "2026-02-10 16:00:00",
+                                                                       "qc_code":  ""
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Camera",
+                                                                       "qc_result":  "Pass",
+                                                                       "inspector":  "Inspector-2",
+                                                                       "defects_found":  0,
+                                                                       "remarks":  "OK",
+                                                                       "checked_at":  "2026-02-11 16:05:00",
+                                                                       "qc_code":  ""
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "3D Printing",
+                                                                       "qc_result":  "Pass",
+                                                                       "inspector":  "Inspector-3",
+                                                                       "defects_found":  0,
+                                                                       "remarks":  "OK",
+                                                                       "checked_at":  "2026-02-12 16:10:00",
+                                                                       "qc_code":  ""
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Moulding",
+                                                                       "qc_result":  "Fail",
+                                                                       "inspector":  "Inspector-1",
+                                                                       "defects_found":  2,
+                                                                       "remarks":  "Needs correction",
+                                                                       "checked_at":  "2026-02-13 16:15:00",
+                                                                       "qc_code":  ""
+                                                                   }
+                                                               ]
+                                        }
+                                    ]
+                   },
+                   {
+                       "order_code":  "005",
+                       "customer_name":  "Elite Gold",
+                       "order_placed_date":  "09-02-2026",
+                       "due_date":  "09-03-2026",
+                       "created_at":  "2026-02-09 09:30:00",
+                       "articles":  [
+                                        {
+                                            "article_number":  "A500",
+                                            "quantity":  200,
+                                            "stage_progress":  [
+                                                                   {
+                                                                       "stage_name":  "CAD Design",
+                                                                       "status":  "Completed",
+                                                                       "note":  "Completed",
+                                                                       "updated_at":  "2026-02-10 10:00:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Camera",
+                                                                       "status":  "Completed",
+                                                                       "note":  "Completed",
+                                                                       "updated_at":  "2026-02-11 10:07:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "3D Printing",
+                                                                       "status":  "Completed",
+                                                                       "note":  "Completed",
+                                                                       "updated_at":  "2026-02-12 10:14:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Moulding",
+                                                                       "status":  "Completed",
+                                                                       "note":  "Completed",
+                                                                       "updated_at":  "2026-02-13 10:21:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Production",
+                                                                       "status":  "In Progress",
+                                                                       "note":  "Production active",
+                                                                       "updated_at":  "2026-02-14 10:28:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Filing Unwanted Material",
+                                                                       "status":  "In Progress",
+                                                                       "note":  "",
+                                                                       "updated_at":  "2026-02-15 10:35:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Painting",
+                                                                       "status":  "In Progress",
+                                                                       "note":  "",
+                                                                       "updated_at":  "2026-02-16 10:42:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Stone Work (If Needed)",
+                                                                       "status":  "In Progress",
+                                                                       "note":  "",
+                                                                       "updated_at":  "2026-02-17 10:49:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Packing Finished Product",
+                                                                       "status":  "In Progress",
+                                                                       "note":  "",
+                                                                       "updated_at":  "2026-02-18 10:56:00"
+                                                                   }
+                                                               ],
+                                            "quality_checks":  [
+                                                                   {
+                                                                       "stage_name":  "CAD Design",
+                                                                       "qc_result":  "Pass",
+                                                                       "inspector":  "Inspector-1",
+                                                                       "defects_found":  0,
+                                                                       "remarks":  "OK",
+                                                                       "checked_at":  "2026-02-10 16:00:00",
+                                                                       "qc_code":  ""
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Camera",
+                                                                       "qc_result":  "Pass",
+                                                                       "inspector":  "Inspector-2",
+                                                                       "defects_found":  0,
+                                                                       "remarks":  "OK",
+                                                                       "checked_at":  "2026-02-11 16:05:00",
+                                                                       "qc_code":  ""
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "3D Printing",
+                                                                       "qc_result":  "Pass",
+                                                                       "inspector":  "Inspector-3",
+                                                                       "defects_found":  0,
+                                                                       "remarks":  "OK",
+                                                                       "checked_at":  "2026-02-12 16:10:00",
+                                                                       "qc_code":  ""
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Moulding",
+                                                                       "qc_result":  "Pass",
+                                                                       "inspector":  "Inspector-1",
+                                                                       "defects_found":  0,
+                                                                       "remarks":  "OK",
+                                                                       "checked_at":  "2026-02-13 16:15:00",
+                                                                       "qc_code":  ""
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Production",
+                                                                       "qc_result":  "Pass",
+                                                                       "inspector":  "Inspector-2",
+                                                                       "defects_found":  0,
+                                                                       "remarks":  "OK",
+                                                                       "checked_at":  "2026-02-14 16:20:00",
+                                                                       "qc_code":  ""
+                                                                   }
+                                                               ]
+                                        },
+                                        {
+                                            "article_number":  "A501",
+                                            "quantity":  140,
+                                            "stage_progress":  [
+                                                                   {
+                                                                       "stage_name":  "CAD Design",
+                                                                       "status":  "Completed",
+                                                                       "note":  "Completed",
+                                                                       "updated_at":  "2026-02-10 10:00:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Camera",
+                                                                       "status":  "Completed",
+                                                                       "note":  "Completed",
+                                                                       "updated_at":  "2026-02-11 10:07:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "3D Printing",
+                                                                       "status":  "Completed",
+                                                                       "note":  "Completed",
+                                                                       "updated_at":  "2026-02-12 10:14:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Moulding",
+                                                                       "status":  "In Progress",
+                                                                       "note":  "Mould finishing",
+                                                                       "updated_at":  "2026-02-13 10:21:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Production",
+                                                                       "status":  "In Progress",
+                                                                       "note":  "",
+                                                                       "updated_at":  "2026-02-14 10:28:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Filing Unwanted Material",
+                                                                       "status":  "In Progress",
+                                                                       "note":  "",
+                                                                       "updated_at":  "2026-02-15 10:35:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Painting",
+                                                                       "status":  "In Progress",
+                                                                       "note":  "",
+                                                                       "updated_at":  "2026-02-16 10:42:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Stone Work (If Needed)",
+                                                                       "status":  "In Progress",
+                                                                       "note":  "",
+                                                                       "updated_at":  "2026-02-17 10:49:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Packing Finished Product",
+                                                                       "status":  "In Progress",
+                                                                       "note":  "",
+                                                                       "updated_at":  "2026-02-18 10:56:00"
+                                                                   }
+                                                               ],
+                                            "quality_checks":  [
+                                                                   {
+                                                                       "stage_name":  "CAD Design",
+                                                                       "qc_result":  "Pass",
+                                                                       "inspector":  "Inspector-1",
+                                                                       "defects_found":  0,
+                                                                       "remarks":  "OK",
+                                                                       "checked_at":  "2026-02-10 16:00:00",
+                                                                       "qc_code":  ""
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Camera",
+                                                                       "qc_result":  "Pass",
+                                                                       "inspector":  "Inspector-2",
+                                                                       "defects_found":  0,
+                                                                       "remarks":  "OK",
+                                                                       "checked_at":  "2026-02-11 16:05:00",
+                                                                       "qc_code":  ""
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "3D Printing",
+                                                                       "qc_result":  "Pass",
+                                                                       "inspector":  "Inspector-3",
+                                                                       "defects_found":  0,
+                                                                       "remarks":  "OK",
+                                                                       "checked_at":  "2026-02-12 16:10:00",
+                                                                       "qc_code":  ""
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Moulding",
+                                                                       "qc_result":  "Pass",
+                                                                       "inspector":  "Inspector-1",
+                                                                       "defects_found":  0,
+                                                                       "remarks":  "OK",
+                                                                       "checked_at":  "2026-02-13 16:15:00",
+                                                                       "qc_code":  ""
+                                                                   }
+                                                               ]
+                                        }
+                                    ]
+                   },
+                   {
+                       "order_code":  "006",
+                       "customer_name":  "Fine Orbit",
+                       "order_placed_date":  "10-02-2026",
+                       "due_date":  "20-02-2026",
+                       "created_at":  "2026-02-10 09:35:00",
+                       "articles":  [
+                                        {
+                                            "article_number":  "A600",
+                                            "quantity":  110,
+                                            "stage_progress":  [
+                                                                   {
+                                                                       "stage_name":  "CAD Design",
+                                                                       "status":  "Completed",
+                                                                       "note":  "Completed",
+                                                                       "updated_at":  "2026-02-10 10:00:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Camera",
+                                                                       "status":  "Completed",
+                                                                       "note":  "Completed",
+                                                                       "updated_at":  "2026-02-11 10:07:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "3D Printing",
+                                                                       "status":  "Completed",
+                                                                       "note":  "Completed",
+                                                                       "updated_at":  "2026-02-12 10:14:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Moulding",
+                                                                       "status":  "Completed",
+                                                                       "note":  "Completed",
+                                                                       "updated_at":  "2026-02-13 10:21:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Production",
+                                                                       "status":  "Completed",
+                                                                       "note":  "Completed",
+                                                                       "updated_at":  "2026-02-14 10:28:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Filing Unwanted Material",
+                                                                       "status":  "In Progress",
+                                                                       "note":  "Material filing in process",
+                                                                       "updated_at":  "2026-02-15 10:35:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Painting",
+                                                                       "status":  "In Progress",
+                                                                       "note":  "",
+                                                                       "updated_at":  "2026-02-16 10:42:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Stone Work (If Needed)",
+                                                                       "status":  "In Progress",
+                                                                       "note":  "",
+                                                                       "updated_at":  "2026-02-17 10:49:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Packing Finished Product",
+                                                                       "status":  "In Progress",
+                                                                       "note":  "",
+                                                                       "updated_at":  "2026-02-18 10:56:00"
+                                                                   }
+                                                               ],
+                                            "quality_checks":  [
+                                                                   {
+                                                                       "stage_name":  "CAD Design",
+                                                                       "qc_result":  "Pass",
+                                                                       "inspector":  "Inspector-1",
+                                                                       "defects_found":  0,
+                                                                       "remarks":  "OK",
+                                                                       "checked_at":  "2026-02-10 16:00:00",
+                                                                       "qc_code":  ""
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Camera",
+                                                                       "qc_result":  "Pass",
+                                                                       "inspector":  "Inspector-2",
+                                                                       "defects_found":  0,
+                                                                       "remarks":  "OK",
+                                                                       "checked_at":  "2026-02-11 16:05:00",
+                                                                       "qc_code":  ""
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "3D Printing",
+                                                                       "qc_result":  "Pass",
+                                                                       "inspector":  "Inspector-3",
+                                                                       "defects_found":  0,
+                                                                       "remarks":  "OK",
+                                                                       "checked_at":  "2026-02-12 16:10:00",
+                                                                       "qc_code":  ""
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Moulding",
+                                                                       "qc_result":  "Pass",
+                                                                       "inspector":  "Inspector-1",
+                                                                       "defects_found":  0,
+                                                                       "remarks":  "OK",
+                                                                       "checked_at":  "2026-02-13 16:15:00",
+                                                                       "qc_code":  ""
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Production",
+                                                                       "qc_result":  "Pass",
+                                                                       "inspector":  "Inspector-2",
+                                                                       "defects_found":  0,
+                                                                       "remarks":  "OK",
+                                                                       "checked_at":  "2026-02-14 16:20:00",
+                                                                       "qc_code":  ""
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Filing Unwanted Material",
+                                                                       "qc_result":  "Pending",
+                                                                       "inspector":  "",
+                                                                       "defects_found":  0,
+                                                                       "remarks":  "",
+                                                                       "checked_at":  "2026-02-15 16:25:00",
+                                                                       "qc_code":  ""
+                                                                   }
+                                                               ]
+                                        }
+                                    ]
+                   },
+                   {
+                       "order_code":  "007",
+                       "customer_name":  "Gem Street",
+                       "order_placed_date":  "11-02-2026",
+                       "due_date":  "28-02-2026",
+                       "created_at":  "2026-02-11 09:40:00",
+                       "articles":  [
+                                        {
+                                            "article_number":  "A700",
+                                            "quantity":  175,
+                                            "stage_progress":  [
+                                                                   {
+                                                                       "stage_name":  "CAD Design",
+                                                                       "status":  "Completed",
+                                                                       "note":  "Completed",
+                                                                       "updated_at":  "2026-02-10 10:00:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Camera",
+                                                                       "status":  "Completed",
+                                                                       "note":  "Completed",
+                                                                       "updated_at":  "2026-02-11 10:07:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "3D Printing",
+                                                                       "status":  "Completed",
+                                                                       "note":  "Completed",
+                                                                       "updated_at":  "2026-02-12 10:14:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Moulding",
+                                                                       "status":  "Completed",
+                                                                       "note":  "Completed",
+                                                                       "updated_at":  "2026-02-13 10:21:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Production",
+                                                                       "status":  "Completed",
+                                                                       "note":  "Completed",
+                                                                       "updated_at":  "2026-02-14 10:28:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Filing Unwanted Material",
+                                                                       "status":  "Completed",
+                                                                       "note":  "Completed",
+                                                                       "updated_at":  "2026-02-15 10:35:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Painting",
+                                                                       "status":  "In Progress",
+                                                                       "note":  "Paint touch-up",
+                                                                       "updated_at":  "2026-02-16 10:42:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Stone Work (If Needed)",
+                                                                       "status":  "In Progress",
+                                                                       "note":  "",
+                                                                       "updated_at":  "2026-02-17 10:49:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Packing Finished Product",
+                                                                       "status":  "In Progress",
+                                                                       "note":  "",
+                                                                       "updated_at":  "2026-02-18 10:56:00"
+                                                                   }
+                                                               ],
+                                            "quality_checks":  [
+                                                                   {
+                                                                       "stage_name":  "CAD Design",
+                                                                       "qc_result":  "Pass",
+                                                                       "inspector":  "Inspector-1",
+                                                                       "defects_found":  0,
+                                                                       "remarks":  "OK",
+                                                                       "checked_at":  "2026-02-10 16:00:00",
+                                                                       "qc_code":  ""
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Camera",
+                                                                       "qc_result":  "Pass",
+                                                                       "inspector":  "Inspector-2",
+                                                                       "defects_found":  0,
+                                                                       "remarks":  "OK",
+                                                                       "checked_at":  "2026-02-11 16:05:00",
+                                                                       "qc_code":  ""
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "3D Printing",
+                                                                       "qc_result":  "Pass",
+                                                                       "inspector":  "Inspector-3",
+                                                                       "defects_found":  0,
+                                                                       "remarks":  "OK",
+                                                                       "checked_at":  "2026-02-12 16:10:00",
+                                                                       "qc_code":  ""
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Moulding",
+                                                                       "qc_result":  "Pass",
+                                                                       "inspector":  "Inspector-1",
+                                                                       "defects_found":  0,
+                                                                       "remarks":  "OK",
+                                                                       "checked_at":  "2026-02-13 16:15:00",
+                                                                       "qc_code":  ""
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Production",
+                                                                       "qc_result":  "Pass",
+                                                                       "inspector":  "Inspector-2",
+                                                                       "defects_found":  0,
+                                                                       "remarks":  "OK",
+                                                                       "checked_at":  "2026-02-14 16:20:00",
+                                                                       "qc_code":  ""
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Filing Unwanted Material",
+                                                                       "qc_result":  "Pass",
+                                                                       "inspector":  "Inspector-3",
+                                                                       "defects_found":  0,
+                                                                       "remarks":  "OK",
+                                                                       "checked_at":  "2026-02-15 16:25:00",
+                                                                       "qc_code":  ""
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Painting",
+                                                                       "qc_result":  "Rework",
+                                                                       "inspector":  "Inspector-1",
+                                                                       "defects_found":  1,
+                                                                       "remarks":  "Reworked and updated",
+                                                                       "checked_at":  "2026-02-16 16:30:00",
+                                                                       "qc_code":  ""
+                                                                   }
+                                                               ]
+                                        }
+                                    ]
+                   },
+                   {
+                       "order_code":  "008",
+                       "customer_name":  "Halo Works",
+                       "order_placed_date":  "12-02-2026",
+                       "due_date":  "01-03-2026",
+                       "created_at":  "2026-02-12 09:45:00",
+                       "articles":  [
+                                        {
+                                            "article_number":  "A800",
+                                            "quantity":  130,
+                                            "stage_progress":  [
+                                                                   {
+                                                                       "stage_name":  "CAD Design",
+                                                                       "status":  "Completed",
+                                                                       "note":  "Completed",
+                                                                       "updated_at":  "2026-02-10 10:00:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Camera",
+                                                                       "status":  "Completed",
+                                                                       "note":  "Completed",
+                                                                       "updated_at":  "2026-02-11 10:07:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "3D Printing",
+                                                                       "status":  "Completed",
+                                                                       "note":  "Completed",
+                                                                       "updated_at":  "2026-02-12 10:14:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Moulding",
+                                                                       "status":  "Completed",
+                                                                       "note":  "Completed",
+                                                                       "updated_at":  "2026-02-13 10:21:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Production",
+                                                                       "status":  "Completed",
+                                                                       "note":  "Completed",
+                                                                       "updated_at":  "2026-02-14 10:28:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Filing Unwanted Material",
+                                                                       "status":  "Completed",
+                                                                       "note":  "Completed",
+                                                                       "updated_at":  "2026-02-15 10:35:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Painting",
+                                                                       "status":  "Completed",
+                                                                       "note":  "Completed",
+                                                                       "updated_at":  "2026-02-16 10:42:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Stone Work (If Needed)",
+                                                                       "status":  "In Progress",
+                                                                       "note":  "Stone fitting",
+                                                                       "updated_at":  "2026-02-17 10:49:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Packing Finished Product",
+                                                                       "status":  "In Progress",
+                                                                       "note":  "",
+                                                                       "updated_at":  "2026-02-18 10:56:00"
+                                                                   }
+                                                               ],
+                                            "quality_checks":  [
+                                                                   {
+                                                                       "stage_name":  "CAD Design",
+                                                                       "qc_result":  "Pass",
+                                                                       "inspector":  "Inspector-1",
+                                                                       "defects_found":  0,
+                                                                       "remarks":  "OK",
+                                                                       "checked_at":  "2026-02-10 16:00:00",
+                                                                       "qc_code":  ""
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Camera",
+                                                                       "qc_result":  "Pass",
+                                                                       "inspector":  "Inspector-2",
+                                                                       "defects_found":  0,
+                                                                       "remarks":  "OK",
+                                                                       "checked_at":  "2026-02-11 16:05:00",
+                                                                       "qc_code":  ""
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "3D Printing",
+                                                                       "qc_result":  "Pass",
+                                                                       "inspector":  "Inspector-3",
+                                                                       "defects_found":  0,
+                                                                       "remarks":  "OK",
+                                                                       "checked_at":  "2026-02-12 16:10:00",
+                                                                       "qc_code":  ""
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Moulding",
+                                                                       "qc_result":  "Pass",
+                                                                       "inspector":  "Inspector-1",
+                                                                       "defects_found":  0,
+                                                                       "remarks":  "OK",
+                                                                       "checked_at":  "2026-02-13 16:15:00",
+                                                                       "qc_code":  ""
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Production",
+                                                                       "qc_result":  "Pass",
+                                                                       "inspector":  "Inspector-2",
+                                                                       "defects_found":  0,
+                                                                       "remarks":  "OK",
+                                                                       "checked_at":  "2026-02-14 16:20:00",
+                                                                       "qc_code":  ""
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Filing Unwanted Material",
+                                                                       "qc_result":  "Pass",
+                                                                       "inspector":  "Inspector-3",
+                                                                       "defects_found":  0,
+                                                                       "remarks":  "OK",
+                                                                       "checked_at":  "2026-02-15 16:25:00",
+                                                                       "qc_code":  ""
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Painting",
+                                                                       "qc_result":  "Pass",
+                                                                       "inspector":  "Inspector-1",
+                                                                       "defects_found":  0,
+                                                                       "remarks":  "OK",
+                                                                       "checked_at":  "2026-02-16 16:30:00",
+                                                                       "qc_code":  ""
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Stone Work (If Needed)",
+                                                                       "qc_result":  "Pass",
+                                                                       "inspector":  "Inspector-2",
+                                                                       "defects_found":  0,
+                                                                       "remarks":  "OK",
+                                                                       "checked_at":  "2026-02-17 16:35:00",
+                                                                       "qc_code":  ""
+                                                                   }
+                                                               ]
+                                        }
+                                    ]
+                   },
+                   {
+                       "order_code":  "009",
+                       "customer_name":  "Ivy Metals",
+                       "order_placed_date":  "13-02-2026",
+                       "due_date":  "26-02-2026",
+                       "created_at":  "2026-02-13 09:50:00",
+                       "articles":  [
+                                        {
+                                            "article_number":  "A900",
+                                            "quantity":  160,
+                                            "stage_progress":  [
+                                                                   {
+                                                                       "stage_name":  "CAD Design",
+                                                                       "status":  "Completed",
+                                                                       "note":  "Completed",
+                                                                       "updated_at":  "2026-02-10 10:00:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Camera",
+                                                                       "status":  "Completed",
+                                                                       "note":  "Completed",
+                                                                       "updated_at":  "2026-02-11 10:07:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "3D Printing",
+                                                                       "status":  "Completed",
+                                                                       "note":  "Completed",
+                                                                       "updated_at":  "2026-02-12 10:14:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Moulding",
+                                                                       "status":  "Completed",
+                                                                       "note":  "Completed",
+                                                                       "updated_at":  "2026-02-13 10:21:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Production",
+                                                                       "status":  "Completed",
+                                                                       "note":  "Completed",
+                                                                       "updated_at":  "2026-02-14 10:28:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Filing Unwanted Material",
+                                                                       "status":  "Completed",
+                                                                       "note":  "Completed",
+                                                                       "updated_at":  "2026-02-15 10:35:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Painting",
+                                                                       "status":  "Completed",
+                                                                       "note":  "Completed",
+                                                                       "updated_at":  "2026-02-16 10:42:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Stone Work (If Needed)",
+                                                                       "status":  "Completed",
+                                                                       "note":  "Completed",
+                                                                       "updated_at":  "2026-02-17 10:49:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Packing Finished Product",
+                                                                       "status":  "In Progress",
+                                                                       "note":  "Packing recheck",
+                                                                       "updated_at":  "2026-02-18 10:56:00"
+                                                                   }
+                                                               ],
+                                            "quality_checks":  [
+                                                                   {
+                                                                       "stage_name":  "CAD Design",
+                                                                       "qc_result":  "Pass",
+                                                                       "inspector":  "Inspector-1",
+                                                                       "defects_found":  0,
+                                                                       "remarks":  "OK",
+                                                                       "checked_at":  "2026-02-10 16:00:00",
+                                                                       "qc_code":  ""
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Camera",
+                                                                       "qc_result":  "Pass",
+                                                                       "inspector":  "Inspector-2",
+                                                                       "defects_found":  0,
+                                                                       "remarks":  "OK",
+                                                                       "checked_at":  "2026-02-11 16:05:00",
+                                                                       "qc_code":  ""
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "3D Printing",
+                                                                       "qc_result":  "Pass",
+                                                                       "inspector":  "Inspector-3",
+                                                                       "defects_found":  0,
+                                                                       "remarks":  "OK",
+                                                                       "checked_at":  "2026-02-12 16:10:00",
+                                                                       "qc_code":  ""
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Moulding",
+                                                                       "qc_result":  "Pass",
+                                                                       "inspector":  "Inspector-1",
+                                                                       "defects_found":  0,
+                                                                       "remarks":  "OK",
+                                                                       "checked_at":  "2026-02-13 16:15:00",
+                                                                       "qc_code":  ""
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Production",
+                                                                       "qc_result":  "Pass",
+                                                                       "inspector":  "Inspector-2",
+                                                                       "defects_found":  0,
+                                                                       "remarks":  "OK",
+                                                                       "checked_at":  "2026-02-14 16:20:00",
+                                                                       "qc_code":  ""
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Filing Unwanted Material",
+                                                                       "qc_result":  "Pass",
+                                                                       "inspector":  "Inspector-3",
+                                                                       "defects_found":  0,
+                                                                       "remarks":  "OK",
+                                                                       "checked_at":  "2026-02-15 16:25:00",
+                                                                       "qc_code":  ""
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Painting",
+                                                                       "qc_result":  "Pass",
+                                                                       "inspector":  "Inspector-1",
+                                                                       "defects_found":  0,
+                                                                       "remarks":  "OK",
+                                                                       "checked_at":  "2026-02-16 16:30:00",
+                                                                       "qc_code":  ""
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Stone Work (If Needed)",
+                                                                       "qc_result":  "Pass",
+                                                                       "inspector":  "Inspector-2",
+                                                                       "defects_found":  0,
+                                                                       "remarks":  "OK",
+                                                                       "checked_at":  "2026-02-17 16:35:00",
+                                                                       "qc_code":  ""
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Packing Finished Product",
+                                                                       "qc_result":  "Fail",
+                                                                       "inspector":  "Inspector-3",
+                                                                       "defects_found":  2,
+                                                                       "remarks":  "Needs correction",
+                                                                       "checked_at":  "2026-02-18 16:40:00",
+                                                                       "qc_code":  ""
+                                                                   }
+                                                               ]
+                                        },
+                                        {
+                                            "article_number":  "A901",
+                                            "quantity":  85,
+                                            "stage_progress":  [
+                                                                   {
+                                                                       "stage_name":  "CAD Design",
+                                                                       "status":  "Completed",
+                                                                       "note":  "Completed",
+                                                                       "updated_at":  "2026-02-10 10:00:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Camera",
+                                                                       "status":  "Completed",
+                                                                       "note":  "Completed",
+                                                                       "updated_at":  "2026-02-11 10:07:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "3D Printing",
+                                                                       "status":  "Completed",
+                                                                       "note":  "Completed",
+                                                                       "updated_at":  "2026-02-12 10:14:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Moulding",
+                                                                       "status":  "Completed",
+                                                                       "note":  "Completed",
+                                                                       "updated_at":  "2026-02-13 10:21:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Production",
+                                                                       "status":  "Completed",
+                                                                       "note":  "Completed",
+                                                                       "updated_at":  "2026-02-14 10:28:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Filing Unwanted Material",
+                                                                       "status":  "Completed",
+                                                                       "note":  "Completed",
+                                                                       "updated_at":  "2026-02-15 10:35:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Painting",
+                                                                       "status":  "Completed",
+                                                                       "note":  "Completed",
+                                                                       "updated_at":  "2026-02-16 10:42:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Stone Work (If Needed)",
+                                                                       "status":  "Completed",
+                                                                       "note":  "Completed",
+                                                                       "updated_at":  "2026-02-17 10:49:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Packing Finished Product",
+                                                                       "status":  "Blocked",
+                                                                       "note":  "Awaiting carton",
+                                                                       "updated_at":  "2026-02-18 10:56:00"
+                                                                   }
+                                                               ],
+                                            "quality_checks":  [
+                                                                   {
+                                                                       "stage_name":  "CAD Design",
+                                                                       "qc_result":  "Pass",
+                                                                       "inspector":  "Inspector-1",
+                                                                       "defects_found":  0,
+                                                                       "remarks":  "OK",
+                                                                       "checked_at":  "2026-02-10 16:00:00",
+                                                                       "qc_code":  ""
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Camera",
+                                                                       "qc_result":  "Pass",
+                                                                       "inspector":  "Inspector-2",
+                                                                       "defects_found":  0,
+                                                                       "remarks":  "OK",
+                                                                       "checked_at":  "2026-02-11 16:05:00",
+                                                                       "qc_code":  ""
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "3D Printing",
+                                                                       "qc_result":  "Pass",
+                                                                       "inspector":  "Inspector-3",
+                                                                       "defects_found":  0,
+                                                                       "remarks":  "OK",
+                                                                       "checked_at":  "2026-02-12 16:10:00",
+                                                                       "qc_code":  ""
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Moulding",
+                                                                       "qc_result":  "Pass",
+                                                                       "inspector":  "Inspector-1",
+                                                                       "defects_found":  0,
+                                                                       "remarks":  "OK",
+                                                                       "checked_at":  "2026-02-13 16:15:00",
+                                                                       "qc_code":  ""
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Production",
+                                                                       "qc_result":  "Pass",
+                                                                       "inspector":  "Inspector-2",
+                                                                       "defects_found":  0,
+                                                                       "remarks":  "OK",
+                                                                       "checked_at":  "2026-02-14 16:20:00",
+                                                                       "qc_code":  ""
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Filing Unwanted Material",
+                                                                       "qc_result":  "Pass",
+                                                                       "inspector":  "Inspector-3",
+                                                                       "defects_found":  0,
+                                                                       "remarks":  "OK",
+                                                                       "checked_at":  "2026-02-15 16:25:00",
+                                                                       "qc_code":  ""
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Painting",
+                                                                       "qc_result":  "Pass",
+                                                                       "inspector":  "Inspector-1",
+                                                                       "defects_found":  0,
+                                                                       "remarks":  "OK",
+                                                                       "checked_at":  "2026-02-16 16:30:00",
+                                                                       "qc_code":  ""
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Stone Work (If Needed)",
+                                                                       "qc_result":  "Pass",
+                                                                       "inspector":  "Inspector-2",
+                                                                       "defects_found":  0,
+                                                                       "remarks":  "OK",
+                                                                       "checked_at":  "2026-02-17 16:35:00",
+                                                                       "qc_code":  ""
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Packing Finished Product",
+                                                                       "qc_result":  "Pending",
+                                                                       "inspector":  "",
+                                                                       "defects_found":  0,
+                                                                       "remarks":  "",
+                                                                       "checked_at":  "2026-02-18 16:40:00",
+                                                                       "qc_code":  ""
+                                                                   }
+                                                               ]
+                                        }
+                                    ]
+                   },
+                   {
+                       "order_code":  "010",
+                       "customer_name":  "Jade Point",
+                       "order_placed_date":  "14-02-2026",
+                       "due_date":  "10-03-2026",
+                       "created_at":  "2026-02-14 09:55:00",
+                       "articles":  [
+                                        {
+                                            "article_number":  "A1000",
+                                            "quantity":  220,
+                                            "stage_progress":  [
+                                                                   {
+                                                                       "stage_name":  "CAD Design",
+                                                                       "status":  "Completed",
+                                                                       "note":  "Completed",
+                                                                       "updated_at":  "2026-02-10 10:00:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Camera",
+                                                                       "status":  "Completed",
+                                                                       "note":  "Completed",
+                                                                       "updated_at":  "2026-02-11 10:07:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "3D Printing",
+                                                                       "status":  "Completed",
+                                                                       "note":  "Completed",
+                                                                       "updated_at":  "2026-02-12 10:14:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Moulding",
+                                                                       "status":  "Completed",
+                                                                       "note":  "Completed",
+                                                                       "updated_at":  "2026-02-13 10:21:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Production",
+                                                                       "status":  "Completed",
+                                                                       "note":  "Completed",
+                                                                       "updated_at":  "2026-02-14 10:28:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Filing Unwanted Material",
+                                                                       "status":  "Completed",
+                                                                       "note":  "Completed",
+                                                                       "updated_at":  "2026-02-15 10:35:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Painting",
+                                                                       "status":  "Completed",
+                                                                       "note":  "Completed",
+                                                                       "updated_at":  "2026-02-16 10:42:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Stone Work (If Needed)",
+                                                                       "status":  "Completed",
+                                                                       "note":  "Completed",
+                                                                       "updated_at":  "2026-02-17 10:49:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Packing Finished Product",
+                                                                       "status":  "Completed",
+                                                                       "note":  "Closed",
+                                                                       "updated_at":  "2026-02-18 10:56:00"
+                                                                   }
+                                                               ],
+                                            "quality_checks":  [
+                                                                   {
+                                                                       "stage_name":  "CAD Design",
+                                                                       "qc_result":  "Pass",
+                                                                       "inspector":  "Inspector-1",
+                                                                       "defects_found":  0,
+                                                                       "remarks":  "OK",
+                                                                       "checked_at":  "2026-02-10 16:00:00",
+                                                                       "qc_code":  ""
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Camera",
+                                                                       "qc_result":  "Pass",
+                                                                       "inspector":  "Inspector-2",
+                                                                       "defects_found":  0,
+                                                                       "remarks":  "OK",
+                                                                       "checked_at":  "2026-02-11 16:05:00",
+                                                                       "qc_code":  ""
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "3D Printing",
+                                                                       "qc_result":  "Pass",
+                                                                       "inspector":  "Inspector-3",
+                                                                       "defects_found":  0,
+                                                                       "remarks":  "OK",
+                                                                       "checked_at":  "2026-02-12 16:10:00",
+                                                                       "qc_code":  ""
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Moulding",
+                                                                       "qc_result":  "Pass",
+                                                                       "inspector":  "Inspector-1",
+                                                                       "defects_found":  0,
+                                                                       "remarks":  "OK",
+                                                                       "checked_at":  "2026-02-13 16:15:00",
+                                                                       "qc_code":  ""
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Production",
+                                                                       "qc_result":  "Pass",
+                                                                       "inspector":  "Inspector-2",
+                                                                       "defects_found":  0,
+                                                                       "remarks":  "OK",
+                                                                       "checked_at":  "2026-02-14 16:20:00",
+                                                                       "qc_code":  ""
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Filing Unwanted Material",
+                                                                       "qc_result":  "Pass",
+                                                                       "inspector":  "Inspector-3",
+                                                                       "defects_found":  0,
+                                                                       "remarks":  "OK",
+                                                                       "checked_at":  "2026-02-15 16:25:00",
+                                                                       "qc_code":  ""
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Painting",
+                                                                       "qc_result":  "Pass",
+                                                                       "inspector":  "Inspector-1",
+                                                                       "defects_found":  0,
+                                                                       "remarks":  "OK",
+                                                                       "checked_at":  "2026-02-16 16:30:00",
+                                                                       "qc_code":  ""
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Stone Work (If Needed)",
+                                                                       "qc_result":  "Pass",
+                                                                       "inspector":  "Inspector-2",
+                                                                       "defects_found":  0,
+                                                                       "remarks":  "OK",
+                                                                       "checked_at":  "2026-02-17 16:35:00",
+                                                                       "qc_code":  ""
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Packing Finished Product",
+                                                                       "qc_result":  "Pass",
+                                                                       "inspector":  "Inspector-3",
+                                                                       "defects_found":  0,
+                                                                       "remarks":  "OK",
+                                                                       "checked_at":  "2026-02-18 16:40:00",
+                                                                       "qc_code":  ""
+                                                                   }
+                                                               ]
+                                        },
+                                        {
+                                            "article_number":  "A1001",
+                                            "quantity":  95,
+                                            "stage_progress":  [
+                                                                   {
+                                                                       "stage_name":  "CAD Design",
+                                                                       "status":  "Completed",
+                                                                       "note":  "Completed",
+                                                                       "updated_at":  "2026-02-10 10:00:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Camera",
+                                                                       "status":  "Completed",
+                                                                       "note":  "Completed",
+                                                                       "updated_at":  "2026-02-11 10:07:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "3D Printing",
+                                                                       "status":  "Completed",
+                                                                       "note":  "Completed",
+                                                                       "updated_at":  "2026-02-12 10:14:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Moulding",
+                                                                       "status":  "Completed",
+                                                                       "note":  "Completed",
+                                                                       "updated_at":  "2026-02-13 10:21:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Production",
+                                                                       "status":  "Completed",
+                                                                       "note":  "Completed",
+                                                                       "updated_at":  "2026-02-14 10:28:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Filing Unwanted Material",
+                                                                       "status":  "Completed",
+                                                                       "note":  "Completed",
+                                                                       "updated_at":  "2026-02-15 10:35:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Painting",
+                                                                       "status":  "Completed",
+                                                                       "note":  "Completed",
+                                                                       "updated_at":  "2026-02-16 10:42:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Stone Work (If Needed)",
+                                                                       "status":  "Completed",
+                                                                       "note":  "Completed",
+                                                                       "updated_at":  "2026-02-17 10:49:00"
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Packing Finished Product",
+                                                                       "status":  "Completed",
+                                                                       "note":  "Closed",
+                                                                       "updated_at":  "2026-02-18 10:56:00"
+                                                                   }
+                                                               ],
+                                            "quality_checks":  [
+                                                                   {
+                                                                       "stage_name":  "CAD Design",
+                                                                       "qc_result":  "Pass",
+                                                                       "inspector":  "Inspector-1",
+                                                                       "defects_found":  0,
+                                                                       "remarks":  "OK",
+                                                                       "checked_at":  "2026-02-10 16:00:00",
+                                                                       "qc_code":  ""
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Camera",
+                                                                       "qc_result":  "Pass",
+                                                                       "inspector":  "Inspector-2",
+                                                                       "defects_found":  0,
+                                                                       "remarks":  "OK",
+                                                                       "checked_at":  "2026-02-11 16:05:00",
+                                                                       "qc_code":  ""
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "3D Printing",
+                                                                       "qc_result":  "Pass",
+                                                                       "inspector":  "Inspector-3",
+                                                                       "defects_found":  0,
+                                                                       "remarks":  "OK",
+                                                                       "checked_at":  "2026-02-12 16:10:00",
+                                                                       "qc_code":  ""
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Moulding",
+                                                                       "qc_result":  "Pass",
+                                                                       "inspector":  "Inspector-1",
+                                                                       "defects_found":  0,
+                                                                       "remarks":  "OK",
+                                                                       "checked_at":  "2026-02-13 16:15:00",
+                                                                       "qc_code":  ""
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Production",
+                                                                       "qc_result":  "Pass",
+                                                                       "inspector":  "Inspector-2",
+                                                                       "defects_found":  0,
+                                                                       "remarks":  "OK",
+                                                                       "checked_at":  "2026-02-14 16:20:00",
+                                                                       "qc_code":  ""
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Filing Unwanted Material",
+                                                                       "qc_result":  "Pass",
+                                                                       "inspector":  "Inspector-3",
+                                                                       "defects_found":  0,
+                                                                       "remarks":  "OK",
+                                                                       "checked_at":  "2026-02-15 16:25:00",
+                                                                       "qc_code":  ""
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Painting",
+                                                                       "qc_result":  "Pass",
+                                                                       "inspector":  "Inspector-1",
+                                                                       "defects_found":  0,
+                                                                       "remarks":  "OK",
+                                                                       "checked_at":  "2026-02-16 16:30:00",
+                                                                       "qc_code":  ""
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Stone Work (If Needed)",
+                                                                       "qc_result":  "Pass",
+                                                                       "inspector":  "Inspector-2",
+                                                                       "defects_found":  0,
+                                                                       "remarks":  "OK",
+                                                                       "checked_at":  "2026-02-17 16:35:00",
+                                                                       "qc_code":  ""
+                                                                   },
+                                                                   {
+                                                                       "stage_name":  "Packing Finished Product",
+                                                                       "qc_result":  "Pass",
+                                                                       "inspector":  "Inspector-3",
+                                                                       "defects_found":  0,
+                                                                       "remarks":  "OK",
+                                                                       "checked_at":  "2026-02-18 16:40:00",
+                                                                       "qc_code":  ""
+                                                                   }
+                                                               ]
+                                        }
+                                    ]
+                   }
+               ]
+}

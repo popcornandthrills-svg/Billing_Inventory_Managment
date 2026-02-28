@@ -1,0 +1,29 @@
+[
+  {
+    "username": "SM-001",
+    "password": "sm1234",
+    "created_on": "",
+    "last_login": "28-02-2026 16:16:32",
+    "is_active": true,
+    "is_deleted": false,
+    "deleted_on": ""
+  },
+  {
+    "username": "SM-002",
+    "password": "sm2299",
+    "created_on": "",
+    "last_login": "28-02-2026 15:53:44",
+    "is_active": true,
+    "is_deleted": false,
+    "deleted_on": ""
+  },
+  {
+    "username": "SM-003",
+    "password": "sm9999",
+    "created_on": "28-02-2026 15:40:12",
+    "last_login": "28-02-2026 16:03:22",
+    "is_active": true,
+    "is_deleted": false,
+    "deleted_on": ""
+  }
+]

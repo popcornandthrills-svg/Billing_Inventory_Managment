@@ -1,0 +1,503 @@
+import tkinter as tk
+from tkinter import ttk, messagebox, simpledialog
+from datetime import datetime
+import re
+
+from item_summary_report import get_item_summary_report, set_item_summary_override
+from purchase import load_purchases
+from sales import load_sales
+
+
+class ItemSummaryUI(ttk.Frame):
+    def __init__(self, parent, role="admin"):
+        super().__init__(parent)
+
+        self.pack(fill="both", expand=True, padx=10, pady=10)
+        self.all_rows = []
+        self.selected_items = set()
+        self.search_var = tk.StringVar()
+        self.show_selected_only_var = tk.BooleanVar(value=False)
+        self.sort_column = "item"
+        self.sort_desc = False
+        self.role = role
+        self.restricted_view = (self.role == "shop_manager")
+        self.editable_columns = {"available_qty", "selling_price"} if self.role == "shop_manager" else ({"available_qty", "purchase_price", "selling_price"} if self.role == "admin" else set())
+
+        ttk.Label(
+            self,
+            text="Item Summary Report",
+            font=("Arial", 14, "bold")
+        ).pack(pady=(0, 10))
+
+        top = ttk.Frame(self)
+        top.pack(fill="x", pady=(0, 8))
+
+        ttk.Label(top, text="Search Item Name").pack(side="left", padx=(0, 8))
+        search_entry = ttk.Entry(top, textvariable=self.search_var, width=35)
+        search_entry.pack(side="left", fill="x", expand=True)
+        search_entry.bind("<KeyRelease>", self.on_search_change)
+
+        ttk.Button(top, text="Select All Visible", command=self.select_all_visible).pack(side="left", padx=(8, 6))
+        ttk.Button(top, text="Clear Selection", command=self.clear_selection).pack(side="left", padx=(0, 8))
+        ttk.Button(top, text="View Transactions", command=self.open_selected_item_transactions).pack(side="left", padx=(0, 8))
+        ttk.Checkbutton(
+            top,
+            text="Show Selected Only",
+            variable=self.show_selected_only_var,
+            command=self.render_rows
+        ).pack(side="left")
+
+        columns = ("selected", "item", "available_qty", "selling_price") if self.restricted_view else ("selected", "item", "available_qty", "purchase_price", "selling_price")
+        table_frame = ttk.Frame(self)
+        table_frame.pack(fill="both", expand=True)
+        table_frame.columnconfigure(0, weight=1)
+        table_frame.rowconfigure(0, weight=1)
+
+        self.tree = ttk.Treeview(table_frame, columns=columns, show="headings")
+
+        self.tree.heading("selected", text="Select", anchor="center")
+        self.tree.heading("item", text="Item Name", anchor="w", command=lambda: self.sort_by("item"))
+        self.tree.heading(
+            "available_qty",
+            text="Available Qty",
+            anchor="e",
+            command=lambda: self.sort_by("available_qty")
+        )
+        if not self.restricted_view:
+            self.tree.heading(
+                "purchase_price",
+                text="Purchase Price",
+                anchor="e",
+                command=lambda: self.sort_by("purchase_price")
+            )
+        self.tree.heading(
+            "selling_price",
+            text="Selling Price",
+            anchor="e",
+            command=lambda: self.sort_by("selling_price")
+        )
+
+        self.tree.column("selected", anchor="center", width=70)
+        self.tree.column("item", anchor="w", width=260)
+        self.tree.column("available_qty", anchor="e", width=140)
+        if not self.restricted_view:
+            self.tree.column("purchase_price", anchor="e", width=140)
+        self.tree.column("selling_price", anchor="e", width=140)
+
+        ysb = ttk.Scrollbar(table_frame, orient="vertical", command=self.tree.yview)
+        xsb = ttk.Scrollbar(table_frame, orient="horizontal", command=self.tree.xview)
+        self.tree.configure(yscrollcommand=ysb.set, xscrollcommand=xsb.set)
+
+        self.tree.grid(row=0, column=0, sticky="nsew")
+        ysb.grid(row=0, column=1, sticky="ns")
+        xsb.grid(row=1, column=0, sticky="ew")
+        self.tree.bind("<Button-1>", self.on_tree_click)
+        self.tree.bind("<Double-1>", self.on_tree_double_click)
+        self.tree.bind("<Return>", self.on_tree_enter)
+        self.update_heading_labels()
+
+        self.load_data()
+
+    def load_data(self):
+        self.all_rows = get_item_summary_report()
+        self.render_rows()
+
+    def on_search_change(self, _event=None):
+        self.render_rows()
+
+    def get_filtered_rows(self):
+        text = self.search_var.get().strip().lower()
+        rows = self.all_rows
+
+        if text:
+            rows = [r for r in rows if text in str(r.get("item", "")).lower()]
+
+        if self.show_selected_only_var.get():
+            rows = [r for r in rows if str(r.get("item", "")) in self.selected_items]
+
+        return self.get_sorted_rows(rows)
+
+    def get_sorted_rows(self, rows):
+        if self.sort_column == "item":
+            return sorted(
+                rows,
+                key=lambda r: str(r.get("item", "")).lower(),
+                reverse=self.sort_desc
+            )
+
+        return sorted(
+            rows,
+            key=lambda r: float(r.get(self.sort_column, 0)),
+            reverse=self.sort_desc
+        )
+
+    def sort_by(self, column):
+        if self.sort_column == column:
+            self.sort_desc = not self.sort_desc
+        else:
+            self.sort_column = column
+            self.sort_desc = False
+        self.update_heading_labels()
+        self.render_rows()
+
+    def update_heading_labels(self):
+        self.tree.heading("selected", text="Select", anchor="center")
+
+        arrow = " v" if self.sort_desc else " ^"
+        self.tree.heading("item", text="Item Name" + (arrow if self.sort_column == "item" else ""), anchor="w")
+        self.tree.heading(
+            "available_qty",
+            text="Available Qty" + (arrow if self.sort_column == "available_qty" else ""),
+            anchor="e"
+        )
+        if not self.restricted_view:
+            self.tree.heading(
+                "purchase_price",
+                text="Purchase Price" + (arrow if self.sort_column == "purchase_price" else ""),
+                anchor="e"
+            )
+        self.tree.heading(
+            "selling_price",
+            text="Selling Price" + (arrow if self.sort_column == "selling_price" else ""),
+            anchor="e"
+        )
+
+    def render_rows(self):
+        for iid in self.tree.get_children():
+            self.tree.delete(iid)
+
+        for row in self.get_filtered_rows():
+            item_name = str(row["item"])
+            checked = "[x]" if item_name in self.selected_items else "[ ]"
+            values = (
+                checked,
+                item_name,
+                f"{float(row['available_qty']):,.2f}",
+                f"{float(row['selling_price']):,.2f}",
+            ) if self.restricted_view else (
+                checked,
+                item_name,
+                f"{float(row['available_qty']):,.2f}",
+                f"{float(row['purchase_price']):,.2f}",
+                f"{float(row['selling_price']):,.2f}",
+            )
+
+            self.tree.insert("", "end", values=values)
+
+    def on_tree_click(self, event):
+        if self.tree.identify("region", event.x, event.y) != "cell":
+            return
+
+        col = self.tree.identify_column(event.x)
+        if col != "#1":
+            return
+
+        iid = self.tree.identify_row(event.y)
+        if not iid:
+            return
+
+        item_name = self.tree.set(iid, "item")
+        if item_name in self.selected_items:
+            self.selected_items.remove(item_name)
+        else:
+            self.selected_items.add(item_name)
+
+        self.render_rows()
+        return None
+
+    def on_tree_double_click(self, event):
+        if self.tree.identify("region", event.x, event.y) != "cell":
+            return
+
+        iid = self.tree.identify_row(event.y)
+        if not iid:
+            return
+
+        col_ref = self.tree.identify_column(event.x)
+        if not col_ref or not col_ref.startswith("#"):
+            return
+
+        try:
+            col_index = int(col_ref[1:]) - 1
+            column = self.tree["columns"][col_index]
+        except Exception:
+            return
+
+        item_name = self.tree.set(iid, "item")
+        if not item_name:
+            return
+
+        if column in self.editable_columns:
+            self.edit_row_value(iid, column)
+            return
+
+        self.open_item_transactions(item_name)
+
+    def on_tree_enter(self, _event=None):
+        self.open_selected_item_transactions()
+
+    def select_all_visible(self):
+        for row in self.get_filtered_rows():
+            self.selected_items.add(str(row.get("item", "")))
+        self.render_rows()
+
+    def clear_selection(self):
+        self.selected_items.clear()
+        self.render_rows()
+
+    def edit_row_value(self, iid, column):
+        item_name = self.tree.set(iid, "item")
+        if not item_name:
+            return
+
+        current_text = str(self.tree.set(iid, column)).replace(",", "").strip()
+        label_map = {
+            "available_qty": "Available Qty",
+            "purchase_price": "Purchase Price",
+            "selling_price": "Selling Price",
+        }
+        field_label = label_map.get(column, column)
+
+        new_text = simpledialog.askstring(
+            "Edit Value",
+            f"Enter {field_label} for {item_name}:",
+            initialvalue=current_text,
+            parent=self,
+        )
+        if new_text is None:
+            return
+
+        new_text = new_text.strip()
+        if not new_text:
+            messagebox.showerror("Invalid Value", f"{field_label} cannot be empty.")
+            return
+
+        try:
+            new_value = float(new_text)
+        except ValueError:
+            messagebox.showerror("Invalid Value", f"Please enter a valid number for {field_label}.")
+            return
+
+        kwargs = {
+            "available_qty": None,
+            "purchase_price": None,
+            "selling_price": None,
+        }
+        kwargs[column] = new_value
+
+        set_item_summary_override(item_name, **kwargs)
+        self.load_data()
+
+    def open_selected_item_transactions(self):
+        selected = self.tree.selection()
+        if not selected:
+            messagebox.showinfo("Item Transactions", "Please select an item row first.")
+            return
+        item_name = self.tree.set(selected[0], "item")
+        if not item_name:
+            messagebox.showinfo("Item Transactions", "Please select a valid item row.")
+            return
+        self.open_item_transactions(item_name)
+
+    def parse_date(self, value):
+        if not value:
+            return datetime.min
+        text = str(value).strip()
+        for fmt in ("%Y-%m-%d %H:%M:%S", "%Y-%m-%d"):
+            try:
+                return datetime.strptime(text, fmt)
+            except ValueError:
+                continue
+        return datetime.min
+
+    def to_float(self, value):
+        try:
+            return float(value)
+        except (TypeError, ValueError):
+            return 0.0
+
+    def normalize_item_name(self, value):
+        text = str(value or "").strip().lower()
+        # Keep alphanumeric only so minor naming differences still match.
+        text = re.sub(r"[^a-z0-9]+", "", text)
+        return text
+
+    def is_same_item(self, target_name, candidate_name):
+        target_norm = self.normalize_item_name(target_name)
+        cand_norm = self.normalize_item_name(candidate_name)
+
+        if not target_norm or not cand_norm:
+            return False
+        if target_norm == cand_norm:
+            return True
+
+        # Fallback to partial match for slight naming variants.
+        return target_norm in cand_norm or cand_norm in target_norm
+
+    def get_item_transactions(self, item_name):
+        target = str(item_name).strip()
+        rows = []
+
+        for p in load_purchases():
+            date_text = p.get("date") or p.get("created_on") or ""
+            date_sort = self.parse_date(date_text)
+            for item in p.get("items", []):
+                name = str(item.get("item") or item.get("name") or "").strip()
+                if not self.is_same_item(target, name):
+                    continue
+
+                qty = self.to_float(item.get("qty", 0))
+                rate = self.to_float(item.get("rate", 0))
+                gst = self.to_float(item.get("gst", item.get("gst_percent", 0)))
+                line_total = self.to_float(item.get("total", qty * rate * (1 + gst / 100)))
+                invoice_total = self.to_float(p.get("grand_total", p.get("total_amount", 0)))
+                paid = self.to_float(p.get("paid_amount", 0))
+                due = self.to_float(p.get("due", p.get("due_amount", max(invoice_total - paid, 0))))
+
+                rows.append({
+                    "date_sort": date_sort,
+                    "date": date_text,
+                    "type": "Purchase",
+                    "reference": p.get("purchase_id", ""),
+                    "party": p.get("supplier_name", p.get("supplier", "")),
+                    "qty": qty,
+                    "rate": rate,
+                    "gst": gst,
+                    "line_total": line_total,
+                    "payment_mode": p.get("payment_mode", p.get("payment_type", "")),
+                    "invoice_total": invoice_total,
+                    "paid": paid,
+                    "due": due,
+                    "status": "Posted"
+                })
+
+        for s in load_sales():
+            date_text = s.get("date") or ""
+            date_sort = self.parse_date(date_text)
+            for item in s.get("items", []):
+                name = str(item.get("item") or item.get("name") or "").strip()
+                if not self.is_same_item(target, name):
+                    continue
+
+                qty = self.to_float(item.get("qty", 0))
+                rate = self.to_float(item.get("rate", 0))
+                gst = self.to_float(item.get("gst", item.get("gst_percent", 0)))
+                line_total = self.to_float(item.get("total", qty * rate * (1 + gst / 100)))
+                invoice_total = self.to_float(s.get("grand_total", 0))
+                paid = self.to_float(s.get("paid", s.get("paid_amount", 0)))
+                due = self.to_float(s.get("due", max(invoice_total - paid, 0)))
+
+                rows.append({
+                    "date_sort": date_sort,
+                    "date": date_text,
+                    "type": "Sale",
+                    "reference": s.get("invoice_no", ""),
+                    "party": s.get("customer_name", ""),
+                    "qty": qty,
+                    "rate": rate,
+                    "gst": gst,
+                    "line_total": line_total,
+                    "payment_mode": s.get("payment_mode", ""),
+                    "invoice_total": invoice_total,
+                    "paid": paid,
+                    "due": due,
+                    "status": "Cancelled" if s.get("cancelled") else "Posted"
+                })
+
+        rows.sort(key=lambda r: r["date_sort"], reverse=True)
+        return rows
+
+    def open_item_transactions(self, item_name):
+        txns = self.get_item_transactions(item_name)
+
+        win = tk.Toplevel(self)
+        win.title(f"Item Transactions - {item_name}")
+        win.geometry("1250x500")
+        win.transient(self.winfo_toplevel())
+        win.lift()
+        win.focus_force()
+
+        ttk.Label(
+            win,
+            text=f"Transaction Details: {item_name}",
+            font=("Arial", 12, "bold")
+        ).pack(anchor="w", padx=10, pady=(10, 6))
+
+        ttk.Label(
+            win,
+            text=f"Records found: {len(txns)}",
+            font=("Arial", 10)
+        ).pack(anchor="w", padx=10, pady=(0, 6))
+
+        frame = ttk.Frame(win)
+        frame.pack(fill="both", expand=True, padx=10, pady=(0, 10))
+        frame.columnconfigure(0, weight=1)
+        frame.rowconfigure(0, weight=1)
+
+        columns = (
+            "date", "type", "reference", "party", "qty", "rate", "gst",
+            "line_total", "payment_mode", "invoice_total", "paid", "due", "status"
+        )
+        tree = ttk.Treeview(frame, columns=columns, show="headings")
+
+        headings = {
+            "date": "Date",
+            "type": "Type",
+            "reference": "Ref No",
+            "party": "Supplier/Customer",
+            "qty": "Qty",
+            "rate": "Rate",
+            "gst": "GST %",
+            "line_total": "Line Total",
+            "payment_mode": "Payment",
+            "invoice_total": "Invoice Total",
+            "paid": "Paid",
+            "due": "Due",
+            "status": "Status",
+        }
+        for col in columns:
+            anchor = "w" if col in ("date", "type", "reference", "party", "payment_mode", "status") else "e"
+            tree.heading(col, text=headings[col], anchor=anchor)
+            width = 140
+            if col == "party":
+                width = 220
+            elif col == "reference":
+                width = 100
+            elif col == "status":
+                width = 90
+            tree.column(col, anchor=anchor, width=width)
+
+        tree.grid(row=0, column=0, sticky="nsew")
+        y_scroll = ttk.Scrollbar(frame, orient="vertical", command=tree.yview)
+        y_scroll.grid(row=0, column=1, sticky="ns")
+        x_scroll = ttk.Scrollbar(frame, orient="horizontal", command=tree.xview)
+        x_scroll.grid(row=1, column=0, sticky="ew")
+        tree.configure(yscrollcommand=y_scroll.set, xscrollcommand=x_scroll.set)
+
+        for t in txns:
+            tree.insert(
+                "",
+                "end",
+                values=(
+                    t["date"],
+                    t["type"],
+                    t["reference"],
+                    t["party"],
+                    f"{t['qty']:,.2f}",
+                    f"{t['rate']:,.2f}",
+                    f"{t['gst']:,.2f}",
+                    f"{t['line_total']:,.2f}",
+                    t["payment_mode"],
+                    f"{t['invoice_total']:,.2f}",
+                    f"{t['paid']:,.2f}",
+                    f"{t['due']:,.2f}",
+                    t["status"],
+                )
+            )
+
+        if not txns:
+            ttk.Label(
+                win,
+                text="No matching purchase/sale transactions found for this item name.",
+                foreground="red"
+            ).pack(anchor="w", padx=10, pady=(0, 8))

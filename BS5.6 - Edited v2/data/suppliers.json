@@ -1,0 +1,80 @@
+{
+    "S001": {
+        "name": "Chethana Electronics",
+        "address": "Vijayawada",
+        "phone": "9854298542"
+    },
+    "S002": {
+        "id": "S002",
+        "name": "Durga Electronics",
+        "phone": "8501991954",
+        "address": "Vijayawada"
+    },
+    "S003": {
+        "id": "S003",
+        "name": "Maruthi Electroincs",
+        "phone": "8074556569",
+        "address": "Vijayawada"
+    },
+    "S004": {
+        "id": "S004",
+        "name": "Mayur Electronics",
+        "phone": "7013017636",
+        "address": "Machilipatnam"
+    },
+    "S005": {
+        "id": "S005",
+        "name": "Ravi Electronics",
+        "phone": "7845678456",
+        "address": "Vijayawada"
+    },
+    "S006": {
+        "id": "S006",
+        "name": "Sri Rama Traders",
+        "phone": "9848298482",
+        "address": "Vijayawada",
+        "gst": ""
+    },
+    "S007": {
+        "id": "S007",
+        "name": "Vishnu Traders",
+        "phone": "8341298889",
+        "address": "Machilipatnam",
+        "gst": ""
+    },
+    "S008": {
+        "id": "S008",
+        "name": "Bharat Traders",
+        "phone": "8978308889",
+        "address": "Machilipatnam",
+        "gst": ""
+    },
+    "S009": {
+        "id": "S009",
+        "name": "Bharath",
+        "phone": "8978308889",
+        "address": "",
+        "gst": ""
+    },
+    "S010": {
+        "id": "S010",
+        "name": "Vishnu",
+        "phone": "",
+        "address": "machlipatnam",
+        "gst": ""
+    },
+    "S011": {
+        "id": "S011",
+        "name": "Vishnu sai",
+        "phone": "",
+        "address": "Machilipatnam",
+        "gst": ""
+    },
+    "S012": {
+        "id": "S012",
+        "name": "Kranthi Computers",
+        "phone": "9291372001",
+        "address": "Vijayawada",
+        "gst": ""
+    }
+}

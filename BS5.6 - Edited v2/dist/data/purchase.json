@@ -1,0 +1,1397 @@
+[
+    {
+        "supplier_name": "Maruthi Electronics",
+        "supplier_phone": "8074556569",
+        "items": [
+            {
+                "item": "10 Amps diodes",
+                "hsn": "",
+                "qty": 50,
+                "rate": 7.0,
+                "gst": 0.0,
+                "total": 350.0
+            }
+        ],
+        "total_amount": 350.0,
+        "paid_amount": 50.0,
+        "payment_mode": "UPI",
+        "created_on": "2026-01-10",
+        "date": "2026-01-10",
+        "grand_total": 350.0,
+        "due": 300.0
+    },
+    {
+        "supplier_name": "Durga Electroics",
+        "supplier_phone": "8501991954",
+        "items": [
+            {
+                "item": "Back lights",
+                "hsn": "",
+                "qty": 5,
+                "rate": 850.0,
+                "gst": 18.0,
+                "total": 5015.0
+            }
+        ],
+        "total_amount": 4250.0,
+        "paid_amount": 15.0,
+        "payment_mode": "UPI",
+        "created_on": "2026-01-10",
+        "date": "2026-01-10",
+        "grand_total": 5015.0,
+        "due": 5000.0
+    },
+    {
+        "supplier_name": "Chetana Electronics",
+        "supplier_phone": "9854298542",
+        "items": [
+            {
+                "item": "LED",
+                "hsn": "",
+                "qty": 100,
+                "rate": 3.0,
+                "gst": 18.0,
+                "total": 354.0
+            }
+        ],
+        "total_amount": 300.0,
+        "paid_amount": 54.0,
+        "payment_mode": "UPI",
+        "created_on": "2026-01-10",
+        "date": "2026-01-10",
+        "grand_total": 354.0,
+        "due": 300.0
+    },
+    {
+        "supplier_name": "Durga Electronics",
+        "supplier_phone": "8501991954",
+        "items": [
+            {
+                "item": "Mosfets",
+                "hsn": "",
+                "qty": 50,
+                "rate": 19.0,
+                "gst": 18.0,
+                "total": 1121.0
+            }
+        ],
+        "total_amount": 950.0,
+        "paid_amount": 1121.0,
+        "payment_mode": "Cash",
+        "created_on": "2026-01-10",
+        "date": "2026-01-10",
+        "grand_total": 1121.0,
+        "due": 0.0
+    },
+    {
+        "supplier_name": "Maruthi Electronics",
+        "supplier_phone": "8074556569",
+        "items": [
+            {
+                "item": "Hard disk",
+                "hsn": "",
+                "qty": 2,
+                "rate": 3500.0,
+                "gst": 18.0,
+                "total": 8260.0
+            }
+        ],
+        "total_amount": 7000.0,
+        "paid_amount": 260.0,
+        "payment_mode": "Cash",
+        "created_on": "2026-01-10",
+        "date": "2026-01-10",
+        "grand_total": 8260.0,
+        "due": 8000.0
+    },
+    {
+        "supplier_name": "Maruthi Electronic",
+        "supplier_phone": "8074556569",
+        "items": [
+            {
+                "item": "128gb Ram",
+                "hsn": "",
+                "qty": 2,
+                "rate": 12000.0,
+                "gst": 18.0,
+                "total": 28320.0
+            }
+        ],
+        "total_amount": 24000.0,
+        "paid_amount": 8320.0,
+        "payment_mode": "Cash",
+        "created_on": "2026-01-10",
+        "date": "2026-01-10",
+        "grand_total": 28320.0,
+        "due": 20000.0
+    },
+    {
+        "supplier_name": "Chentana Electronics",
+        "supplier_phone": "9854298542",
+        "items": [
+            {
+                "item": "Adopters",
+                "hsn": "",
+                "qty": 5,
+                "rate": 35.0,
+                "gst": 18.0,
+                "total": 206.5
+            }
+        ],
+        "total_amount": 175.0,
+        "paid_amount": 206.5,
+        "payment_mode": "Cash",
+        "created_on": "2026-01-10",
+        "date": "2026-01-10",
+        "grand_total": 206.5,
+        "due": 0.0
+    },
+    {
+        "supplier_name": "Mayur Electronics",
+        "supplier_phone": "7013017636",
+        "items": [
+            {
+                "item": "IDE Cables",
+                "hsn": "",
+                "qty": 10,
+                "rate": 25.0,
+                "gst": 18.0,
+                "total": 295.0
+            }
+        ],
+        "total_amount": 250.0,
+        "paid_amount": 295.0,
+        "payment_mode": "Cash",
+        "created_on": "2026-01-10",
+        "date": "2026-01-10",
+        "grand_total": 295.0,
+        "due": 0.0
+    },
+    {
+        "supplier_name": "Mayur Electronics",
+        "supplier_phone": "7013017636",
+        "items": [
+            {
+                "item": "Genaral purpose pcb",
+                "hsn": "",
+                "qty": 20,
+                "rate": 150.0,
+                "gst": 18.0,
+                "total": 3540.0
+            }
+        ],
+        "total_amount": 3000.0,
+        "paid_amount": 3540.0,
+        "payment_mode": "Cash",
+        "created_on": "2026-01-10",
+        "date": "2026-01-10",
+        "grand_total": 3540.0,
+        "due": 0.0
+    },
+    {
+        "supplier_name": "Durga Electronics",
+        "supplier_phone": "8501991954",
+        "items": [
+            {
+                "item": "lm324 i.c",
+                "hsn": "",
+                "qty": 200,
+                "rate": 8.0,
+                "gst": 18.0,
+                "total": 1888.0
+            }
+        ],
+        "total_amount": 1600.0,
+        "paid_amount": 1888.0,
+        "payment_mode": "Cash",
+        "created_on": "2026-01-10",
+        "date": "2026-01-10",
+        "grand_total": 1888.0,
+        "due": 0.0
+    },
+    {
+        "supplier_name": "Mayur Electronics",
+        "supplier_phone": "7013017636",
+        "items": [
+            {
+                "item": "micro controller",
+                "hsn": "",
+                "qty": 10,
+                "rate": 450.0,
+                "gst": 0.0,
+                "total": 4500.0
+            }
+        ],
+        "total_amount": 4500.0,
+        "paid_amount": 500.0,
+        "payment_mode": "Cash",
+        "created_on": "2026-01-12",
+        "date": "2026-01-12",
+        "grand_total": 4500.0,
+        "due": 4000.0
+    },
+    {
+        "supplier_name": "Durga Electronics",
+        "supplier_phone": "8501991954",
+        "items": [
+            {
+                "item": "Solderin stands",
+                "hsn": "",
+                "qty": 12,
+                "rate": 120.0,
+                "gst": 18.0,
+                "total": 1699.2
+            }
+        ],
+        "total_amount": 1440.0,
+        "paid_amount": 755.0,
+        "payment_mode": "Cash",
+        "created_on": "2026-01-12",
+        "date": "2026-01-12",
+        "grand_total": 1699.2,
+        "due": 944.2
+    },
+    {
+        "supplier_name": "Maruthi Electronics",
+        "supplier_phone": "8074556569",
+        "items": [
+            {
+                "item": "Mother Bord 755",
+                "hsn": "",
+                "qty": 2,
+                "rate": 18000.0,
+                "gst": 18.0,
+                "total": 42480.0
+            }
+        ],
+        "total_amount": 36000.0,
+        "paid_amount": 2480.0,
+        "payment_mode": "Bank",
+        "created_on": "2026-01-12",
+        "date": "2026-01-12",
+        "grand_total": 42480.0,
+        "due": 40000.0
+    },
+    {
+        "supplier_name": "Chethana Electronics",
+        "items": [
+            {
+                "item": "Condencer",
+                "hsn": "",
+                "qty": 10,
+                "unit_type": "Qty",
+                "value": 1.0,
+                "rate": 8.0,
+                "gst": 0.0,
+                "total": 80.0
+            }
+        ],
+        "total_amount": 80.0,
+        "paid_amount": 80.0,
+        "payment_mode": "Cash",
+        "created_on": "2026-01-12",
+        "date": "2026-01-12",
+        "grand_total": 80.0,
+        "due": 0.0
+    },
+    {
+        "supplier_name": "Chethana Electronics",
+        "items": [
+            {
+                "item": "Resistors",
+                "hsn": "",
+                "qty": 100,
+                "unit_type": "Qty",
+                "value": 1.0,
+                "rate": 4.0,
+                "gst": 0.0,
+                "total": 400.0
+            }
+        ],
+        "total_amount": 400.0,
+        "paid_amount": 400.0,
+        "payment_mode": "Cash",
+        "created_on": "2026-01-12",
+        "date": "2026-01-12",
+        "grand_total": 400.0,
+        "due": 0.0
+    },
+    {
+        "supplier_name": "Chethana Electronics",
+        "items": [
+            {
+                "item": "lead",
+                "hsn": "",
+                "qty": 10,
+                "unit_type": "Qty",
+                "value": 0.05,
+                "rate": 1200.0,
+                "gst": 18.0,
+                "total": 14160.0
+            }
+        ],
+        "total_amount": 600.0,
+        "paid_amount": 8.0,
+        "payment_mode": "Cash",
+        "created_on": "2026-01-13",
+        "date": "2026-01-13",
+        "grand_total": 14160.0,
+        "due": 14152.0
+    },
+    {
+        "supplier_name": "Chethana Electronics",
+        "items": [
+            {
+                "item": "16 gb Ram",
+                "hsn": "",
+                "qty": 2,
+                "unit_type": "Qty",
+                "value": 1.0,
+                "rate": 5500.0,
+                "gst": 18.0,
+                "total": 12980.0
+            }
+        ],
+        "total_amount": 11000.0,
+        "paid_amount": 980.0,
+        "payment_mode": "Cash",
+        "created_on": "2026-01-13",
+        "date": "2026-01-13",
+        "grand_total": 12980.0,
+        "due": 12000.0
+    },
+    {
+        "supplier_name": "Chethana Electronics",
+        "items": [
+            {
+                "item": "LED Strips",
+                "hsn": "",
+                "qty": 10,
+                "unit_type": "Qty",
+                "value": 1.0,
+                "rate": 200.0,
+                "gst": 18.0,
+                "total": 2360.0
+            }
+        ],
+        "total_amount": 2000.0,
+        "paid_amount": 360.0,
+        "payment_mode": "Cash",
+        "created_on": "2026-01-13",
+        "date": "2026-01-13",
+        "grand_total": 2360.0,
+        "due": 2000.0
+    },
+    {
+        "supplier_name": "Chethana Electronics",
+        "items": [
+            {
+                "item": "Rice",
+                "hsn": "",
+                "qty": 100,
+                "unit_type": "Qty",
+                "value": 1.0,
+                "rate": 1200.0,
+                "gst": 0.0,
+                "total": 120000.0
+            }
+        ],
+        "total_amount": 120000.0,
+        "paid_amount": 20000.0,
+        "payment_mode": "Bank",
+        "created_on": "2026-01-13",
+        "date": "2026-01-13",
+        "grand_total": 120000.0,
+        "due": 100000.0
+    },
+    {
+        "supplier_name": "Chethana Electronics",
+        "items": [
+            {
+                "item": "bc147",
+                "hsn": "",
+                "qty": 100,
+                "unit_type": "Qty",
+                "value": 1.0,
+                "rate": 18.0,
+                "gst": 0.0,
+                "total": 1800.0
+            }
+        ],
+        "total_amount": 1800.0,
+        "paid_amount": 0.0,
+        "payment_mode": "Cash",
+        "created_on": "2026-01-13",
+        "date": "2026-01-13",
+        "grand_total": 1800.0,
+        "due": 1800.0
+    },
+    {
+        "supplier_name": "Chethana Electronics",
+        "items": [
+            {
+                "item": "ram",
+                "hsn": "",
+                "qty": 10,
+                "unit_type": "Qty",
+                "value": 1.0,
+                "rate": 4000.0,
+                "gst": 0.0,
+                "total": 40000.0
+            }
+        ],
+        "total_amount": 40000.0,
+        "paid_amount": 0.0,
+        "payment_mode": "Cash",
+        "created_on": "2026-01-13",
+        "date": "2026-01-13",
+        "grand_total": 40000.0,
+        "due": 40000.0
+    },
+    {
+        "supplier_name": "Chethana Electronics",
+        "items": [
+            {
+                "item": "Motors",
+                "hsn": "",
+                "qty": 10,
+                "unit_type": "Qty",
+                "value": 1.0,
+                "rate": 55.0,
+                "gst": 0.0,
+                "total": 550.0
+            }
+        ],
+        "total_amount": 550.0,
+        "paid_amount": 50.0,
+        "payment_mode": "Cash",
+        "created_on": "2026-01-13",
+        "date": "2026-01-13",
+        "grand_total": 550.0,
+        "due": 500.0
+    },
+    {
+        "supplier": "Maruthi Electroincs",
+        "items": [
+            {
+                "item": "Disply Card",
+                "qty": 2.0,
+                "unit": "Pcs",
+                "value": 2.0,
+                "rate": 500.0,
+                "gst": 0.0,
+                "total": 2000.0
+            }
+        ],
+        "total_amount": 2000.0,
+        "paid_amount": 2000.0,
+        "payment_mode": "Cash",
+        "created_on": "2026-01-13",
+        "date": "2026-01-13",
+        "supplier_name": "Maruthi Electroincs",
+        "grand_total": 2000.0,
+        "due": 0.0
+    },
+    {
+        "supplier": "Mayur Electronics",
+        "items": [
+            {
+                "item": "Batterys",
+                "qty": 10.0,
+                "unit": "Pcs",
+                "value": 1.0,
+                "rate": 15.0,
+                "gst": 0.0,
+                "total": 150.0
+            }
+        ],
+        "total_amount": 150.0,
+        "paid_amount": 150.0,
+        "payment_mode": "Cash",
+        "created_on": "2026-01-13",
+        "date": "2026-01-13",
+        "supplier_name": "Mayur Electronics",
+        "grand_total": 150.0,
+        "due": 0.0
+    },
+    {
+        "supplier": "Maruthi Electroincs",
+        "items": [
+            {
+                "item": "cooling Fan",
+                "qty": 10.0,
+                "unit": "Pcs",
+                "value": 1.0,
+                "rate": 60.0,
+                "gst": 0.0,
+                "total": 600.0
+            }
+        ],
+        "total_amount": 600.0,
+        "paid_amount": 600.0,
+        "payment_mode": "Cash",
+        "created_on": "2026-01-13",
+        "date": "2026-01-13",
+        "supplier_name": "Maruthi Electroincs",
+        "grand_total": 600.0,
+        "due": 0.0
+    },
+    {
+        "supplier_name": "Mayur Electronics",
+        "items": [
+            {
+                "item": "2n3055",
+                "qty": 10.0,
+                "unit": "Pcs",
+                "value": 1.0,
+                "rate": 35.0,
+                "gst": 0.0,
+                "total": 350.0
+            }
+        ],
+        "total_amount": 350.0,
+        "paid_amount": 50.0,
+        "payment_mode": "Cash",
+        "created_on": "2026-01-13",
+        "date": "2026-01-13",
+        "grand_total": 350.0,
+        "due": 300.0
+    },
+    {
+        "supplier_name": "Mayur Electronics",
+        "items": [
+            {
+                "item": "adopter",
+                "qty": 10.0,
+                "unit": "Pcs",
+                "value": 1.0,
+                "rate": 75.0,
+                "gst": 0.0,
+                "total": 750.0
+            }
+        ],
+        "total_amount": 750.0,
+        "paid_amount": 50.0,
+        "payment_mode": "Cash",
+        "created_on": "2026-01-13",
+        "date": "2026-01-13",
+        "grand_total": 750.0,
+        "due": 700.0
+    },
+    {
+        "supplier_name": "Durga Electronics",
+        "items": [
+            {
+                "item": "Power Supply",
+                "qty": 2.0,
+                "unit": "Pcs",
+                "value": 1.0,
+                "rate": 1500.0,
+                "gst": 0.0,
+                "total": 3000.0
+            }
+        ],
+        "total_amount": 3000.0,
+        "paid_amount": 1500.0,
+        "payment_mode": "Cash",
+        "created_on": "2026-01-13",
+        "date": "2026-01-13",
+        "grand_total": 3000.0,
+        "due": 1500.0
+    },
+    {
+        "supplier_name": "Mayur Electronics",
+        "items": [
+            {
+                "item": "Cell charger",
+                "qty": 2.0,
+                "unit": "Pcs",
+                "value": 1.0,
+                "rate": 70.0,
+                "gst": 0.0,
+                "total": 140.0
+            }
+        ],
+        "total_amount": 140.0,
+        "paid_amount": 140.0,
+        "payment_mode": "Cash",
+        "created_on": "2026-01-13",
+        "date": "2026-01-13",
+        "grand_total": 140.0,
+        "due": 0.0
+    },
+    {
+        "supplier_name": "Durga Electronics",
+        "items": [
+            {
+                "item": "Amp Boards",
+                "qty": 50.0,
+                "unit": "Pcs",
+                "value": 1.0,
+                "rate": 650.0,
+                "gst": 0.0,
+                "total": 32500.0
+            }
+        ],
+        "total_amount": 32500.0,
+        "paid_amount": 2500.0,
+        "payment_mode": "Cash",
+        "created_on": "2026-01-13",
+        "date": "2026-01-13",
+        "grand_total": 32500.0,
+        "due": 30000.0
+    },
+    {
+        "supplier_name": "Mayur Electronics",
+        "items": [
+            {
+                "item": "flat Ribbon Cables",
+                "qty": 25.0,
+                "unit": "Pcs",
+                "value": 1.0,
+                "rate": 150.0,
+                "gst": 0.0,
+                "total": 3750.0
+            }
+        ],
+        "total_amount": 3750.0,
+        "paid_amount": 750.0,
+        "payment_mode": "Cash",
+        "created_on": "2026-01-13",
+        "date": "2026-01-13",
+        "grand_total": 3750.0,
+        "due": 3000.0
+    },
+    {
+        "supplier_name": "Durga Electronics",
+        "items": [
+            {
+                "item": "Tv Kits",
+                "qty": 50.0,
+                "unit": "Pcs",
+                "value": 1.0,
+                "rate": 1500.0,
+                "gst": 0.0,
+                "total": 75000.0
+            }
+        ],
+        "total_amount": 75000.0,
+        "paid_amount": 5000.0,
+        "payment_mode": "Cash",
+        "created_on": "2026-01-13",
+        "date": "2026-01-13",
+        "grand_total": 75000.0,
+        "due": 70000.0
+    },
+    {
+        "supplier_name": "Maruthi Electroincs",
+        "items": [
+            {
+                "item": "Asus B840 Plus Motherboard",
+                "qty": 5.0,
+                "unit": "Pcs",
+                "value": 1.0,
+                "rate": 21139.0,
+                "gst": 18.0,
+                "total": 124720.1
+            }
+        ],
+        "total_amount": 124720.1,
+        "paid_amount": 124720.1,
+        "payment_mode": "UPI",
+        "created_on": "2026-01-17",
+        "date": "2026-01-17",
+        "grand_total": 124720.1,
+        "due": 0.0,
+        "due_amount": 0.0
+    },
+    {
+        "supplier_name": "Ravi Electronics",
+        "items": [
+            {
+                "item": "RJ45 Cable",
+                "qty": 10.0,
+                "unit": "Pcs",
+                "value": 1.0,
+                "rate": 1650.0,
+                "gst": 18.0,
+                "total": 19470.0
+            }
+        ],
+        "total_amount": 19470.0,
+        "paid_amount": 9470.0,
+        "payment_mode": "Cash",
+        "created_on": "2026-01-17",
+        "date": "2026-01-17",
+        "grand_total": 19470.0,
+        "due": 10000.0
+    },
+    {
+        "supplier_name": "Durga Electronics",
+        "items": [
+            {
+                "item": "Power Supply",
+                "qty": 10.0,
+                "unit": "Pcs",
+                "value": 1.0,
+                "rate": 1500.0,
+                "gst": 18.0,
+                "total": 17700.0
+            }
+        ],
+        "total_amount": 17700.0,
+        "paid_amount": 7700.0,
+        "payment_mode": "Cash",
+        "created_on": "2026-01-20",
+        "date": "2026-01-20",
+        "grand_total": 17700.0,
+        "due": 10000.0
+    },
+    {
+        "purchase_id": "P0001",
+        "created_on": "2026-01-21",
+        "supplier_id": "S001",
+        "supplier_name": "Chethana Electronics",
+        "supplier_phone": "9854298542",
+        "items": [
+            {
+                "item": "Transisters",
+                "qty": 100.0,
+                "unit": "Nos",
+                "rate": 13.0,
+                "gst": 18.0,
+                "total": 1534.0
+            }
+        ],
+        "subtotal": 1300.0,
+        "gst_total": 234.0,
+        "grand_total": 1534.0,
+        "payment_type": "UPI",
+        "paid_amount": 1534.0,
+        "due_amount": 0.0,
+        "date": "2026-01-21",
+        "payment_mode": "UPI",
+        "due": 0.0
+    },
+    {
+        "purchase_id": "P0002",
+        "created_on": "2026-01-22",
+        "supplier_id": "S008",
+        "supplier_name": "Bharat Traders",
+        "supplier_phone": "8978308889",
+        "items": [
+            {
+                "item": "Laptops",
+                "qty": 2.0,
+                "unit": "Nos",
+                "rate": 65000.0,
+                "gst": 18.0,
+                "total": 153400.0
+            }
+        ],
+        "subtotal": 130000.0,
+        "gst_total": 23400.0,
+        "grand_total": 153400.0,
+        "payment_type": "Bank",
+        "paid_amount": 74200.0,
+        "due_amount": 79200.0,
+        "date": "2026-01-22",
+        "payment_mode": "Bank",
+        "due": 79200.0
+    },
+    {
+        "purchase_id": "P0003",
+        "created_on": "2026-01-22",
+        "supplier_id": "S002",
+        "supplier_name": "Durga Electronics",
+        "supplier_phone": "8501991954",
+        "items": [
+            {
+                "item": "Speakers",
+                "qty": 10.0,
+                "unit": "Nos",
+                "rate": 450.0,
+                "gst": 18.0,
+                "total": 5310.0
+            }
+        ],
+        "subtotal": 4500.0,
+        "gst_total": 810.0,
+        "grand_total": 5310.0,
+        "payment_type": "Cash",
+        "paid_amount": 4310.0,
+        "due_amount": 1000.0,
+        "date": "2026-01-22",
+        "payment_mode": "Cash",
+        "due": 1000.0
+    },
+    {
+        "purchase_id": "P0004",
+        "created_on": "2026-01-22",
+        "supplier_id": "S004",
+        "supplier_name": "Mayur Electronics",
+        "supplier_phone": "7013017636",
+        "items": [
+            {
+                "item": "lead 50g",
+                "qty": 50.0,
+                "unit": "Nos",
+                "rate": 33.0,
+                "gst": 18.0,
+                "total": 1947.0
+            }
+        ],
+        "subtotal": 1650.0,
+        "gst_total": 297.0,
+        "grand_total": 1947.0,
+        "payment_type": "Credit",
+        "paid_amount": 1697.0,
+        "due_amount": 250.0,
+        "date": "2026-01-22",
+        "payment_mode": "Credit",
+        "due": 250.0
+    },
+    {
+        "purchase_id": "P0005",
+        "date": "2026-02-02",
+        "supplier_id": "S001",
+        "supplier_name": "Chethana Electronics",
+        "items": [
+            {
+                "item": "Mouse",
+                "qty": 10.0,
+                "unit": "Nos",
+                "rate": 350.0,
+                "gst": 18.0,
+                "total": 4130.0
+            }
+        ],
+        "subtotal": 3500.0,
+        "gst_total": 630.0,
+        "grand_total": 4130.0,
+        "paid_amount": 130.0,
+        "due": 4000.0,
+        "payment_mode": "UPI"
+    },
+    {
+        "purchase_id": "P0006",
+        "date": "2026-02-02",
+        "supplier_id": "S002",
+        "supplier_name": "Durga Electronics",
+        "items": [
+            {
+                "item": "lead",
+                "qty": 10.0,
+                "unit": "Nos",
+                "rate": 55.0,
+                "gst": 0.0,
+                "total": 550.0
+            }
+        ],
+        "subtotal": 550.0,
+        "gst_total": 0.0,
+        "grand_total": 550.0,
+        "paid_amount": 50.0,
+        "due": 500.0,
+        "payment_mode": "Cash"
+    },
+    {
+        "purchase_id": "P0007",
+        "date": "2026-02-02",
+        "supplier_id": "S002",
+        "supplier_name": "Durga Electronics",
+        "items": [
+            {
+                "item": "lead",
+                "qty": 10.0,
+                "unit": "Nos",
+                "rate": 55.0,
+                "gst": 18.0,
+                "total": 649.0
+            }
+        ],
+        "subtotal": 550.0,
+        "gst_total": 99.0,
+        "grand_total": 649.0,
+        "paid_amount": 0.0,
+        "due": 649.0,
+        "payment_mode": "Cash"
+    },
+    {
+        "purchase_id": "P0008",
+        "date": "2026-02-02",
+        "supplier_id": "S002",
+        "supplier_name": "Durga Electronics",
+        "items": [
+            {
+                "item": "lead",
+                "qty": 10.0,
+                "unit": "Nos",
+                "rate": 55.0,
+                "gst": 0.0,
+                "total": 550.0
+            }
+        ],
+        "subtotal": 550.0,
+        "gst_total": 0.0,
+        "grand_total": 550.0,
+        "paid_amount": 0.0,
+        "due": 550.0,
+        "payment_mode": "Cash"
+    },
+    {
+        "purchase_id": "P0009",
+        "date": "2026-02-03",
+        "supplier_id": "S006",
+        "supplier_name": "Sri Rama Traders",
+        "items": [
+            {
+                "item": "Rice",
+                "qty": 100.0,
+                "unit": "Kg",
+                "rate": 26.0,
+                "gst": 0.0,
+                "total": 2600.0
+            }
+        ],
+        "subtotal": 2600.0,
+        "gst_total": 0.0,
+        "grand_total": 2600.0,
+        "paid_amount": 2600.0,
+        "due": 0.0,
+        "payment_mode": "UPI",
+        "due_amount": 0.0
+    },
+    {
+        "purchase_id": "P0010",
+        "date": "2026-02-03",
+        "supplier_id": "S005",
+        "supplier_name": "Ravi Electronics",
+        "items": [
+            {
+                "item": "i.c",
+                "qty": 100.0,
+                "unit": "Nos",
+                "rate": 53.0,
+                "gst": 18.0,
+                "total": 6254.0
+            }
+        ],
+        "subtotal": 5300.0,
+        "gst_total": 954.0,
+        "grand_total": 6254.0,
+        "paid_amount": 254.0,
+        "due": 6000.0,
+        "payment_mode": "UPI"
+    },
+    {
+        "purchase_id": "P0011",
+        "date": "2026-02-11",
+        "supplier_id": "S001",
+        "supplier_name": "Chethana Electronics",
+        "items": [
+            {
+                "item": "microcontrollers",
+                "qty": 20.0,
+                "unit": "Nos",
+                "rate": 550.0,
+                "gst": 18.0,
+                "total": 12980.0
+            }
+        ],
+        "subtotal": 11000.0,
+        "gst_total": 1980.0,
+        "grand_total": 12980.0,
+        "paid_amount": 0.0,
+        "due": 12980.0,
+        "payment_mode": "Cash"
+    },
+    {
+        "purchase_id": "P0012",
+        "date": "2026-02-12",
+        "supplier_id": "S010",
+        "supplier_name": "Vishnu",
+        "items": [
+            {
+                "item": "lead",
+                "qty": 20.0,
+                "unit": "",
+                "rate": 35.0,
+                "gst": 18.0,
+                "total": 826.0
+            }
+        ],
+        "subtotal": 700.0,
+        "gst_total": 126.0,
+        "grand_total": 826.0,
+        "paid_amount": 0.0,
+        "due": 826.0,
+        "payment_mode": "Cash"
+    },
+    {
+        "purchase_id": "P0013",
+        "date": "2026-02-12",
+        "supplier_id": "S003",
+        "supplier_name": "Maruthi Electroincs",
+        "items": [
+            {
+                "item": "Computer",
+                "qty": 10.0,
+                "unit": "Nos",
+                "rate": 35000.0,
+                "gst": 18.0,
+                "total": 413000.0
+            }
+        ],
+        "subtotal": 350000.0,
+        "gst_total": 63000.0,
+        "grand_total": 413000.0,
+        "paid_amount": 24000.0,
+        "due": 389000.0,
+        "payment_mode": "Cash",
+        "due_amount": 389000.0
+    },
+    {
+        "purchase_id": "P0014",
+        "date": "2026-02-12",
+        "supplier_id": "S011",
+        "supplier_name": "Vishnu sai",
+        "items": [
+            {
+                "item": "Copper",
+                "qty": 10.0,
+                "unit": "Kg",
+                "rate": 7000.0,
+                "gst": 5.0,
+                "total": 73500.0
+            }
+        ],
+        "subtotal": 70000.0,
+        "gst_total": 3500.0,
+        "grand_total": 73500.0,
+        "paid_amount": 3500.0,
+        "due": 70000.0,
+        "payment_mode": "Cash"
+    },
+    {
+        "purchase_id": "P0015",
+        "date": "2026-02-12",
+        "supplier_id": "S002",
+        "supplier_name": "Durga Electronics",
+        "items": [
+            {
+                "item": "Mains cords",
+                "qty": 100.0,
+                "unit": "Nos",
+                "rate": 15.0,
+                "gst": 18.0,
+                "total": 1770.0
+            }
+        ],
+        "subtotal": 1500.0,
+        "gst_total": 270.0,
+        "grand_total": 1770.0,
+        "paid_amount": 0.0,
+        "due": 1770.0,
+        "payment_mode": "Cash"
+    },
+    {
+        "purchase_id": "P0016",
+        "date": "2026-02-12",
+        "supplier_id": "S004",
+        "supplier_name": "Mayur Electronics",
+        "items": [
+            {
+                "item": "Cell Chargers",
+                "qty": 100.0,
+                "unit": "Nos",
+                "rate": 225.0,
+                "gst": 18.0,
+                "total": 26550.0
+            }
+        ],
+        "subtotal": 22500.0,
+        "gst_total": 4050.0,
+        "grand_total": 26550.0,
+        "paid_amount": 0.0,
+        "due": 26550.0,
+        "payment_mode": "Cash"
+    },
+    {
+        "purchase_id": "P0017",
+        "date": "2026-02-13",
+        "supplier_id": "S012",
+        "supplier_name": "Kranthi Computers",
+        "items": [
+            {
+                "item": "INV Boards",
+                "qty": 10.0,
+                "unit": "Nos",
+                "rate": 2500.0,
+                "gst": 18.0,
+                "total": 29500.0
+            }
+        ],
+        "subtotal": 25000.0,
+        "gst_total": 4500.0,
+        "grand_total": 29500.0,
+        "paid_amount": 9500.0,
+        "due": 20000.0,
+        "payment_mode": "Cash"
+    },
+    {
+        "purchase_id": "P0018",
+        "date": "2026-02-13",
+        "supplier_id": "S002",
+        "supplier_name": "Durga Electronics",
+        "items": [
+            {
+                "item": "Tv Kits",
+                "qty": 1.0,
+                "unit": "Nos",
+                "rate": 2500.0,
+                "gst": 18.0,
+                "total": 2950.0
+            }
+        ],
+        "subtotal": 2500.0,
+        "gst_total": 450.0,
+        "grand_total": 2950.0,
+        "paid_amount": 2000.0,
+        "due": 950.0,
+        "payment_mode": "Cash"
+    },
+    {
+        "purchase_id": "P0019",
+        "date": "2026-02-20",
+        "supplier_id": "S013",
+        "supplier_name": "Mamatha Traders",
+        "items": [
+            {
+                "item": "Cell Chargers",
+                "qty": 10.0,
+                "unit": "Nos",
+                "rate": 200.0,
+                "gst": 18.0,
+                "total": 2360.0
+            },
+            {
+                "item": "Network cables",
+                "qty": 10.0,
+                "unit": "Metre",
+                "rate": 120.0,
+                "gst": 18.0,
+                "total": 1416.0
+            }
+        ],
+        "subtotal": 3200.0,
+        "gst_total": 576.0,
+        "grand_total": 3776.0,
+        "paid_amount": 2000.0,
+        "due": 1776.0,
+        "payment_mode": "Cash"
+    },
+    {
+        "purchase_id": "P0020",
+        "date": "2026-02-20",
+        "supplier_id": "S008",
+        "supplier_name": "Bharat Traders",
+        "items": [
+            {
+                "item": "Tv Kits",
+                "hsn": "",
+                "qty": 9.0,
+                "unit": "Nos",
+                "rate": 10000.0,
+                "gst": 18.0,
+                "total": 106200.0
+            }
+        ],
+        "subtotal": 90000.0,
+        "gst_total": 16200.0,
+        "grand_total": 106200.0,
+        "paid_amount": 100000.0,
+        "due": 6200.0,
+        "payment_mode": "Cash"
+    },
+    {
+        "purchase_id": "P0021",
+        "date": "2026-02-27",
+        "supplier_id": "S014",
+        "supplier_name": "Rohit",
+        "items": [
+            {
+                "item": "Tv Kits",
+                "hsn": "",
+                "qty": 2.0,
+                "unit": "Nos",
+                "rate": 25000.0,
+                "gst": 18.0,
+                "total": 59000.0
+            }
+        ],
+        "subtotal": 50000.0,
+        "gst_total": 9000.0,
+        "grand_total": 59000.0,
+        "paid_amount": 59000.0,
+        "due": 0.0,
+        "payment_mode": "Cash",
+        "due_amount": 0.0
+    },
+    {
+        "purchase_id": "P0022",
+        "date": "2026-02-27",
+        "supplier_id": "S015",
+        "supplier_name": "zebronics",
+        "items": [
+            {
+                "item": "zeb mouse",
+                "hsn": "idgi",
+                "qty": 100.0,
+                "unit": "Nos",
+                "rate": 100.0,
+                "gst": 18.0,
+                "total": 11800.0
+            }
+        ],
+        "subtotal": 10000.0,
+        "gst_total": 1800.0,
+        "grand_total": 11800.0,
+        "paid_amount": 5000.0,
+        "due": 6800.0,
+        "payment_mode": "UPI"
+    },
+    {
+        "purchase_id": "P0023",
+        "date": "2026-02-28",
+        "supplier_id": "S016",
+        "supplier_name": "Karthik",
+        "items": [
+            {
+                "item": "paint brushes",
+                "hsn": "",
+                "qty": 10.0,
+                "unit": "Nos",
+                "rate": 20.0,
+                "gst": 18.0,
+                "total": 236.0
+            },
+            {
+                "item": "Eco paints - Black",
+                "hsn": "",
+                "qty": 10.0,
+                "unit": "Litre",
+                "rate": 17.5,
+                "gst": 18.0,
+                "total": 206.5
+            },
+            {
+                "item": "Eco paint - Blue",
+                "hsn": "",
+                "qty": 1.0,
+                "unit": "Litre",
+                "rate": 200.0,
+                "gst": 18.0,
+                "total": 236.0
+            }
+        ],
+        "subtotal": 575.0,
+        "gst_total": 103.5,
+        "grand_total": 678.5,
+        "paid_amount": 600.0,
+        "due": 78.5,
+        "payment_mode": "Cash"
+    },
+    {
+        "purchase_id": "P0024",
+        "date": "2026-02-28",
+        "supplier_id": "S014",
+        "supplier_name": "Rohit",
+        "items": [
+            {
+                "item": "10 Amps diodes",
+                "hsn": "wsdrf",
+                "qty": 100.0,
+                "unit": "Nos",
+                "rate": 7.0,
+                "gst": 18.0,
+                "total": 826.0
+            }
+        ],
+        "subtotal": 700.0,
+        "gst_total": 126.0,
+        "grand_total": 826.0,
+        "paid_amount": 500.0,
+        "due": 326.0,
+        "payment_mode": "UPI"
+    },
+    {
+        "purchase_id": "P0025",
+        "date": "2026-02-28",
+        "supplier_id": "S014",
+        "supplier_name": "Rohit",
+        "items": [
+            {
+                "item": "10 Amps diodes",
+                "hsn": "DJRYXDJ",
+                "qty": 100.0,
+                "unit": "Nos",
+                "rate": 7.0,
+                "gst": 18.0,
+                "total": 826.0
+            }
+        ],
+        "subtotal": 700.0,
+        "gst_total": 126.0,
+        "grand_total": 826.0,
+        "paid_amount": 826.0,
+        "due": 0.0,
+        "payment_mode": "Cash"
+    },
+    {
+        "purchase_id": "P0026",
+        "date": "2026-02-28 15:08:33",
+        "supplier_id": "S017",
+        "supplier_name": "sai",
+        "items": [
+            {
+                "item": "Amp Boards",
+                "hsn": "htjhn",
+                "qty": 2.0,
+                "unit": "Nos",
+                "rate": 25.0,
+                "gst": 18.0,
+                "total": 59.0
+            }
+        ],
+        "subtotal": 50.0,
+        "gst_total": 9.0,
+        "grand_total": 59.0,
+        "paid_amount": 59.0,
+        "due": 0.0,
+        "payment_mode": "UPI"
+    },
+    {
+        "purchase_id": "P0027",
+        "date": "2026-02-28 16:16:16",
+        "supplier_id": "S014",
+        "supplier_name": "Rohit",
+        "items": [
+            {
+                "item": "10 Amps diodes",
+                "hsn": "gcfyc",
+                "qty": 500.0,
+                "unit": "Nos",
+                "rate": 7.0,
+                "gst": 18.0,
+                "total": 4130.0
+            }
+        ],
+        "subtotal": 3500.0,
+        "gst_total": 630.0,
+        "grand_total": 4130.0,
+        "paid_amount": 4130.0,
+        "due": 0.0,
+        "payment_mode": "UPI"
+    }
+]

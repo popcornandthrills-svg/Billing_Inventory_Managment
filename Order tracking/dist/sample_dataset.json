@@ -1,0 +1,1941 @@
+{
+  "orders": [
+    {
+      "order_code": "001",
+      "supplier_name": "",
+      "customer_name": "Aster Jewels",
+      "order_category": "",
+      "order_purpose": "",
+      "order_note": "",
+      "order_date": "",
+      "order_placed_date": "05-02-2026",
+      "due_date": "05-03-2026",
+      "created_at": "2026-02-05 09:10:00",
+      "articles": [
+        {
+          "article_number": "A100",
+          "item_name": "",
+          "material": "",
+          "item_weight": "",
+          "size": "",
+          "colours": "",
+          "quantity": 120,
+          "stage_progress": [
+            {
+              "stage_name": "CAD Design",
+              "status": "In Progress",
+              "note": "Design started",
+              "updated_at": "2026-02-10 10:00:00"
+            },
+            {
+              "stage_name": "Camera",
+              "status": "In Progress",
+              "note": "",
+              "updated_at": "2026-02-11 10:07:00"
+            },
+            {
+              "stage_name": "3D Printing",
+              "status": "In Progress",
+              "note": "",
+              "updated_at": "2026-02-12 10:14:00"
+            },
+            {
+              "stage_name": "Moulding",
+              "status": "In Progress",
+              "note": "",
+              "updated_at": "2026-02-13 10:21:00"
+            },
+            {
+              "stage_name": "Production",
+              "status": "In Progress",
+              "note": "",
+              "updated_at": "2026-02-14 10:28:00"
+            },
+            {
+              "stage_name": "Filing Unwanted Material",
+              "status": "In Progress",
+              "note": "",
+              "updated_at": "2026-02-15 10:35:00"
+            },
+            {
+              "stage_name": "Painting",
+              "status": "In Progress",
+              "note": "",
+              "updated_at": "2026-02-16 10:42:00"
+            },
+            {
+              "stage_name": "Stone Work (If Needed)",
+              "status": "In Progress",
+              "note": "",
+              "updated_at": "2026-02-17 10:49:00"
+            },
+            {
+              "stage_name": "Packing Finished Product",
+              "status": "In Progress",
+              "note": "",
+              "updated_at": "2026-02-18 10:56:00"
+            }
+          ],
+          "quality_checks": [
+            {
+              "stage_name": "CAD Design",
+              "qc_result": "Pending",
+              "inspector": "",
+              "defects_found": 0,
+              "remarks": "",
+              "checked_at": "2026-02-10 16:00:00",
+              "qc_code": "QC-0001-01-00001"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order_code": "002",
+      "supplier_name": "",
+      "customer_name": "Blue Mint",
+      "order_category": "",
+      "order_purpose": "",
+      "order_note": "",
+      "order_date": "",
+      "order_placed_date": "06-02-2026",
+      "due_date": "06-03-2026",
+      "created_at": "2026-02-06 09:15:00",
+      "articles": [
+        {
+          "article_number": "A200",
+          "item_name": "",
+          "material": "",
+          "item_weight": "",
+          "size": "",
+          "colours": "",
+          "quantity": 150,
+          "stage_progress": [
+            {
+              "stage_name": "CAD Design",
+              "status": "Completed",
+              "note": "Completed",
+              "updated_at": "2026-02-10 10:00:00"
+            },
+            {
+              "stage_name": "Camera",
+              "status": "In Progress",
+              "note": "Imaging underway",
+              "updated_at": "2026-02-11 10:07:00"
+            },
+            {
+              "stage_name": "3D Printing",
+              "status": "In Progress",
+              "note": "",
+              "updated_at": "2026-02-12 10:14:00"
+            },
+            {
+              "stage_name": "Moulding",
+              "status": "In Progress",
+              "note": "",
+              "updated_at": "2026-02-13 10:21:00"
+            },
+            {
+              "stage_name": "Production",
+              "status": "In Progress",
+              "note": "",
+              "updated_at": "2026-02-14 10:28:00"
+            },
+            {
+              "stage_name": "Filing Unwanted Material",
+              "status": "In Progress",
+              "note": "",
+              "updated_at": "2026-02-15 10:35:00"
+            },
+            {
+              "stage_name": "Painting",
+              "status": "In Progress",
+              "note": "",
+              "updated_at": "2026-02-16 10:42:00"
+            },
+            {
+              "stage_name": "Stone Work (If Needed)",
+              "status": "In Progress",
+              "note": "",
+              "updated_at": "2026-02-17 10:49:00"
+            },
+            {
+              "stage_name": "Packing Finished Product",
+              "status": "In Progress",
+              "note": "",
+              "updated_at": "2026-02-18 10:56:00"
+            }
+          ],
+          "quality_checks": [
+            {
+              "stage_name": "Camera",
+              "qc_result": "Pass",
+              "inspector": "Inspector-2",
+              "defects_found": 0,
+              "remarks": "OK",
+              "checked_at": "2026-02-11 16:05:00",
+              "qc_code": "QC-0002-02-00003"
+            },
+            {
+              "stage_name": "CAD Design",
+              "qc_result": "Pass",
+              "inspector": "Inspector-1",
+              "defects_found": 0,
+              "remarks": "OK",
+              "checked_at": "2026-02-10 16:00:00",
+              "qc_code": "QC-0002-01-00002"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order_code": "003",
+      "supplier_name": "",
+      "customer_name": "Craft Aura",
+      "order_category": "",
+      "order_purpose": "",
+      "order_note": "",
+      "order_date": "",
+      "order_placed_date": "07-02-2026",
+      "due_date": "07-03-2026",
+      "created_at": "2026-02-07 09:20:00",
+      "articles": [
+        {
+          "article_number": "A300",
+          "item_name": "",
+          "material": "",
+          "item_weight": "",
+          "size": "",
+          "colours": "",
+          "quantity": 180,
+          "stage_progress": [
+            {
+              "stage_name": "CAD Design",
+              "status": "Completed",
+              "note": "Completed",
+              "updated_at": "2026-02-10 10:00:00"
+            },
+            {
+              "stage_name": "Camera",
+              "status": "Completed",
+              "note": "Completed",
+              "updated_at": "2026-02-11 10:07:00"
+            },
+            {
+              "stage_name": "3D Printing",
+              "status": "In Progress",
+              "note": "Print variation found",
+              "updated_at": "2026-02-12 10:14:00"
+            },
+            {
+              "stage_name": "Moulding",
+              "status": "In Progress",
+              "note": "",
+              "updated_at": "2026-02-13 10:21:00"
+            },
+            {
+              "stage_name": "Production",
+              "status": "In Progress",
+              "note": "",
+              "updated_at": "2026-02-14 10:28:00"
+            },
+            {
+              "stage_name": "Filing Unwanted Material",
+              "status": "In Progress",
+              "note": "",
+              "updated_at": "2026-02-15 10:35:00"
+            },
+            {
+              "stage_name": "Painting",
+              "status": "In Progress",
+              "note": "",
+              "updated_at": "2026-02-16 10:42:00"
+            },
+            {
+              "stage_name": "Stone Work (If Needed)",
+              "status": "In Progress",
+              "note": "",
+              "updated_at": "2026-02-17 10:49:00"
+            },
+            {
+              "stage_name": "Packing Finished Product",
+              "status": "In Progress",
+              "note": "",
+              "updated_at": "2026-02-18 10:56:00"
+            }
+          ],
+          "quality_checks": [
+            {
+              "stage_name": "3D Printing",
+              "qc_result": "Fail",
+              "inspector": "Inspector-3",
+              "defects_found": 2,
+              "remarks": "Needs correction",
+              "checked_at": "2026-02-12 16:10:00",
+              "qc_code": "QC-0003-03-00006"
+            },
+            {
+              "stage_name": "Camera",
+              "qc_result": "Pass",
+              "inspector": "Inspector-2",
+              "defects_found": 0,
+              "remarks": "OK",
+              "checked_at": "2026-02-11 16:05:00",
+              "qc_code": "QC-0003-02-00005"
+            },
+            {
+              "stage_name": "CAD Design",
+              "qc_result": "Pass",
+              "inspector": "Inspector-1",
+              "defects_found": 0,
+              "remarks": "OK",
+              "checked_at": "2026-02-10 16:00:00",
+              "qc_code": "QC-0003-01-00004"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order_code": "004",
+      "supplier_name": "",
+      "customer_name": "Dazzle House",
+      "order_category": "",
+      "order_purpose": "",
+      "order_note": "",
+      "order_date": "",
+      "order_placed_date": "08-02-2026",
+      "due_date": "08-03-2026",
+      "created_at": "2026-02-08 09:25:00",
+      "articles": [
+        {
+          "article_number": "A400",
+          "item_name": "",
+          "material": "",
+          "item_weight": "",
+          "size": "",
+          "colours": "",
+          "quantity": 90,
+          "stage_progress": [
+            {
+              "stage_name": "CAD Design",
+              "status": "Completed",
+              "note": "Completed",
+              "updated_at": "2026-02-10 10:00:00"
+            },
+            {
+              "stage_name": "Camera",
+              "status": "Completed",
+              "note": "Completed",
+              "updated_at": "2026-02-11 10:07:00"
+            },
+            {
+              "stage_name": "3D Printing",
+              "status": "Completed",
+              "note": "Completed",
+              "updated_at": "2026-02-12 10:14:00"
+            },
+            {
+              "stage_name": "Moulding",
+              "status": "Blocked",
+              "note": "Mould issue",
+              "updated_at": "2026-02-13 10:21:00"
+            },
+            {
+              "stage_name": "Production",
+              "status": "In Progress",
+              "note": "",
+              "updated_at": "2026-02-14 10:28:00"
+            },
+            {
+              "stage_name": "Filing Unwanted Material",
+              "status": "In Progress",
+              "note": "",
+              "updated_at": "2026-02-15 10:35:00"
+            },
+            {
+              "stage_name": "Painting",
+              "status": "In Progress",
+              "note": "",
+              "updated_at": "2026-02-16 10:42:00"
+            },
+            {
+              "stage_name": "Stone Work (If Needed)",
+              "status": "In Progress",
+              "note": "",
+              "updated_at": "2026-02-17 10:49:00"
+            },
+            {
+              "stage_name": "Packing Finished Product",
+              "status": "In Progress",
+              "note": "",
+              "updated_at": "2026-02-18 10:56:00"
+            }
+          ],
+          "quality_checks": [
+            {
+              "stage_name": "Moulding",
+              "qc_result": "Fail",
+              "inspector": "Inspector-1",
+              "defects_found": 2,
+              "remarks": "Needs correction",
+              "checked_at": "2026-02-13 16:15:00",
+              "qc_code": "QC-0004-04-00010"
+            },
+            {
+              "stage_name": "3D Printing",
+              "qc_result": "Pass",
+              "inspector": "Inspector-3",
+              "defects_found": 0,
+              "remarks": "OK",
+              "checked_at": "2026-02-12 16:10:00",
+              "qc_code": "QC-0004-03-00009"
+            },
+            {
+              "stage_name": "Camera",
+              "qc_result": "Pass",
+              "inspector": "Inspector-2",
+              "defects_found": 0,
+              "remarks": "OK",
+              "checked_at": "2026-02-11 16:05:00",
+              "qc_code": "QC-0004-02-00008"
+            },
+            {
+              "stage_name": "CAD Design",
+              "qc_result": "Pass",
+              "inspector": "Inspector-1",
+              "defects_found": 0,
+              "remarks": "OK",
+              "checked_at": "2026-02-10 16:00:00",
+              "qc_code": "QC-0004-01-00007"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order_code": "005",
+      "supplier_name": "",
+      "customer_name": "Elite Gold",
+      "order_category": "",
+      "order_purpose": "",
+      "order_note": "",
+      "order_date": "",
+      "order_placed_date": "09-02-2026",
+      "due_date": "09-03-2026",
+      "created_at": "2026-02-09 09:30:00",
+      "articles": [
+        {
+          "article_number": "A500",
+          "item_name": "",
+          "material": "",
+          "item_weight": "",
+          "size": "",
+          "colours": "",
+          "quantity": 200,
+          "stage_progress": [
+            {
+              "stage_name": "CAD Design",
+              "status": "Completed",
+              "note": "Completed",
+              "updated_at": "2026-02-10 10:00:00"
+            },
+            {
+              "stage_name": "Camera",
+              "status": "Completed",
+              "note": "Completed",
+              "updated_at": "2026-02-11 10:07:00"
+            },
+            {
+              "stage_name": "3D Printing",
+              "status": "Completed",
+              "note": "Completed",
+              "updated_at": "2026-02-12 10:14:00"
+            },
+            {
+              "stage_name": "Moulding",
+              "status": "Completed",
+              "note": "Completed",
+              "updated_at": "2026-02-13 10:21:00"
+            },
+            {
+              "stage_name": "Production",
+              "status": "In Progress",
+              "note": "Production active",
+              "updated_at": "2026-02-14 10:28:00"
+            },
+            {
+              "stage_name": "Filing Unwanted Material",
+              "status": "In Progress",
+              "note": "",
+              "updated_at": "2026-02-15 10:35:00"
+            },
+            {
+              "stage_name": "Painting",
+              "status": "In Progress",
+              "note": "",
+              "updated_at": "2026-02-16 10:42:00"
+            },
+            {
+              "stage_name": "Stone Work (If Needed)",
+              "status": "In Progress",
+              "note": "",
+              "updated_at": "2026-02-17 10:49:00"
+            },
+            {
+              "stage_name": "Packing Finished Product",
+              "status": "In Progress",
+              "note": "",
+              "updated_at": "2026-02-18 10:56:00"
+            }
+          ],
+          "quality_checks": [
+            {
+              "stage_name": "Production",
+              "qc_result": "Pass",
+              "inspector": "Inspector-2",
+              "defects_found": 0,
+              "remarks": "OK",
+              "checked_at": "2026-02-14 16:20:00",
+              "qc_code": "QC-0005-05-00015"
+            },
+            {
+              "stage_name": "Moulding",
+              "qc_result": "Pass",
+              "inspector": "Inspector-1",
+              "defects_found": 0,
+              "remarks": "OK",
+              "checked_at": "2026-02-13 16:15:00",
+              "qc_code": "QC-0005-04-00014"
+            },
+            {
+              "stage_name": "3D Printing",
+              "qc_result": "Pass",
+              "inspector": "Inspector-3",
+              "defects_found": 0,
+              "remarks": "OK",
+              "checked_at": "2026-02-12 16:10:00",
+              "qc_code": "QC-0005-03-00013"
+            },
+            {
+              "stage_name": "Camera",
+              "qc_result": "Pass",
+              "inspector": "Inspector-2",
+              "defects_found": 0,
+              "remarks": "OK",
+              "checked_at": "2026-02-11 16:05:00",
+              "qc_code": "QC-0005-02-00012"
+            },
+            {
+              "stage_name": "CAD Design",
+              "qc_result": "Pass",
+              "inspector": "Inspector-1",
+              "defects_found": 0,
+              "remarks": "OK",
+              "checked_at": "2026-02-10 16:00:00",
+              "qc_code": "QC-0005-01-00011"
+            }
+          ]
+        },
+        {
+          "article_number": "A501",
+          "item_name": "",
+          "material": "",
+          "item_weight": "",
+          "size": "",
+          "colours": "",
+          "quantity": 140,
+          "stage_progress": [
+            {
+              "stage_name": "CAD Design",
+              "status": "Completed",
+              "note": "Completed",
+              "updated_at": "2026-02-10 10:00:00"
+            },
+            {
+              "stage_name": "Camera",
+              "status": "Completed",
+              "note": "Completed",
+              "updated_at": "2026-02-11 10:07:00"
+            },
+            {
+              "stage_name": "3D Printing",
+              "status": "Completed",
+              "note": "Completed",
+              "updated_at": "2026-02-12 10:14:00"
+            },
+            {
+              "stage_name": "Moulding",
+              "status": "In Progress",
+              "note": "Mould finishing",
+              "updated_at": "2026-02-13 10:21:00"
+            },
+            {
+              "stage_name": "Production",
+              "status": "In Progress",
+              "note": "",
+              "updated_at": "2026-02-14 10:28:00"
+            },
+            {
+              "stage_name": "Filing Unwanted Material",
+              "status": "In Progress",
+              "note": "",
+              "updated_at": "2026-02-15 10:35:00"
+            },
+            {
+              "stage_name": "Painting",
+              "status": "In Progress",
+              "note": "",
+              "updated_at": "2026-02-16 10:42:00"
+            },
+            {
+              "stage_name": "Stone Work (If Needed)",
+              "status": "In Progress",
+              "note": "",
+              "updated_at": "2026-02-17 10:49:00"
+            },
+            {
+              "stage_name": "Packing Finished Product",
+              "status": "In Progress",
+              "note": "",
+              "updated_at": "2026-02-18 10:56:00"
+            }
+          ],
+          "quality_checks": [
+            {
+              "stage_name": "Moulding",
+              "qc_result": "Pass",
+              "inspector": "Inspector-1",
+              "defects_found": 0,
+              "remarks": "OK",
+              "checked_at": "2026-02-13 16:15:00",
+              "qc_code": "QC-0005-04-00019"
+            },
+            {
+              "stage_name": "3D Printing",
+              "qc_result": "Pass",
+              "inspector": "Inspector-3",
+              "defects_found": 0,
+              "remarks": "OK",
+              "checked_at": "2026-02-12 16:10:00",
+              "qc_code": "QC-0005-03-00018"
+            },
+            {
+              "stage_name": "Camera",
+              "qc_result": "Pass",
+              "inspector": "Inspector-2",
+              "defects_found": 0,
+              "remarks": "OK",
+              "checked_at": "2026-02-11 16:05:00",
+              "qc_code": "QC-0005-02-00017"
+            },
+            {
+              "stage_name": "CAD Design",
+              "qc_result": "Pass",
+              "inspector": "Inspector-1",
+              "defects_found": 0,
+              "remarks": "OK",
+              "checked_at": "2026-02-10 16:00:00",
+              "qc_code": "QC-0005-01-00016"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order_code": "006",
+      "supplier_name": "",
+      "customer_name": "Fine Orbit",
+      "order_category": "",
+      "order_purpose": "",
+      "order_note": "",
+      "order_date": "",
+      "order_placed_date": "10-02-2026",
+      "due_date": "20-02-2026",
+      "created_at": "2026-02-10 09:35:00",
+      "articles": [
+        {
+          "article_number": "A600",
+          "item_name": "",
+          "material": "",
+          "item_weight": "",
+          "size": "",
+          "colours": "",
+          "quantity": 110,
+          "stage_progress": [
+            {
+              "stage_name": "CAD Design",
+              "status": "Completed",
+              "note": "Completed",
+              "updated_at": "2026-02-10 10:00:00"
+            },
+            {
+              "stage_name": "Camera",
+              "status": "Completed",
+              "note": "Completed",
+              "updated_at": "2026-02-11 10:07:00"
+            },
+            {
+              "stage_name": "3D Printing",
+              "status": "Completed",
+              "note": "Completed",
+              "updated_at": "2026-02-12 10:14:00"
+            },
+            {
+              "stage_name": "Moulding",
+              "status": "Completed",
+              "note": "Completed",
+              "updated_at": "2026-02-13 10:21:00"
+            },
+            {
+              "stage_name": "Production",
+              "status": "Completed",
+              "note": "Completed",
+              "updated_at": "2026-02-14 10:28:00"
+            },
+            {
+              "stage_name": "Filing Unwanted Material",
+              "status": "In Progress",
+              "note": "Material filing in process",
+              "updated_at": "2026-02-15 10:35:00"
+            },
+            {
+              "stage_name": "Painting",
+              "status": "In Progress",
+              "note": "",
+              "updated_at": "2026-02-16 10:42:00"
+            },
+            {
+              "stage_name": "Stone Work (If Needed)",
+              "status": "In Progress",
+              "note": "",
+              "updated_at": "2026-02-17 10:49:00"
+            },
+            {
+              "stage_name": "Packing Finished Product",
+              "status": "In Progress",
+              "note": "",
+              "updated_at": "2026-02-18 10:56:00"
+            }
+          ],
+          "quality_checks": [
+            {
+              "stage_name": "Filing Unwanted Material",
+              "qc_result": "Pending",
+              "inspector": "",
+              "defects_found": 0,
+              "remarks": "",
+              "checked_at": "2026-02-15 16:25:00",
+              "qc_code": "QC-0006-06-00025"
+            },
+            {
+              "stage_name": "Production",
+              "qc_result": "Pass",
+              "inspector": "Inspector-2",
+              "defects_found": 0,
+              "remarks": "OK",
+              "checked_at": "2026-02-14 16:20:00",
+              "qc_code": "QC-0006-05-00024"
+            },
+            {
+              "stage_name": "Moulding",
+              "qc_result": "Pass",
+              "inspector": "Inspector-1",
+              "defects_found": 0,
+              "remarks": "OK",
+              "checked_at": "2026-02-13 16:15:00",
+              "qc_code": "QC-0006-04-00023"
+            },
+            {
+              "stage_name": "3D Printing",
+              "qc_result": "Pass",
+              "inspector": "Inspector-3",
+              "defects_found": 0,
+              "remarks": "OK",
+              "checked_at": "2026-02-12 16:10:00",
+              "qc_code": "QC-0006-03-00022"
+            },
+            {
+              "stage_name": "Camera",
+              "qc_result": "Pass",
+              "inspector": "Inspector-2",
+              "defects_found": 0,
+              "remarks": "OK",
+              "checked_at": "2026-02-11 16:05:00",
+              "qc_code": "QC-0006-02-00021"
+            },
+            {
+              "stage_name": "CAD Design",
+              "qc_result": "Pass",
+              "inspector": "Inspector-1",
+              "defects_found": 0,
+              "remarks": "OK",
+              "checked_at": "2026-02-10 16:00:00",
+              "qc_code": "QC-0006-01-00020"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order_code": "007",
+      "supplier_name": "",
+      "customer_name": "Gem Street",
+      "order_category": "",
+      "order_purpose": "",
+      "order_note": "",
+      "order_date": "",
+      "order_placed_date": "11-02-2026",
+      "due_date": "28-02-2026",
+      "created_at": "2026-02-11 09:40:00",
+      "articles": [
+        {
+          "article_number": "A700",
+          "item_name": "",
+          "material": "",
+          "item_weight": "",
+          "size": "",
+          "colours": "",
+          "quantity": 175,
+          "stage_progress": [
+            {
+              "stage_name": "CAD Design",
+              "status": "Completed",
+              "note": "Completed",
+              "updated_at": "2026-02-10 10:00:00"
+            },
+            {
+              "stage_name": "Camera",
+              "status": "Completed",
+              "note": "Completed",
+              "updated_at": "2026-02-11 10:07:00"
+            },
+            {
+              "stage_name": "3D Printing",
+              "status": "Completed",
+              "note": "Completed",
+              "updated_at": "2026-02-12 10:14:00"
+            },
+            {
+              "stage_name": "Moulding",
+              "status": "Completed",
+              "note": "Completed",
+              "updated_at": "2026-02-13 10:21:00"
+            },
+            {
+              "stage_name": "Production",
+              "status": "Completed",
+              "note": "Completed",
+              "updated_at": "2026-02-14 10:28:00"
+            },
+            {
+              "stage_name": "Filing Unwanted Material",
+              "status": "Completed",
+              "note": "Completed",
+              "updated_at": "2026-02-15 10:35:00"
+            },
+            {
+              "stage_name": "Painting",
+              "status": "In Progress",
+              "note": "Paint touch-up",
+              "updated_at": "2026-02-16 10:42:00"
+            },
+            {
+              "stage_name": "Stone Work (If Needed)",
+              "status": "In Progress",
+              "note": "",
+              "updated_at": "2026-02-17 10:49:00"
+            },
+            {
+              "stage_name": "Packing Finished Product",
+              "status": "In Progress",
+              "note": "",
+              "updated_at": "2026-02-18 10:56:00"
+            }
+          ],
+          "quality_checks": [
+            {
+              "stage_name": "Painting",
+              "qc_result": "Rework",
+              "inspector": "Inspector-1",
+              "defects_found": 1,
+              "remarks": "Reworked and updated",
+              "checked_at": "2026-02-16 16:30:00",
+              "qc_code": "QC-0007-07-00032"
+            },
+            {
+              "stage_name": "Filing Unwanted Material",
+              "qc_result": "Pass",
+              "inspector": "Inspector-3",
+              "defects_found": 0,
+              "remarks": "OK",
+              "checked_at": "2026-02-15 16:25:00",
+              "qc_code": "QC-0007-06-00031"
+            },
+            {
+              "stage_name": "Production",
+              "qc_result": "Pass",
+              "inspector": "Inspector-2",
+              "defects_found": 0,
+              "remarks": "OK",
+              "checked_at": "2026-02-14 16:20:00",
+              "qc_code": "QC-0007-05-00030"
+            },
+            {
+              "stage_name": "Moulding",
+              "qc_result": "Pass",
+              "inspector": "Inspector-1",
+              "defects_found": 0,
+              "remarks": "OK",
+              "checked_at": "2026-02-13 16:15:00",
+              "qc_code": "QC-0007-04-00029"
+            },
+            {
+              "stage_name": "3D Printing",
+              "qc_result": "Pass",
+              "inspector": "Inspector-3",
+              "defects_found": 0,
+              "remarks": "OK",
+              "checked_at": "2026-02-12 16:10:00",
+              "qc_code": "QC-0007-03-00028"
+            },
+            {
+              "stage_name": "Camera",
+              "qc_result": "Pass",
+              "inspector": "Inspector-2",
+              "defects_found": 0,
+              "remarks": "OK",
+              "checked_at": "2026-02-11 16:05:00",
+              "qc_code": "QC-0007-02-00027"
+            },
+            {
+              "stage_name": "CAD Design",
+              "qc_result": "Pass",
+              "inspector": "Inspector-1",
+              "defects_found": 0,
+              "remarks": "OK",
+              "checked_at": "2026-02-10 16:00:00",
+              "qc_code": "QC-0007-01-00026"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order_code": "008",
+      "supplier_name": "",
+      "customer_name": "Halo Works",
+      "order_category": "",
+      "order_purpose": "",
+      "order_note": "",
+      "order_date": "",
+      "order_placed_date": "12-02-2026",
+      "due_date": "01-03-2026",
+      "created_at": "2026-02-12 09:45:00",
+      "articles": [
+        {
+          "article_number": "A800",
+          "item_name": "",
+          "material": "",
+          "item_weight": "",
+          "size": "",
+          "colours": "",
+          "quantity": 130,
+          "stage_progress": [
+            {
+              "stage_name": "CAD Design",
+              "status": "Completed",
+              "note": "Completed",
+              "updated_at": "2026-02-10 10:00:00"
+            },
+            {
+              "stage_name": "Camera",
+              "status": "Completed",
+              "note": "Completed",
+              "updated_at": "2026-02-11 10:07:00"
+            },
+            {
+              "stage_name": "3D Printing",
+              "status": "Completed",
+              "note": "Completed",
+              "updated_at": "2026-02-12 10:14:00"
+            },
+            {
+              "stage_name": "Moulding",
+              "status": "Completed",
+              "note": "Completed",
+              "updated_at": "2026-02-13 10:21:00"
+            },
+            {
+              "stage_name": "Production",
+              "status": "Completed",
+              "note": "Completed",
+              "updated_at": "2026-02-14 10:28:00"
+            },
+            {
+              "stage_name": "Filing Unwanted Material",
+              "status": "Completed",
+              "note": "Completed",
+              "updated_at": "2026-02-15 10:35:00"
+            },
+            {
+              "stage_name": "Painting",
+              "status": "Completed",
+              "note": "Completed",
+              "updated_at": "2026-02-16 10:42:00"
+            },
+            {
+              "stage_name": "Stone Work (If Needed)",
+              "status": "In Progress",
+              "note": "Stone fitting",
+              "updated_at": "2026-02-17 10:49:00"
+            },
+            {
+              "stage_name": "Packing Finished Product",
+              "status": "In Progress",
+              "note": "",
+              "updated_at": "2026-02-18 10:56:00"
+            }
+          ],
+          "quality_checks": [
+            {
+              "stage_name": "Stone Work (If Needed)",
+              "qc_result": "Pass",
+              "inspector": "Inspector-2",
+              "defects_found": 0,
+              "remarks": "OK",
+              "checked_at": "2026-02-17 16:35:00",
+              "qc_code": "QC-0008-08-00040"
+            },
+            {
+              "stage_name": "Painting",
+              "qc_result": "Pass",
+              "inspector": "Inspector-1",
+              "defects_found": 0,
+              "remarks": "OK",
+              "checked_at": "2026-02-16 16:30:00",
+              "qc_code": "QC-0008-07-00039"
+            },
+            {
+              "stage_name": "Filing Unwanted Material",
+              "qc_result": "Pass",
+              "inspector": "Inspector-3",
+              "defects_found": 0,
+              "remarks": "OK",
+              "checked_at": "2026-02-15 16:25:00",
+              "qc_code": "QC-0008-06-00038"
+            },
+            {
+              "stage_name": "Production",
+              "qc_result": "Pass",
+              "inspector": "Inspector-2",
+              "defects_found": 0,
+              "remarks": "OK",
+              "checked_at": "2026-02-14 16:20:00",
+              "qc_code": "QC-0008-05-00037"
+            },
+            {
+              "stage_name": "Moulding",
+              "qc_result": "Pass",
+              "inspector": "Inspector-1",
+              "defects_found": 0,
+              "remarks": "OK",
+              "checked_at": "2026-02-13 16:15:00",
+              "qc_code": "QC-0008-04-00036"
+            },
+            {
+              "stage_name": "3D Printing",
+              "qc_result": "Pass",
+              "inspector": "Inspector-3",
+              "defects_found": 0,
+              "remarks": "OK",
+              "checked_at": "2026-02-12 16:10:00",
+              "qc_code": "QC-0008-03-00035"
+            },
+            {
+              "stage_name": "Camera",
+              "qc_result": "Pass",
+              "inspector": "Inspector-2",
+              "defects_found": 0,
+              "remarks": "OK",
+              "checked_at": "2026-02-11 16:05:00",
+              "qc_code": "QC-0008-02-00034"
+            },
+            {
+              "stage_name": "CAD Design",
+              "qc_result": "Pass",
+              "inspector": "Inspector-1",
+              "defects_found": 0,
+              "remarks": "OK",
+              "checked_at": "2026-02-10 16:00:00",
+              "qc_code": "QC-0008-01-00033"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order_code": "009",
+      "supplier_name": "",
+      "customer_name": "Ivy Metals",
+      "order_category": "",
+      "order_purpose": "",
+      "order_note": "",
+      "order_date": "",
+      "order_placed_date": "13-02-2026",
+      "due_date": "26-02-2026",
+      "created_at": "2026-02-13 09:50:00",
+      "articles": [
+        {
+          "article_number": "A900",
+          "item_name": "",
+          "material": "",
+          "item_weight": "",
+          "size": "",
+          "colours": "",
+          "quantity": 160,
+          "stage_progress": [
+            {
+              "stage_name": "CAD Design",
+              "status": "Completed",
+              "note": "Completed",
+              "updated_at": "2026-02-10 10:00:00"
+            },
+            {
+              "stage_name": "Camera",
+              "status": "Completed",
+              "note": "Completed",
+              "updated_at": "2026-02-11 10:07:00"
+            },
+            {
+              "stage_name": "3D Printing",
+              "status": "Completed",
+              "note": "Completed",
+              "updated_at": "2026-02-12 10:14:00"
+            },
+            {
+              "stage_name": "Moulding",
+              "status": "Completed",
+              "note": "Completed",
+              "updated_at": "2026-02-13 10:21:00"
+            },
+            {
+              "stage_name": "Production",
+              "status": "Completed",
+              "note": "Completed",
+              "updated_at": "2026-02-14 10:28:00"
+            },
+            {
+              "stage_name": "Filing Unwanted Material",
+              "status": "Completed",
+              "note": "Completed",
+              "updated_at": "2026-02-15 10:35:00"
+            },
+            {
+              "stage_name": "Painting",
+              "status": "Completed",
+              "note": "Completed",
+              "updated_at": "2026-02-16 10:42:00"
+            },
+            {
+              "stage_name": "Stone Work (If Needed)",
+              "status": "Completed",
+              "note": "Completed",
+              "updated_at": "2026-02-17 10:49:00"
+            },
+            {
+              "stage_name": "Packing Finished Product",
+              "status": "In Progress",
+              "note": "soon",
+              "updated_at": "2026-02-26 14:21:39"
+            }
+          ],
+          "quality_checks": [
+            {
+              "stage_name": "Packing Finished Product",
+              "qc_result": "Fail",
+              "inspector": "Inspector-3",
+              "defects_found": 2,
+              "remarks": "Needs correction",
+              "checked_at": "2026-02-18 16:40:00",
+              "qc_code": "QC-0009-09-00049"
+            },
+            {
+              "stage_name": "Stone Work (If Needed)",
+              "qc_result": "Pass",
+              "inspector": "Inspector-2",
+              "defects_found": 0,
+              "remarks": "OK",
+              "checked_at": "2026-02-17 16:35:00",
+              "qc_code": "QC-0009-08-00048"
+            },
+            {
+              "stage_name": "Painting",
+              "qc_result": "Pass",
+              "inspector": "Inspector-1",
+              "defects_found": 0,
+              "remarks": "OK",
+              "checked_at": "2026-02-16 16:30:00",
+              "qc_code": "QC-0009-07-00047"
+            },
+            {
+              "stage_name": "Filing Unwanted Material",
+              "qc_result": "Pass",
+              "inspector": "Inspector-3",
+              "defects_found": 0,
+              "remarks": "OK",
+              "checked_at": "2026-02-15 16:25:00",
+              "qc_code": "QC-0009-06-00046"
+            },
+            {
+              "stage_name": "Production",
+              "qc_result": "Pass",
+              "inspector": "Inspector-2",
+              "defects_found": 0,
+              "remarks": "OK",
+              "checked_at": "2026-02-14 16:20:00",
+              "qc_code": "QC-0009-05-00045"
+            },
+            {
+              "stage_name": "Moulding",
+              "qc_result": "Pass",
+              "inspector": "Inspector-1",
+              "defects_found": 0,
+              "remarks": "OK",
+              "checked_at": "2026-02-13 16:15:00",
+              "qc_code": "QC-0009-04-00044"
+            },
+            {
+              "stage_name": "3D Printing",
+              "qc_result": "Pass",
+              "inspector": "Inspector-3",
+              "defects_found": 0,
+              "remarks": "OK",
+              "checked_at": "2026-02-12 16:10:00",
+              "qc_code": "QC-0009-03-00043"
+            },
+            {
+              "stage_name": "Camera",
+              "qc_result": "Pass",
+              "inspector": "Inspector-2",
+              "defects_found": 0,
+              "remarks": "OK",
+              "checked_at": "2026-02-11 16:05:00",
+              "qc_code": "QC-0009-02-00042"
+            },
+            {
+              "stage_name": "CAD Design",
+              "qc_result": "Pass",
+              "inspector": "Inspector-1",
+              "defects_found": 0,
+              "remarks": "OK",
+              "checked_at": "2026-02-10 16:00:00",
+              "qc_code": "QC-0009-01-00041"
+            }
+          ]
+        },
+        {
+          "article_number": "A901",
+          "item_name": "",
+          "material": "",
+          "item_weight": "",
+          "size": "",
+          "colours": "",
+          "quantity": 85,
+          "stage_progress": [
+            {
+              "stage_name": "CAD Design",
+              "status": "Completed",
+              "note": "Completed",
+              "updated_at": "2026-02-10 10:00:00"
+            },
+            {
+              "stage_name": "Camera",
+              "status": "Completed",
+              "note": "Completed",
+              "updated_at": "2026-02-11 10:07:00"
+            },
+            {
+              "stage_name": "3D Printing",
+              "status": "Completed",
+              "note": "Completed",
+              "updated_at": "2026-02-12 10:14:00"
+            },
+            {
+              "stage_name": "Moulding",
+              "status": "Completed",
+              "note": "Completed",
+              "updated_at": "2026-02-13 10:21:00"
+            },
+            {
+              "stage_name": "Production",
+              "status": "Completed",
+              "note": "Completed",
+              "updated_at": "2026-02-14 10:28:00"
+            },
+            {
+              "stage_name": "Filing Unwanted Material",
+              "status": "Completed",
+              "note": "Completed",
+              "updated_at": "2026-02-15 10:35:00"
+            },
+            {
+              "stage_name": "Painting",
+              "status": "Completed",
+              "note": "Completed",
+              "updated_at": "2026-02-16 10:42:00"
+            },
+            {
+              "stage_name": "Stone Work (If Needed)",
+              "status": "Blocked",
+              "note": "delay",
+              "updated_at": "2026-02-26 14:23:05"
+            },
+            {
+              "stage_name": "Packing Finished Product",
+              "status": "Blocked",
+              "note": "Awaiting carton",
+              "updated_at": "2026-02-26 11:22:13"
+            }
+          ],
+          "quality_checks": [
+            {
+              "stage_name": "Packing Finished Product",
+              "qc_result": "Pending",
+              "inspector": "",
+              "defects_found": 0,
+              "remarks": "",
+              "checked_at": "2026-02-18 16:40:00",
+              "qc_code": "QC-0009-09-00058"
+            },
+            {
+              "stage_name": "Stone Work (If Needed)",
+              "qc_result": "Pass",
+              "inspector": "Inspector-2",
+              "defects_found": 0,
+              "remarks": "OK",
+              "checked_at": "2026-02-17 16:35:00",
+              "qc_code": "QC-0009-08-00057"
+            },
+            {
+              "stage_name": "Painting",
+              "qc_result": "Pass",
+              "inspector": "Inspector-1",
+              "defects_found": 0,
+              "remarks": "OK",
+              "checked_at": "2026-02-16 16:30:00",
+              "qc_code": "QC-0009-07-00056"
+            },
+            {
+              "stage_name": "Filing Unwanted Material",
+              "qc_result": "Pass",
+              "inspector": "Inspector-3",
+              "defects_found": 0,
+              "remarks": "OK",
+              "checked_at": "2026-02-15 16:25:00",
+              "qc_code": "QC-0009-06-00055"
+            },
+            {
+              "stage_name": "Production",
+              "qc_result": "Pass",
+              "inspector": "Inspector-2",
+              "defects_found": 0,
+              "remarks": "OK",
+              "checked_at": "2026-02-14 16:20:00",
+              "qc_code": "QC-0009-05-00054"
+            },
+            {
+              "stage_name": "Moulding",
+              "qc_result": "Pass",
+              "inspector": "Inspector-1",
+              "defects_found": 0,
+              "remarks": "OK",
+              "checked_at": "2026-02-13 16:15:00",
+              "qc_code": "QC-0009-04-00053"
+            },
+            {
+              "stage_name": "3D Printing",
+              "qc_result": "Pass",
+              "inspector": "Inspector-3",
+              "defects_found": 0,
+              "remarks": "OK",
+              "checked_at": "2026-02-12 16:10:00",
+              "qc_code": "QC-0009-03-00052"
+            },
+            {
+              "stage_name": "Camera",
+              "qc_result": "Pass",
+              "inspector": "Inspector-2",
+              "defects_found": 0,
+              "remarks": "OK",
+              "checked_at": "2026-02-11 16:05:00",
+              "qc_code": "QC-0009-02-00051"
+            },
+            {
+              "stage_name": "CAD Design",
+              "qc_result": "Pass",
+              "inspector": "Inspector-1",
+              "defects_found": 0,
+              "remarks": "OK",
+              "checked_at": "2026-02-10 16:00:00",
+              "qc_code": "QC-0009-01-00050"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order_code": "010",
+      "supplier_name": "",
+      "customer_name": "Jade Point",
+      "order_category": "",
+      "order_purpose": "",
+      "order_note": "",
+      "order_date": "",
+      "order_placed_date": "14-02-2026",
+      "due_date": "10-03-2026",
+      "created_at": "2026-02-14 09:55:00",
+      "articles": [
+        {
+          "article_number": "A1000",
+          "item_name": "",
+          "material": "",
+          "item_weight": "",
+          "size": "",
+          "colours": "",
+          "quantity": 220,
+          "stage_progress": [
+            {
+              "stage_name": "CAD Design",
+              "status": "Completed",
+              "note": "Completed",
+              "updated_at": "2026-02-10 10:00:00"
+            },
+            {
+              "stage_name": "Camera",
+              "status": "Completed",
+              "note": "Completed",
+              "updated_at": "2026-02-11 10:07:00"
+            },
+            {
+              "stage_name": "3D Printing",
+              "status": "Completed",
+              "note": "Completed",
+              "updated_at": "2026-02-12 10:14:00"
+            },
+            {
+              "stage_name": "Moulding",
+              "status": "Completed",
+              "note": "Completed",
+              "updated_at": "2026-02-13 10:21:00"
+            },
+            {
+              "stage_name": "Production",
+              "status": "Completed",
+              "note": "Completed",
+              "updated_at": "2026-02-14 10:28:00"
+            },
+            {
+              "stage_name": "Filing Unwanted Material",
+              "status": "Completed",
+              "note": "Completed",
+              "updated_at": "2026-02-15 10:35:00"
+            },
+            {
+              "stage_name": "Painting",
+              "status": "Completed",
+              "note": "Completed",
+              "updated_at": "2026-02-16 10:42:00"
+            },
+            {
+              "stage_name": "Stone Work (If Needed)",
+              "status": "Completed",
+              "note": "Completed",
+              "updated_at": "2026-02-26 14:37:48"
+            },
+            {
+              "stage_name": "Packing Finished Product",
+              "status": "Completed",
+              "note": "completed",
+              "updated_at": "2026-02-26 15:18:15"
+            }
+          ],
+          "quality_checks": [
+            {
+              "stage_name": "Packing Finished Product",
+              "qc_result": "Pass",
+              "inspector": "Inspector-3",
+              "defects_found": 0,
+              "remarks": "OK",
+              "checked_at": "2026-02-18 16:40:00",
+              "qc_code": "QC-0010-09-00067"
+            },
+            {
+              "stage_name": "Stone Work (If Needed)",
+              "qc_result": "Pass",
+              "inspector": "Inspector-2",
+              "defects_found": 0,
+              "remarks": "OK",
+              "checked_at": "2026-02-17 16:35:00",
+              "qc_code": "QC-0010-08-00066"
+            },
+            {
+              "stage_name": "Painting",
+              "qc_result": "Pass",
+              "inspector": "Inspector-1",
+              "defects_found": 0,
+              "remarks": "OK",
+              "checked_at": "2026-02-16 16:30:00",
+              "qc_code": "QC-0010-07-00065"
+            },
+            {
+              "stage_name": "Filing Unwanted Material",
+              "qc_result": "Pass",
+              "inspector": "Inspector-3",
+              "defects_found": 0,
+              "remarks": "OK",
+              "checked_at": "2026-02-15 16:25:00",
+              "qc_code": "QC-0010-06-00064"
+            },
+            {
+              "stage_name": "Production",
+              "qc_result": "Pass",
+              "inspector": "Inspector-2",
+              "defects_found": 0,
+              "remarks": "OK",
+              "checked_at": "2026-02-14 16:20:00",
+              "qc_code": "QC-0010-05-00063"
+            },
+            {
+              "stage_name": "Moulding",
+              "qc_result": "Pass",
+              "inspector": "Inspector-1",
+              "defects_found": 0,
+              "remarks": "OK",
+              "checked_at": "2026-02-13 16:15:00",
+              "qc_code": "QC-0010-04-00062"
+            },
+            {
+              "stage_name": "3D Printing",
+              "qc_result": "Pass",
+              "inspector": "Inspector-3",
+              "defects_found": 0,
+              "remarks": "OK",
+              "checked_at": "2026-02-12 16:10:00",
+              "qc_code": "QC-0010-03-00061"
+            },
+            {
+              "stage_name": "Camera",
+              "qc_result": "Pass",
+              "inspector": "Inspector-2",
+              "defects_found": 0,
+              "remarks": "OK",
+              "checked_at": "2026-02-11 16:05:00",
+              "qc_code": "QC-0010-02-00060"
+            },
+            {
+              "stage_name": "CAD Design",
+              "qc_result": "Pass",
+              "inspector": "Inspector-1",
+              "defects_found": 0,
+              "remarks": "OK",
+              "checked_at": "2026-02-10 16:00:00",
+              "qc_code": "QC-0010-01-00059"
+            }
+          ]
+        },
+        {
+          "article_number": "A1001",
+          "item_name": "",
+          "material": "",
+          "item_weight": "",
+          "size": "",
+          "colours": "",
+          "quantity": 95,
+          "stage_progress": [
+            {
+              "stage_name": "CAD Design",
+              "status": "Completed",
+              "note": "Completed",
+              "updated_at": "2026-02-10 10:00:00"
+            },
+            {
+              "stage_name": "Camera",
+              "status": "Completed",
+              "note": "Completed",
+              "updated_at": "2026-02-11 10:07:00"
+            },
+            {
+              "stage_name": "3D Printing",
+              "status": "Completed",
+              "note": "Completed",
+              "updated_at": "2026-02-12 10:14:00"
+            },
+            {
+              "stage_name": "Moulding",
+              "status": "Completed",
+              "note": "Completed",
+              "updated_at": "2026-02-13 10:21:00"
+            },
+            {
+              "stage_name": "Production",
+              "status": "Completed",
+              "note": "Completed",
+              "updated_at": "2026-02-14 10:28:00"
+            },
+            {
+              "stage_name": "Filing Unwanted Material",
+              "status": "Completed",
+              "note": "Completed",
+              "updated_at": "2026-02-15 10:35:00"
+            },
+            {
+              "stage_name": "Painting",
+              "status": "Completed",
+              "note": "Completed",
+              "updated_at": "2026-02-16 10:42:00"
+            },
+            {
+              "stage_name": "Stone Work (If Needed)",
+              "status": "Completed",
+              "note": "Completed",
+              "updated_at": "2026-02-17 10:49:00"
+            },
+            {
+              "stage_name": "Packing Finished Product",
+              "status": "Completed",
+              "note": "completed",
+              "updated_at": "2026-02-26 15:18:26"
+            }
+          ],
+          "quality_checks": [
+            {
+              "stage_name": "Packing Finished Product",
+              "qc_result": "Pass",
+              "inspector": "Inspector-3",
+              "defects_found": 0,
+              "remarks": "OK",
+              "checked_at": "2026-02-18 16:40:00",
+              "qc_code": "QC-0010-09-00076"
+            },
+            {
+              "stage_name": "Stone Work (If Needed)",
+              "qc_result": "Pass",
+              "inspector": "Inspector-2",
+              "defects_found": 0,
+              "remarks": "OK",
+              "checked_at": "2026-02-17 16:35:00",
+              "qc_code": "QC-0010-08-00075"
+            },
+            {
+              "stage_name": "Painting",
+              "qc_result": "Pass",
+              "inspector": "Inspector-1",
+              "defects_found": 0,
+              "remarks": "OK",
+              "checked_at": "2026-02-16 16:30:00",
+              "qc_code": "QC-0010-07-00074"
+            },
+            {
+              "stage_name": "Filing Unwanted Material",
+              "qc_result": "Pass",
+              "inspector": "Inspector-3",
+              "defects_found": 0,
+              "remarks": "OK",
+              "checked_at": "2026-02-15 16:25:00",
+              "qc_code": "QC-0010-06-00073"
+            },
+            {
+              "stage_name": "Production",
+              "qc_result": "Pass",
+              "inspector": "Inspector-2",
+              "defects_found": 0,
+              "remarks": "OK",
+              "checked_at": "2026-02-14 16:20:00",
+              "qc_code": "QC-0010-05-00072"
+            },
+            {
+              "stage_name": "Moulding",
+              "qc_result": "Pass",
+              "inspector": "Inspector-1",
+              "defects_found": 0,
+              "remarks": "OK",
+              "checked_at": "2026-02-13 16:15:00",
+              "qc_code": "QC-0010-04-00071"
+            },
+            {
+              "stage_name": "3D Printing",
+              "qc_result": "Pass",
+              "inspector": "Inspector-3",
+              "defects_found": 0,
+              "remarks": "OK",
+              "checked_at": "2026-02-12 16:10:00",
+              "qc_code": "QC-0010-03-00070"
+            },
+            {
+              "stage_name": "Camera",
+              "qc_result": "Pass",
+              "inspector": "Inspector-2",
+              "defects_found": 0,
+              "remarks": "OK",
+              "checked_at": "2026-02-11 16:05:00",
+              "qc_code": "QC-0010-02-00069"
+            },
+            {
+              "stage_name": "CAD Design",
+              "qc_result": "Pass",
+              "inspector": "Inspector-1",
+              "defects_found": 0,
+              "remarks": "OK",
+              "checked_at": "2026-02-10 16:00:00",
+              "qc_code": "QC-0010-01-00068"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order_code": "1",
+      "supplier_name": "",
+      "customer_name": "aqwe",
+      "order_category": "",
+      "order_purpose": "",
+      "order_note": "",
+      "order_date": "",
+      "order_placed_date": "20-02-2026",
+      "due_date": "24-02-2026",
+      "created_at": "2026-02-26 16:44:42",
+      "articles": [
+        {
+          "article_number": "ACC-114051",
+          "item_name": "",
+          "material": "",
+          "item_weight": "",
+          "size": "",
+          "colours": "",
+          "quantity": 6,
+          "stage_progress": [
+            {
+              "stage_name": "CAD Design",
+              "status": "Completed",
+              "note": "",
+              "updated_at": "2026-02-26 16:50:57"
+            },
+            {
+              "stage_name": "Camera",
+              "status": "Completed",
+              "note": "",
+              "updated_at": "2026-02-26 16:50:58"
+            },
+            {
+              "stage_name": "3D Printing",
+              "status": "In Progress",
+              "note": "",
+              "updated_at": "2026-02-26 16:44:42"
+            },
+            {
+              "stage_name": "Moulding",
+              "status": "In Progress",
+              "note": "",
+              "updated_at": "2026-02-26 16:44:42"
+            },
+            {
+              "stage_name": "Production",
+              "status": "In Progress",
+              "note": "",
+              "updated_at": "2026-02-26 16:44:42"
+            },
+            {
+              "stage_name": "Filing Unwanted Material",
+              "status": "In Progress",
+              "note": "",
+              "updated_at": "2026-02-26 16:44:42"
+            },
+            {
+              "stage_name": "Painting",
+              "status": "In Progress",
+              "note": "",
+              "updated_at": "2026-02-26 16:44:42"
+            },
+            {
+              "stage_name": "Stone Work (If Needed)",
+              "status": "In Progress",
+              "note": "",
+              "updated_at": "2026-02-26 16:44:42"
+            },
+            {
+              "stage_name": "Packing Finished Product",
+              "status": "In Progress",
+              "note": "",
+              "updated_at": "2026-02-26 16:44:42"
+            }
+          ],
+          "quality_checks": [
+            {
+              "stage_name": "Packing Finished Product",
+              "qc_result": "Pass",
+              "inspector": "",
+              "defects_found": 0,
+              "remarks": "",
+              "checked_at": "2026-02-26 16:50:49",
+              "qc_code": "QC-0011-09-00085"
+            },
+            {
+              "stage_name": "Filing Unwanted Material",
+              "qc_result": "Pass",
+              "inspector": "",
+              "defects_found": 0,
+              "remarks": "",
+              "checked_at": "2026-02-26 16:50:44",
+              "qc_code": "QC-0011-06-00082"
+            },
+            {
+              "stage_name": "Painting",
+              "qc_result": "Pass",
+              "inspector": "",
+              "defects_found": 0,
+              "remarks": "",
+              "checked_at": "2026-02-26 16:50:44",
+              "qc_code": "QC-0011-07-00083"
+            },
+            {
+              "stage_name": "Stone Work (If Needed)",
+              "qc_result": "Pass",
+              "inspector": "",
+              "defects_found": 0,
+              "remarks": "",
+              "checked_at": "2026-02-26 16:50:44",
+              "qc_code": "QC-0011-08-00084"
+            },
+            {
+              "stage_name": "Camera",
+              "qc_result": "Pass",
+              "inspector": "",
+              "defects_found": 0,
+              "remarks": "",
+              "checked_at": "2026-02-26 16:50:43",
+              "qc_code": "QC-0011-02-00078"
+            },
+            {
+              "stage_name": "3D Printing",
+              "qc_result": "Pass",
+              "inspector": "",
+              "defects_found": 0,
+              "remarks": "",
+              "checked_at": "2026-02-26 16:50:43",
+              "qc_code": "QC-0011-03-00079"
+            },
+            {
+              "stage_name": "Moulding",
+              "qc_result": "Pass",
+              "inspector": "",
+              "defects_found": 0,
+              "remarks": "",
+              "checked_at": "2026-02-26 16:50:43",
+              "qc_code": "QC-0011-04-00080"
+            },
+            {
+              "stage_name": "Production",
+              "qc_result": "Pass",
+              "inspector": "",
+              "defects_found": 0,
+              "remarks": "",
+              "checked_at": "2026-02-26 16:50:43",
+              "qc_code": "QC-0011-05-00081"
+            },
+            {
+              "stage_name": "CAD Design",
+              "qc_result": "Pass",
+              "inspector": "",
+              "defects_found": 0,
+              "remarks": "",
+              "checked_at": "2026-02-26 16:50:42",
+              "qc_code": "QC-0011-01-00077"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "order_code": "ACC-114052",
+      "supplier_name": "",
+      "customer_name": "rfvfgvubvu",
+      "order_category": "",
+      "order_purpose": "",
+      "order_note": "",
+      "order_date": "",
+      "order_placed_date": "26-02-2026",
+      "due_date": "22-03-2026",
+      "created_at": "2026-02-26 17:14:18",
+      "articles": [
+        {
+          "article_number": "A2299",
+          "item_name": "",
+          "material": "",
+          "item_weight": "",
+          "size": "",
+          "colours": "",
+          "quantity": 200,
+          "stage_progress": [
+            {
+              "stage_name": "CAD Design",
+              "status": "Completed",
+              "note": "",
+              "updated_at": "2026-02-26 18:12:34"
+            },
+            {
+              "stage_name": "Camera",
+              "status": "Completed",
+              "note": "",
+              "updated_at": "2026-02-26 18:12:35"
+            },
+            {
+              "stage_name": "3D Printing",
+              "status": "Completed",
+              "note": "",
+              "updated_at": "2026-02-26 18:12:37"
+            },
+            {
+              "stage_name": "Moulding",
+              "status": "Blocked",
+              "note": "mould failure",
+              "updated_at": "2026-02-26 18:13:10"
+            },
+            {
+              "stage_name": "Production",
+              "status": "In Progress",
+              "note": "",
+              "updated_at": "2026-02-26 17:14:18"
+            },
+            {
+              "stage_name": "Filing Unwanted Material",
+              "status": "In Progress",
+              "note": "",
+              "updated_at": "2026-02-26 17:14:18"
+            },
+            {
+              "stage_name": "Painting",
+              "status": "In Progress",
+              "note": "",
+              "updated_at": "2026-02-26 17:14:18"
+            },
+            {
+              "stage_name": "Stone Work (If Needed)",
+              "status": "In Progress",
+              "note": "",
+              "updated_at": "2026-02-26 17:14:18"
+            },
+            {
+              "stage_name": "Packing Finished Product",
+              "status": "In Progress",
+              "note": "",
+              "updated_at": "2026-02-26 17:14:18"
+            }
+          ],
+          "quality_checks": []
+        }
+      ]
+    }
+  ]
+}

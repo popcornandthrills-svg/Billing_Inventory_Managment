@@ -1,0 +1,149 @@
+# item_summary_report.py
+
+import os
+import json
+import re
+from collections import defaultdict
+from utils import app_dir
+
+# ================= PATH =================
+BASE_DIR = app_dir()
+DATA_DIR = os.path.join(BASE_DIR, "data")
+
+PURCHASE_FILE = os.path.join(DATA_DIR, "purchase.json")
+SALES_FILE = os.path.join(DATA_DIR, "sales.json")
+INVENTORY_FILE = os.path.join(DATA_DIR, "inventory.json")
+
+
+# ================= LOAD HELPERS =================
+def load_json(path):
+    if not os.path.exists(path):
+        return {} if path == INVENTORY_FILE else []
+    with open(path, "r", encoding="utf-8") as f:
+        try:
+            return json.load(f)
+        except:
+            return {} if path == INVENTORY_FILE else []
+
+
+def to_float(value):
+    try:
+        return float(value)
+    except (TypeError, ValueError):
+        return 0.0
+
+
+def normalize_item_name(value):
+    text = str(value or "").strip().lower()
+    return re.sub(r"[^a-z0-9]+", "", text)
+
+
+def find_existing_key(summary, normalized_name):
+    if normalized_name in summary:
+        return normalized_name
+
+    for key in summary.keys():
+        if normalized_name in key or key in normalized_name:
+            return key
+    return normalized_name
+
+
+# ================= MAIN REPORT FUNCTION =================
+def get_item_summary_report():
+    purchases = load_json(PURCHASE_FILE)
+    sales = load_json(SALES_FILE)
+    inventory = load_json(INVENTORY_FILE)
+
+    summary = defaultdict(lambda: {
+        "label": "",
+        "purchase_qty": 0.0,
+        "purchase_value": 0.0,
+        "sale_qty": 0.0,
+        "sale_value": 0.0,
+        "inventory_qty": 0.0
+    })
+
+    # ===== PURCHASE CALCULATION =====
+    for p in purchases:
+        items = p.get("items", [])
+        for item in items:
+            name = item.get("item") or item.get("name")
+            
+            if not name:
+                continue
+            normalized = normalize_item_name(name)
+            key = find_existing_key(summary, normalized)
+            if not key:
+                continue
+            qty = to_float(item.get("qty", 0))
+            rate = to_float(item.get("rate", 0))
+
+            if not summary[key]["label"]:
+                summary[key]["label"] = str(name).strip()
+
+            summary[key]["purchase_qty"] += qty
+            summary[key]["purchase_value"] += qty * rate
+
+    # ===== SALES CALCULATION =====
+    for s in sales:
+        if s.get("cancelled"):
+            continue
+        items = s.get("items", [])
+        for item in items:
+            name = item.get("item") or item.get("name")
+            if not name:
+                continue
+            normalized = normalize_item_name(name)
+            key = find_existing_key(summary, normalized)
+            if not key:
+                continue
+            qty = to_float(item.get("qty", 0))
+            rate = to_float(item.get("rate", 0))
+
+            if not summary[key]["label"]:
+                summary[key]["label"] = str(name).strip()
+
+            summary[key]["sale_qty"] += qty
+            summary[key]["sale_value"] += qty * rate
+
+    # ===== INVENTORY QTY (fallback / display label source) =====
+    for item_name, data in inventory.items():
+        normalized = normalize_item_name(item_name)
+        key = find_existing_key(summary, normalized)
+        if not key:
+            continue
+        summary[key]["label"] = str(item_name).strip()
+        summary[key]["inventory_qty"] = to_float(data.get("stock", 0))
+
+    # ===== FINAL FORMAT =====
+    report_rows = []
+
+    labels = {k: (v["label"] or k) for k, v in summary.items()}
+    for key in sorted(summary.keys(), key=lambda k: labels[k].lower()):
+        data = summary[key]
+        purchase_qty = data["purchase_qty"]
+        purchase_value = data["purchase_value"]
+        sale_qty = data["sale_qty"]
+        sale_value = data["sale_value"]
+
+        # Weighted average purchase price:
+        # (sum(qty * rate)) / sum(qty)
+        weighted_purchase_price = round(purchase_value / purchase_qty, 2) if purchase_qty else 0.0
+        selling_price = round(sale_value / sale_qty, 2) if sale_qty else 0.0
+        txn_available_qty = purchase_qty - sale_qty
+
+        # Keep inventory-only rows useful:
+        # if no purchase/sale movement exists for this item key, show inventory qty.
+        if purchase_qty == 0 and sale_qty == 0:
+            available_qty = data["inventory_qty"]
+        else:
+            available_qty = txn_available_qty
+
+        report_rows.append({
+            "item": data["label"] or key,
+            "available_qty": round(available_qty, 2),
+            "purchase_price": weighted_purchase_price,
+            "selling_price": selling_price
+        })
+
+    return report_rows

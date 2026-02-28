@@ -1,0 +1,19 @@
+{
+    "signature": {
+        "purchase": {
+            "exists": 1,
+            "size": 37376,
+            "mtime": 1772271513.012307
+        },
+        "sales": {
+            "exists": 1,
+            "size": 43472,
+            "mtime": 1772275352.048614
+        },
+        "inventory": {
+            "exists": 1,
+            "size": 3872,
+            "mtime": 1772275352.0544548
+        }
+    }
+}

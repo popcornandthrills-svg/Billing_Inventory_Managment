@@ -1,0 +1,1413 @@
+[
+  {
+    "timestamp": "2026-01-30 12:51:09",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": {},
+    "after": {}
+  },
+  {
+    "timestamp": "2026-01-30 14:06:15",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": {},
+    "after": {}
+  },
+  {
+    "timestamp": "2026-01-30 14:18:49",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": {},
+    "after": {}
+  },
+  {
+    "timestamp": "2026-01-30 14:19:43",
+    "user": "admin",
+    "module": "invoice",
+    "action": "create",
+    "reference": "INV0043",
+    "before": {},
+    "after": {
+      "customer": "Bharath",
+      "phone": "8978308889",
+      "total": 35.4,
+      "paid": 35.4,
+      "payment_mode": "Cash",
+      "items_count": 1
+    }
+  },
+  {
+    "timestamp": "2026-01-30 14:41:58",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": {},
+    "after": {}
+  },
+  {
+    "timestamp": "2026-01-30 14:56:22",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": {},
+    "after": {}
+  },
+  {
+    "timestamp": "2026-01-30 15:25:26",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": {},
+    "after": {}
+  },
+  {
+    "timestamp": "2026-01-30 17:19:51",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": {},
+    "after": {}
+  },
+  {
+    "timestamp": "2026-01-30 17:46:25",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": {},
+    "after": {}
+  },
+  {
+    "timestamp": "2026-01-30 18:28:37",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": {},
+    "after": {}
+  },
+  {
+    "timestamp": "2026-01-30 18:47:33",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": {},
+    "after": {}
+  },
+  {
+    "timestamp": "2026-01-31 09:01:44",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": {},
+    "after": {}
+  },
+  {
+    "timestamp": "2026-01-31 11:57:29",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": {},
+    "after": {}
+  },
+  {
+    "timestamp": "2026-01-31 15:09:05",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": {},
+    "after": {}
+  },
+  {
+    "timestamp": "2026-01-31 15:31:01",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": {},
+    "after": {}
+  },
+  {
+    "timestamp": "2026-01-31 16:02:46",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": {},
+    "after": {}
+  },
+  {
+    "timestamp": "2026-01-31 16:30:52",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": {},
+    "after": {}
+  },
+  {
+    "timestamp": "2026-01-31 16:36:37",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": {},
+    "after": {}
+  },
+  {
+    "timestamp": "2026-01-31 17:02:22",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": {},
+    "after": {}
+  },
+  {
+    "timestamp": "2026-01-31 18:49:39",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": {},
+    "after": {}
+  },
+  {
+    "timestamp": "2026-02-02 10:43:11",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": {},
+    "after": {}
+  },
+  {
+    "timestamp": "2026-02-02 10:45:00",
+    "user": "admin",
+    "module": "purchase",
+    "action": "create",
+    "reference": "P0005",
+    "before": {},
+    "after": {
+      "supplier": "Chethana Electronics",
+      "total": 4130.0,
+      "paid": 0.0,
+      "due": 4130.0,
+      "items": [
+        {
+          "item": "Mouse",
+          "qty": 10.0,
+          "rate": 350.0
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-02-02 11:12:34",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": {},
+    "after": {}
+  },
+  {
+    "timestamp": "2026-02-02 11:34:00",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": {},
+    "after": {}
+  },
+  {
+    "timestamp": "2026-02-02 11:34:40",
+    "user": "admin",
+    "module": "purchase",
+    "action": "create",
+    "reference": "P0007",
+    "before": {},
+    "after": {
+      "supplier": "Durga Electronics",
+      "total": 649.0,
+      "paid": 0.0,
+      "due": 649.0,
+      "items": [
+        {
+          "item": "lead",
+          "qty": 10.0,
+          "rate": 55.0
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-02-02 11:40:57",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": {},
+    "after": {}
+  },
+  {
+    "timestamp": "2026-02-02 11:41:28",
+    "user": "admin",
+    "module": "purchase",
+    "action": "create",
+    "reference": "P0008",
+    "before": {},
+    "after": {
+      "supplier": "Durga Electronics",
+      "total": 550.0,
+      "paid": 0.0,
+      "due": 550.0,
+      "items": [
+        {
+          "item": "lead",
+          "qty": 10.0,
+          "rate": 55.0
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-02-03 11:23:41",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": {},
+    "after": {}
+  },
+  {
+    "timestamp": "2026-02-03 11:24:58",
+    "user": "admin",
+    "module": "purchase",
+    "action": "create",
+    "reference": "P0009",
+    "before": {},
+    "after": {
+      "supplier": "Sri Rama Traders",
+      "total": 2600.0,
+      "paid": 600.0,
+      "due": 2000.0,
+      "items": [
+        {
+          "item": "Rice",
+          "qty": 100.0,
+          "rate": 26.0
+        }
+      ]
+    }
+  },
+  {
+    "timestamp": "2026-02-03 11:39:40",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": {},
+    "after": {}
+  },
+  {
+    "timestamp": "2026-02-03 11:45:58",
+    "user": "admin",
+    "module": "purchase",
+    "action": "create",
+    "reference": "P0010",
+    "before": {},
+    "after": {
+      "supplier": "Ravi Electronics",
+      "total": 6254.0,
+      "paid": 254.0,
+      "due": 6000.0
+    }
+  },
+  {
+    "timestamp": "2026-02-03 11:49:06",
+    "user": "admin",
+    "module": "cash_ledger",
+    "action": "cash_in",
+    "reference": "INV0044",
+    "before": {},
+    "after": {
+      "date": "2026-02-03",
+      "particulars": "Cash Sale INV0044",
+      "cash_in": 85.0,
+      "cash_out": 0.0,
+      "reference": "INV0044"
+    }
+  },
+  {
+    "timestamp": "2026-02-03 11:49:18",
+    "user": "admin",
+    "module": "cash_ledger",
+    "action": "cash_in",
+    "reference": "INV0045",
+    "before": {},
+    "after": {
+      "date": "2026-02-03",
+      "particulars": "Cash Sale INV0045",
+      "cash_in": 85.0,
+      "cash_out": 0.0,
+      "reference": "INV0045"
+    }
+  },
+  {
+    "timestamp": "2026-02-03 11:49:39",
+    "user": "admin",
+    "module": "cash_ledger",
+    "action": "cash_in",
+    "reference": "INV0046",
+    "before": {},
+    "after": {
+      "date": "2026-02-03",
+      "particulars": "Cash Sale INV0046",
+      "cash_in": 85.0,
+      "cash_out": 0.0,
+      "reference": "INV0046"
+    }
+  },
+  {
+    "timestamp": "2026-02-03 11:57:44",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": null,
+    "after": null
+  },
+  {
+    "timestamp": "2026-02-03 12:06:17",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": null,
+    "after": null
+  },
+  {
+    "user": "admin",
+    "module": "inventory",
+    "action": "stock_reduce",
+    "reference": "Speakers",
+    "before": {
+      "stock": 10.0,
+      "rate": 450.0
+    },
+    "after": {
+      "stock": 9.0,
+      "rate": 450.0
+    },
+    "timestamp": "2026-02-03 12:07:11",
+    "reason": "sale"
+  },
+  {
+    "timestamp": "2026-02-03 12:07:11",
+    "user": "admin",
+    "module": "invoice",
+    "action": "create",
+    "reference": "INV0048",
+    "before": {},
+    "after": {
+      "customer": "vishnu",
+      "phone": "8341298889",
+      "total": 295.0,
+      "paid": 0.0,
+      "payment_mode": "Cash",
+      "items_count": 1
+    }
+  },
+  {
+    "timestamp": "2026-02-03 12:08:40",
+    "user": "admin",
+    "module": "payment",
+    "action": "receive",
+    "reference": "INV0006",
+    "before": {
+      "paid": 50.0,
+      "due": 700.0
+    },
+    "after": {
+      "paid": 750.0,
+      "due": 0.0
+    }
+  },
+  {
+    "timestamp": "2026-02-03 12:37:26",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": null,
+    "after": null
+  },
+  {
+    "timestamp": "2026-02-03 12:38:05",
+    "user": "admin",
+    "module": "payment",
+    "action": "receive",
+    "reference": "INV0008",
+    "before": {
+      "paid": 600.0,
+      "due": 1000.0
+    },
+    "after": {
+      "paid": 1600.0,
+      "due": 0.0
+    }
+  },
+  {
+    "timestamp": "2026-02-03 12:38:05",
+    "user": "admin",
+    "module": "cash_ledger",
+    "action": "cash_in",
+    "reference": "INV0008",
+    "before": {},
+    "after": {
+      "date": "2026-02-03",
+      "particulars": "Customer Payment INV0008",
+      "cash_in": 1000.0,
+      "cash_out": 0.0,
+      "reference": "INV0008"
+    }
+  },
+  {
+    "timestamp": "2026-02-03 12:53:51",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": null,
+    "after": null
+  },
+  {
+    "timestamp": "2026-02-03 13:59:04",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": null,
+    "after": null
+  },
+  {
+    "timestamp": "2026-02-03 13:59:44",
+    "user": "admin",
+    "module": "purchase_payment",
+    "action": "pay",
+    "reference": "P0005",
+    "before": {
+      "paid": 0.0,
+      "due": 4130.0
+    },
+    "after": {
+      "paid": 130.0,
+      "due": 4000.0
+    }
+  },
+  {
+    "timestamp": "2026-02-03 13:59:44",
+    "user": "admin",
+    "module": "cash_ledger",
+    "action": "cash_out",
+    "reference": "P0005",
+    "before": {},
+    "after": {
+      "date": "2026-02-03",
+      "particulars": "Supplier Payment P0005",
+      "cash_in": 0.0,
+      "cash_out": 130.0,
+      "reference": "P0005"
+    }
+  },
+  {
+    "timestamp": "2026-02-03 14:51:45",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": null,
+    "after": null
+  },
+  {
+    "timestamp": "2026-02-03 15:17:44",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": null,
+    "after": null
+  },
+  {
+    "timestamp": "2026-02-03 15:19:28",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": null,
+    "after": null
+  },
+  {
+    "timestamp": "2026-02-03 15:22:25",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": null,
+    "after": null
+  },
+  {
+    "timestamp": "2026-02-03 15:27:56",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": null,
+    "after": null
+  },
+  {
+    "timestamp": "2026-02-03 15:32:54",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": null,
+    "after": null
+  },
+  {
+    "timestamp": "2026-02-03 15:34:19",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": null,
+    "after": null
+  },
+  {
+    "timestamp": "2026-02-03 15:38:22",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": null,
+    "after": null
+  },
+  {
+    "timestamp": "2026-02-03 15:39:47",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": null,
+    "after": null
+  },
+  {
+    "timestamp": "2026-02-03 15:45:36",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": null,
+    "after": null
+  },
+  {
+    "timestamp": "2026-02-03 16:03:30",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": null,
+    "after": null
+  },
+  {
+    "timestamp": "2026-02-03 16:29:36",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": null,
+    "after": null
+  },
+  {
+    "timestamp": "2026-02-03 17:53:42",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": null,
+    "after": null
+  },
+  {
+    "timestamp": "2026-02-03 18:07:01",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": null,
+    "after": null
+  },
+  {
+    "timestamp": "2026-02-03 18:11:49",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": null,
+    "after": null
+  },
+  {
+    "timestamp": "2026-02-03 18:27:28",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": null,
+    "after": null
+  },
+  {
+    "timestamp": "2026-02-03 18:47:47",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": null,
+    "after": null
+  },
+  {
+    "timestamp": "2026-02-03 18:55:44",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": null,
+    "after": null
+  },
+  {
+    "timestamp": "2026-02-04 09:07:23",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": null,
+    "after": null
+  },
+  {
+    "timestamp": "2026-02-04 09:08:43",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": null,
+    "after": null
+  },
+  {
+    "timestamp": "2026-02-04 09:20:43",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": null,
+    "after": null
+  },
+  {
+    "timestamp": "2026-02-04 09:35:27",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": null,
+    "after": null
+  },
+  {
+    "timestamp": "2026-02-04 09:51:22",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": null,
+    "after": null
+  },
+  {
+    "timestamp": "2026-02-11 12:51:42",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": null,
+    "after": null
+  },
+  {
+    "user": "admin",
+    "module": "inventory",
+    "action": "stock_reduce",
+    "reference": "Speakers",
+    "before": {
+      "stock": 9.0,
+      "rate": 450.0
+    },
+    "after": {
+      "stock": 7.0,
+      "rate": 450.0
+    },
+    "timestamp": "2026-02-11 12:52:20",
+    "reason": "sale"
+  },
+  {
+    "timestamp": "2026-02-11 12:52:20",
+    "user": "admin",
+    "module": "invoice",
+    "action": "create",
+    "reference": "INV0049",
+    "before": null,
+    "after": {
+      "customer": "Bharath",
+      "phone": "8978308889",
+      "total": 500.0,
+      "paid": 0.0,
+      "payment_mode": "Cash",
+      "items_count": 1
+    }
+  },
+  {
+    "timestamp": "2026-02-11 13:49:26",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": null,
+    "after": null
+  },
+  {
+    "timestamp": "2026-02-11 14:13:32",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": null,
+    "after": null
+  },
+  {
+    "timestamp": "2026-02-11 14:19:06",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": null,
+    "after": null
+  },
+  {
+    "timestamp": "2026-02-11 14:24:55",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": null,
+    "after": null
+  },
+  {
+    "timestamp": "2026-02-11 14:26:59",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": null,
+    "after": null
+  },
+  {
+    "timestamp": "2026-02-11 14:29:21",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": null,
+    "after": null
+  },
+  {
+    "timestamp": "2026-02-11 14:51:00",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": null,
+    "after": null
+  },
+  {
+    "timestamp": "2026-02-11 15:00:29",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": null,
+    "after": null
+  },
+  {
+    "timestamp": "2026-02-11 15:06:03",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": null,
+    "after": null
+  },
+  {
+    "timestamp": "2026-02-11 15:13:51",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": null,
+    "after": null
+  },
+  {
+    "timestamp": "2026-02-11 15:21:27",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": null,
+    "after": null
+  },
+  {
+    "timestamp": "2026-02-11 15:24:45",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": null,
+    "after": null
+  },
+  {
+    "timestamp": "2026-02-11 15:27:18",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": null,
+    "after": null
+  },
+  {
+    "timestamp": "2026-02-11 15:49:36",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": null,
+    "after": null
+  },
+  {
+    "timestamp": "2026-02-11 15:58:18",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": null,
+    "after": null
+  },
+  {
+    "timestamp": "2026-02-11 16:07:07",
+    "user": "admin",
+    "module": "purchase",
+    "action": "create",
+    "reference": "P0011",
+    "before": null,
+    "after": null
+  },
+  {
+    "user": "admin",
+    "module": "inventory",
+    "action": "stock_reduce",
+    "reference": "microcontrollers",
+    "before": {
+      "stock": 20.0,
+      "rate": 550.0
+    },
+    "after": {
+      "stock": 19.0,
+      "rate": 550.0
+    },
+    "timestamp": "2026-02-11 16:07:47",
+    "reason": "sale"
+  },
+  {
+    "timestamp": "2026-02-11 16:07:47",
+    "user": "admin",
+    "module": "invoice",
+    "action": "create",
+    "reference": "INV0050",
+    "before": null,
+    "after": {
+      "customer": "Bharath",
+      "phone": "8978308889",
+      "total": 885.0,
+      "paid": 0.0,
+      "payment_mode": "Cash",
+      "items_count": 1
+    }
+  },
+  {
+    "timestamp": "2026-02-11 16:17:11",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": null,
+    "after": null
+  },
+  {
+    "timestamp": "2026-02-11 16:28:19",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": null,
+    "after": null
+  },
+  {
+    "timestamp": "2026-02-11 16:36:57",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": null,
+    "after": null
+  },
+  {
+    "timestamp": "2026-02-11 16:40:29",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": null,
+    "after": null
+  },
+  {
+    "timestamp": "2026-02-11 18:29:43",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": null,
+    "after": null
+  },
+  {
+    "user": "admin",
+    "module": "inventory",
+    "action": "stock_reduce",
+    "reference": "Mouse",
+    "before": {
+      "stock": 10.0,
+      "rate": 350.0
+    },
+    "after": {
+      "stock": 8.0,
+      "rate": 350.0
+    },
+    "timestamp": "2026-02-11 18:30:41",
+    "reason": "sale"
+  },
+  {
+    "timestamp": "2026-02-11 18:30:41",
+    "user": "admin",
+    "module": "invoice",
+    "action": "create",
+    "reference": "INV0051",
+    "before": null,
+    "after": {
+      "customer": "Bharath",
+      "phone": "8978308889",
+      "total": 1062.0,
+      "paid": 0.0,
+      "payment_mode": "Cash",
+      "items_count": 1
+    }
+  },
+  {
+    "timestamp": "2026-02-11 18:40:09",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": null,
+    "after": null
+  },
+  {
+    "user": "admin",
+    "module": "inventory",
+    "action": "stock_reduce",
+    "reference": "Speakers",
+    "before": {
+      "stock": 7.0,
+      "rate": 450.0
+    },
+    "after": {
+      "stock": 6.0,
+      "rate": 450.0
+    },
+    "timestamp": "2026-02-11 18:40:53",
+    "reason": "sale"
+  },
+  {
+    "timestamp": "2026-02-11 18:40:53",
+    "user": "admin",
+    "module": "invoice",
+    "action": "create",
+    "reference": "INV0052",
+    "before": null,
+    "after": {
+      "customer": "Vishnu",
+      "phone": "8341298889",
+      "total": 531.0,
+      "paid": 0.0,
+      "payment_mode": "Cash",
+      "items_count": 1
+    }
+  },
+  {
+    "timestamp": "2026-02-12 08:49:36",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": null,
+    "after": null
+  },
+  {
+    "timestamp": "2026-02-12 10:41:38",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": null,
+    "after": null
+  },
+  {
+    "timestamp": "2026-02-12 11:03:22",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": null,
+    "after": null
+  },
+  {
+    "timestamp": "2026-02-12 11:09:56",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": null,
+    "after": null
+  },
+  {
+    "timestamp": "2026-02-12 11:22:17",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": null,
+    "after": null
+  },
+  {
+    "timestamp": "2026-02-12 11:24:35",
+    "user": "admin",
+    "module": "purchase",
+    "action": "create",
+    "reference": "P0012",
+    "before": null,
+    "after": null
+  },
+  {
+    "timestamp": "2026-02-12 11:27:19",
+    "user": "admin",
+    "module": "cash_ledger",
+    "action": "cash_out",
+    "reference": "P0013",
+    "before": {},
+    "after": {
+      "date": "2026-02-12",
+      "particulars": "Cash Purchase P0013",
+      "cash_in": 0.0,
+      "cash_out": 13000.0,
+      "reference": "P0013"
+    }
+  },
+  {
+    "timestamp": "2026-02-12 11:27:19",
+    "user": "admin",
+    "module": "purchase",
+    "action": "create",
+    "reference": "P0013",
+    "before": null,
+    "after": null
+  },
+  {
+    "timestamp": "2026-02-12 11:29:16",
+    "user": "admin",
+    "module": "cash_ledger",
+    "action": "cash_out",
+    "reference": "P0014",
+    "before": {},
+    "after": {
+      "date": "2026-02-12",
+      "particulars": "Cash Purchase P0014",
+      "cash_in": 0.0,
+      "cash_out": 3500.0,
+      "reference": "P0014"
+    }
+  },
+  {
+    "timestamp": "2026-02-12 11:29:16",
+    "user": "admin",
+    "module": "purchase",
+    "action": "create",
+    "reference": "P0014",
+    "before": null,
+    "after": null
+  },
+  {
+    "timestamp": "2026-02-12 12:22:38",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": null,
+    "after": null
+  },
+  {
+    "timestamp": "2026-02-12 12:24:34",
+    "user": "admin",
+    "module": "purchase",
+    "action": "create",
+    "reference": "P0015",
+    "before": null,
+    "after": null
+  },
+  {
+    "timestamp": "2026-02-12 12:32:39",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": null,
+    "after": null
+  },
+  {
+    "timestamp": "2026-02-12 12:34:21",
+    "user": "admin",
+    "module": "purchase",
+    "action": "create",
+    "reference": "P0016",
+    "before": null,
+    "after": null
+  },
+  {
+    "timestamp": "2026-02-13 11:44:11",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": null,
+    "after": null
+  },
+  {
+    "timestamp": "2026-02-13 16:43:24",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": null,
+    "after": null
+  },
+  {
+    "timestamp": "2026-02-13 16:54:30",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": null,
+    "after": null
+  },
+  {
+    "timestamp": "2026-02-13 17:04:43",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": null,
+    "after": null
+  },
+  {
+    "user": "admin",
+    "module": "inventory",
+    "action": "stock_reduce",
+    "reference": "i.c",
+    "before": {
+      "stock": 70.0,
+      "rate": 53.0
+    },
+    "after": {
+      "stock": 60.0,
+      "rate": 53.0
+    },
+    "timestamp": "2026-02-13 17:29:48",
+    "reason": "sale"
+  },
+  {
+    "user": "admin",
+    "module": "inventory",
+    "action": "stock_reduce",
+    "reference": "Speakers",
+    "before": {
+      "stock": 6.0,
+      "rate": 450.0
+    },
+    "after": {
+      "stock": 4.0,
+      "rate": 450.0
+    },
+    "timestamp": "2026-02-13 17:29:48",
+    "reason": "sale"
+  },
+  {
+    "timestamp": "2026-02-13 17:29:48",
+    "user": "admin",
+    "module": "invoice",
+    "action": "create",
+    "reference": "INV0053",
+    "before": null,
+    "after": {
+      "customer": "Bharath",
+      "phone": "8978308889",
+      "total": 1947.0,
+      "paid": 947.0,
+      "payment_mode": "UPI",
+      "items_count": 2
+    }
+  },
+  {
+    "timestamp": "2026-02-13 17:33:12",
+    "user": "admin",
+    "module": "cash_ledger",
+    "action": "cash_out",
+    "reference": "P0017",
+    "before": {},
+    "after": {
+      "date": "2026-02-13",
+      "particulars": "Cash Purchase P0017",
+      "cash_in": 0.0,
+      "cash_out": 9500.0,
+      "reference": "P0017"
+    }
+  },
+  {
+    "timestamp": "2026-02-13 17:33:12",
+    "user": "admin",
+    "module": "purchase",
+    "action": "create",
+    "reference": "P0017",
+    "before": null,
+    "after": null
+  },
+  {
+    "timestamp": "2026-02-13 17:54:32",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": null,
+    "after": null
+  },
+  {
+    "timestamp": "2026-02-13 18:10:30",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": null,
+    "after": null
+  },
+  {
+    "timestamp": "2026-02-13 18:14:58",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": null,
+    "after": null
+  },
+  {
+    "timestamp": "2026-02-13 18:27:27",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": null,
+    "after": null
+  },
+  {
+    "timestamp": "2026-02-13 18:33:13",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": null,
+    "after": null
+  },
+  {
+    "timestamp": "2026-02-13 18:37:26",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": null,
+    "after": null
+  },
+  {
+    "timestamp": "2026-02-13 18:44:55",
+    "user": "admin",
+    "module": "system",
+    "action": "startup",
+    "reference": "APP_START",
+    "before": null,
+    "after": null
+  },
+  {
+    "timestamp": "2026-02-13 18:45:58",
+    "user": "admin",
+    "module": "cash_ledger",
+    "action": "cash_out",
+    "reference": "P0018",
+    "before": {},
+    "after": {
+      "date": "2026-02-13",
+      "particulars": "Cash Purchase P0018",
+      "cash_in": 0.0,
+      "cash_out": 2000.0,
+      "reference": "P0018"
+    }
+  },
+  {
+    "timestamp": "2026-02-13 18:45:58",
+    "user": "admin",
+    "module": "purchase",
+    "action": "create",
+    "reference": "P0018",
+    "before": null,
+    "after": null
+  }
+]

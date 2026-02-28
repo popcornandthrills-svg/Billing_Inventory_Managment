@@ -1,0 +1,36 @@
+{
+  "adopters": {
+    "item": "Adopters",
+    "available_qty": 11.0,
+    "selling_price": 137.5
+  },
+  "ampboards": {
+    "item": "Amp Boards",
+    "available_qty": 50.0,
+    "selling_price": 800.0
+  },
+  "backlights": {
+    "item": "Back lights",
+    "selling_price": 25.0
+  },
+  "asusb840plusmotherboard": {
+    "item": "Asus B840 Plus Motherboard",
+    "available_qty": 0.0
+  },
+  "batterys": {
+    "item": "Batterys",
+    "selling_price": 30.0
+  },
+  "laptops": {
+    "item": "Laptops",
+    "selling_price": 25000.0
+  },
+  "10ampsdiodes": {
+    "item": "10 Amps diodes",
+    "available_qty": 150.0
+  },
+  "2n3055": {
+    "item": "2n3055",
+    "available_qty": 4.0
+  }
+}

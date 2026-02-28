@@ -1,0 +1,306 @@
+import tkinter as tk
+from tkinter import ttk, messagebox
+import os
+
+from inventory import get_total_stock_value
+from audit_log import write_audit_log, set_current_audit_user
+from data_consistency import ensure_data_consistency_if_needed
+from ui_theme import setup_style
+from sales import load_sales
+from purchase import load_purchases
+from inventory import load_inventory
+from customers import load_customers
+from suppliers import load_suppliers
+
+
+ADMIN_PASSWORD = "admin123"
+USER_PASSWORD = "user123"
+SHOP_MANAGER_PASSWORD = "sm123"
+
+
+def preload_system_files():
+    # Load and normalize core data before UI starts.
+    ensure_data_consistency_if_needed()
+    load_sales()
+    load_purchases()
+    load_inventory()
+    load_customers()
+    load_suppliers()
+
+
+# ==================================================
+# MAIN APP
+# ==================================================
+class App(tk.Tk):
+    def __init__(self):
+        super().__init__()
+
+        write_audit_log(
+            user="admin",
+            module="system",
+            action="startup",
+            reference="APP_START"
+        )
+
+        self.title("Billing & Inventory Management")
+        self.geometry("1200x750")
+        self.minsize(1000, 600)
+        setup_style(self)
+
+        self.role = None
+
+        container = ttk.Frame(self)
+        container.pack(fill="both", expand=True)
+        
+        container.rowconfigure(0, weight=1)
+        container.columnconfigure(0, weight=1)
+                
+        self.frames = {}
+        
+        for F in (LoginFrame, DashboardFrame):
+            frame = F(container, self)
+            self.frames[F.__name__] = frame
+            frame.grid(row=0, column=0, sticky="nsew")
+        
+        self.show_frame("LoginFrame")
+
+    def show_frame(self, name):
+        frame = self.frames[name]
+        frame.tkraise()
+
+
+# ==================================================
+# LOGIN FRAME
+# ==================================================
+class LoginFrame(ttk.Frame):
+    def __init__(self, parent, app):
+        super().__init__(parent)
+        self.app = app
+
+        center = ttk.Frame(self)
+        center.place(relx=0.5, rely=0.5, anchor="center")
+
+        ttk.Label(
+            center,
+            text="Billing & Inventory Management",
+            style="Header.TLabel"
+        ).pack(pady=(0, 25))
+
+        ttk.Label(center, text="Please enter your password", style="Subtle.TLabel").pack()
+
+        self.pwd = ttk.Entry(center, show="*", width=30)
+        self.pwd.pack(pady=8)
+        self.pwd.focus_set()
+
+        self.pwd.bind("<Return>", lambda e: self.check_login())
+
+        ttk.Button(
+            center,
+            text="Login",
+            width=18,
+            command=self.check_login
+        ).pack(pady=10)
+
+    def check_login(self):
+        pwd = self.pwd.get().strip()
+
+        if pwd == ADMIN_PASSWORD:
+            self.app.role = "admin"
+        elif pwd == USER_PASSWORD:
+            self.app.role = "user"
+        elif pwd == SHOP_MANAGER_PASSWORD:
+            self.app.role = "shop_manager"
+        else:
+            messagebox.showerror("Login Failed", "Incorrect password. Please try again.")
+            return
+        set_current_audit_user(self.app.role)
+
+        dashboard = self.app.frames["DashboardFrame"]
+        dashboard.refresh()
+        self.app.show_frame("DashboardFrame")
+
+
+# ==================================================
+# DASHBOARD FRAME
+# ==================================================
+class DashboardFrame(ttk.Frame):
+    def __init__(self, parent, app):
+        super().__init__(parent)
+        self.app = app
+
+        header = ttk.Frame(self)
+        header.pack(fill="x", pady=(10, 5))
+
+        ttk.Label(
+            header,
+            text="Goldprince Trade Centre PVT LTD",
+            style="Header.TLabel"
+        ).pack()
+
+        ttk.Label(
+            header,
+            text="Machilipatnam | GSTIN: 37XXXXXXXXXX",
+            style="Subtle.TLabel"
+        ).pack()
+
+        main = ttk.Frame(self)
+        main.pack(fill="both", expand=True)
+
+        # LEFT
+        self.left = ttk.Frame(main, width=260)
+        self.left.pack(side="left", fill="y", padx=10)
+        self.left.pack_propagate(False)
+
+        # RIGHT
+        self.right = ttk.Frame(main)
+        self.right.pack(side="right", fill="both", expand=True)
+
+    # ==================================================
+    # LEFT MENU
+    # ==================================================
+    def refresh(self):
+        for w in self.left.winfo_children():
+            w.destroy()
+
+        # -------- SALES --------
+        ttk.Label(
+            self.left, text="Sales",
+            style="Section.TLabel"
+        ).pack(pady=(10, 5), padx=(20, 0), anchor="w")
+
+        ttk.Button(
+            self.left, text="New Invoice",
+            width=28, command=self.open_sales, style="Nav.TButton"
+        ).pack(pady=4, padx=(20, 0), anchor="w")
+
+        ttk.Button(
+            self.left, text="Sales Report",
+            width=28, command=self.open_sales_report, style="Nav.TButton"
+        ).pack(pady=4, padx=(20, 0), anchor="w")
+
+        ttk.Button(
+            self.left, text="Customer Ledger",
+            width=28, command=self.open_customer_report, style="Nav.TButton"
+        ).pack(pady=4, padx=(20, 0), anchor="w")
+
+        ttk.Button(
+            self.left, text="Due Report",
+            width=28, command=self.open_due_report, style="Nav.TButton"
+        ).pack(pady=4, padx=(20, 0), anchor="w")
+
+        # -------- PURCHASE --------
+        if self.app.role in ("admin", "user", "shop_manager"):
+            ttk.Label(
+                self.left, text="Purchase",
+                style="Section.TLabel"
+            ).pack(pady=(20, 5), padx=(20, 0), anchor="w")
+
+            ttk.Button(
+                self.left, text="New Purchase",
+                width=28, command=self.open_purchase, style="Nav.TButton"
+            ).pack(pady=4, padx=(20, 0), anchor="w")
+
+            ttk.Button(
+                self.left, text="Purchase Report",
+                width=28, command=self.open_purchase_report, style="Nav.TButton"
+            ).pack(pady=4, padx=(20, 0), anchor="w")
+
+            ttk.Button(
+                self.left, text="Purchase Due Report",
+                width=28, command=self.open_purchase_due_report, style="Nav.TButton"
+            ).pack(pady=4, padx=(20, 0), anchor="w")
+
+            # ✅ Item Summary Correct Place
+            ttk.Button(
+                self.left,
+                text="Item Summary Report",
+                width=28,
+                command=self.open_item_summary_report,
+                style="Nav.TButton"
+            ).pack(pady=4, padx=(20, 0), anchor="w")
+
+            stock_value = get_total_stock_value()
+            ttk.Label(
+                self.left,
+                text=f"Total Stock Value : ₹ {stock_value:,.2f}",
+                font=("Arial", 11, "bold"),
+                foreground="green"
+            ).pack(pady=(15, 5), padx=(20, 0), anchor="w")
+
+            ttk.Button(
+                self.left, text="Audit Log",
+                width=28, command=self.open_audit_viewer, style="Nav.TButton"
+            ).pack(pady=(10, 0), padx=(20, 0), anchor="w")
+
+        ttk.Button(
+            self.left, text="Logout",
+            width=20, command=self.logout, style="Danger.TButton"
+        ).pack(side="bottom", pady=15)
+
+    # ==================================================
+    # REPORT OPEN
+    # ==================================================
+    def open_sales_report(self):
+        self.clear_right()
+        from sales_report_ui import SalesReportUI
+        SalesReportUI(self.right)
+
+    def open_item_summary_report(self):
+        self.clear_right()
+        from item_summary_ui import ItemSummaryUI
+        ItemSummaryUI(self.right, role=self.app.role)
+
+    # ==================================================
+    # RIGHT PANEL FUNCTIONS
+    # ==================================================
+    def clear_right(self):
+        for w in self.right.winfo_children():
+            w.destroy()
+
+    def open_sales(self):
+        self.clear_right()
+        from billing_ui import BillingUI
+        BillingUI(self.right).pack(fill="both", expand=True, padx=10, pady=10)
+
+    def open_customer_report(self):
+        self.clear_right()
+        from customer_ledger_ui import CustomerLedgerUI
+        CustomerLedgerUI(self.right).pack(fill="both", expand=True, padx=10, pady=10)
+
+    def open_due_report(self):
+        self.clear_right()
+        from due_report_ui import DueReportUI
+        DueReportUI(self.right).pack(fill="both", expand=True, padx=10, pady=10)
+
+    def open_purchase_report(self):
+        self.clear_right()
+        from purchase_reports_ui import PurchaseReportsUI
+        PurchaseReportsUI(self.right).pack(fill="both", expand=True, padx=10, pady=10)
+
+    def open_purchase_due_report(self):
+        self.clear_right()
+        from purchase_due_report import PurchaseDueReportUI
+        PurchaseDueReportUI(self.right).pack(fill="both", expand=True, padx=10, pady=10)
+
+    def open_purchase(self):
+        self.clear_right()
+        from purchase_entry import PurchaseEntry
+        PurchaseEntry(self.right).pack(fill="both", expand=True, padx=10, pady=10)
+
+    def open_audit_viewer(self):
+        self.clear_right()
+        from audit_viewer_ui import AuditViewerUI
+        AuditViewerUI(self.right).pack(fill="both", expand=True, padx=10, pady=10)
+
+    def logout(self):
+        set_current_audit_user(None)
+        self.app.role = None
+        self.app.show_frame("LoginFrame")
+
+
+# ==================================================
+# START
+# ==================================================
+if __name__ == "__main__":
+    preload_system_files()
+    App().mainloop()

@@ -1,0 +1,1382 @@
+[
+    {
+        "invoice_no": "INV0001",
+        "date": "2026-01-12",
+        "customer_name": "Bharat",
+        "phone": "8978308889",
+        "items": [
+            {
+                "item": "Solderin stands",
+                "qty": 12,
+                "rate": 150.0,
+                "gst": 18.0,
+                "total": 2124.0
+            }
+        ],
+        "subtotal": 1800.0,
+        "gst_total": 324.0,
+        "grand_total": 2124.0,
+        "paid": 124.0,
+        "due": 2000.0,
+        "payment_mode": "Card"
+    },
+    {
+        "invoice_no": "INV0002",
+        "date": "2026-01-12",
+        "customer_name": "Vishnu",
+        "phone": "8341298889",
+        "items": [
+            {
+                "item": "Mother Bord 755",
+                "qty": 1,
+                "rate": 20000.0,
+                "gst": 18.0,
+                "total": 23600.0
+            }
+        ],
+        "subtotal": 20000.0,
+        "gst_total": 3600.0,
+        "grand_total": 23600.0,
+        "paid": 23600.0,
+        "due": 0.0,
+        "payment_mode": "UPI"
+    },
+    {
+        "invoice_no": "INV0003",
+        "date": "2026-01-12",
+        "customer_name": "srinivas",
+        "phone": "9848298482",
+        "items": [
+            {
+                "item": "Condencer",
+                "qty": 2,
+                "rate": 14.0,
+                "gst": 0.0,
+                "total": 28.0
+            }
+        ],
+        "subtotal": 28.0,
+        "gst_total": 0.0,
+        "grand_total": 28.0,
+        "paid": 28.0,
+        "due": 0.0,
+        "payment_mode": "Cash"
+    },
+    {
+        "invoice_no": "INV0004",
+        "date": "2026-01-13",
+        "customer_name": "Bharat",
+        "phone": "8978308889",
+        "items": [
+            {
+                "item": "Batterys",
+                "qty": 2,
+                "rate": 25.0,
+                "gst": 0.0,
+                "total": 50.0
+            }
+        ],
+        "subtotal": 50.0,
+        "gst_total": 0.0,
+        "grand_total": 50.0,
+        "paid": 50.0,
+        "due": 0.0,
+        "payment_mode": "Card"
+    },
+    {
+        "invoice_no": "INV0005",
+        "date": "2026-01-13",
+        "customer_name": "Vishnu",
+        "phone": "8341298889",
+        "items": [
+            {
+                "item": "Adopters",
+                "qty": 2,
+                "rate": 125.0,
+                "gst": 0.0,
+                "total": 250.0
+            }
+        ],
+        "subtotal": 250.0,
+        "gst_total": 0.0,
+        "grand_total": 250.0,
+        "paid": 250.0,
+        "due": 0.0,
+        "payment_mode": "Cash"
+    },
+    {
+        "invoice_no": "INV0006",
+        "date": "2026-01-13",
+        "customer_name": "Vishnu",
+        "phone": "8341298889",
+        "items": [
+            {
+                "item": "Disply Card",
+                "qty": 1,
+                "rate": 750.0,
+                "gst": 0.0,
+                "total": 750.0
+            }
+        ],
+        "subtotal": 750.0,
+        "gst_total": 0.0,
+        "grand_total": 750.0,
+        "paid": 750.0,
+        "due": 0.0,
+        "payment_mode": "Cash"
+    },
+    {
+        "invoice_no": "INV0007",
+        "date": "2026-01-13",
+        "customer_name": "srinua",
+        "phone": "8576285762",
+        "items": [
+            {
+                "item": "2n3055",
+                "qty": 5,
+                "rate": 45.0,
+                "gst": 0.0,
+                "total": 225.0
+            }
+        ],
+        "subtotal": 225.0,
+        "gst_total": 0.0,
+        "grand_total": 225.0,
+        "paid": 225.0,
+        "due": 0.0,
+        "payment_mode": "Cash"
+    },
+    {
+        "invoice_no": "INV0008",
+        "date": "2026-01-13",
+        "customer_name": "Bharath",
+        "phone": "8978308889",
+        "items": [
+            {
+                "item": "Amp Boards",
+                "qty": 2,
+                "rate": 800.0,
+                "gst": 0.0,
+                "total": 1600.0
+            }
+        ],
+        "subtotal": 1600.0,
+        "gst_total": 0.0,
+        "grand_total": 1600.0,
+        "paid": 1600.0,
+        "due": 0.0,
+        "payment_mode": "Cash"
+    },
+    {
+        "invoice_no": "INV0009",
+        "date": "2026-01-13",
+        "customer_name": "Vishnu",
+        "phone": "8341298889",
+        "items": [
+            {
+                "item": "Cell charger",
+                "qty": 2,
+                "rate": 125.0,
+                "gst": 0.0,
+                "total": 250.0
+            }
+        ],
+        "subtotal": 250.0,
+        "gst_total": 0.0,
+        "grand_total": 250.0,
+        "paid": 250.0,
+        "due": 0.0,
+        "payment_mode": "Cash"
+    },
+    {
+        "invoice_no": "INV0010",
+        "date": "2026-01-13",
+        "customer_name": "Bharath",
+        "phone": "8978308889",
+        "items": [
+            {
+                "item": "Rice",
+                "qty": 1,
+                "rate": 1400.0,
+                "gst": 0.0,
+                "total": 1400.0
+            }
+        ],
+        "subtotal": 1400.0,
+        "gst_total": 0.0,
+        "grand_total": 1400.0,
+        "paid": 400.0,
+        "due": 1000.0,
+        "payment_mode": "Cash"
+    },
+    {
+        "invoice_no": "INV0011",
+        "date": "2026-01-13",
+        "customer_name": "Bharat",
+        "phone": "8978308889",
+        "items": [
+            {
+                "item": "Batterys",
+                "qty": 2,
+                "rate": 25.0,
+                "gst": 0.0,
+                "total": 50.0
+            }
+        ],
+        "subtotal": 50.0,
+        "gst_total": 0.0,
+        "grand_total": 50.0,
+        "paid": 50.0,
+        "due": 0.0,
+        "payment_mode": "Cash"
+    },
+    {
+        "invoice_no": "INV0012",
+        "date": "2026-01-13",
+        "customer_name": "Vishnu",
+        "phone": "8341298889",
+        "items": [
+            {
+                "item": "16 gb Ram",
+                "qty": 2,
+                "rate": 1200.0,
+                "gst": 0.0,
+                "total": 2400.0
+            }
+        ],
+        "subtotal": 2400.0,
+        "gst_total": 0.0,
+        "grand_total": 2400.0,
+        "paid": 400.0,
+        "due": 2000.0,
+        "payment_mode": "Cash"
+    },
+    {
+        "invoice_no": "INV0013",
+        "date": "2026-01-13",
+        "customer_name": "Bharath",
+        "phone": "8978308889",
+        "items": [
+            {
+                "item": "Mother Bord 755",
+                "qty": 10,
+                "rate": 7500.0,
+                "gst": 0.0,
+                "total": 75000.0
+            }
+        ],
+        "subtotal": 75000.0,
+        "gst_total": 0.0,
+        "grand_total": 75000.0,
+        "paid": 5000.0,
+        "due": 70000.0,
+        "payment_mode": "Card"
+    },
+    {
+        "invoice_no": "INV0014",
+        "date": "2026-01-22",
+        "customer_name": "Vishnu",
+        "phone": "8341298889",
+        "items": [
+            {
+                "name": "lead 50g",
+                "hsn": "",
+                "qty": 20,
+                "rate": 45.0,
+                "gst_percent": 18.0,
+                "taxable": 900.0,
+                "cgst": 81.0,
+                "sgst": 81.0,
+                "igst": 0.0,
+                "total": 900.0,
+                "item": "lead 50g",
+                "gst": 18.0
+            }
+        ],
+        "subtotal": 900.0,
+        "gst_total": 0.0,
+        "grand_total": 900.0,
+        "paid": 62.0,
+        "due": 838.0,
+        "payment_mode": "UPI"
+    },
+    {
+        "invoice_no": "INV0015",
+        "date": "2026-01-22",
+        "customer_name": "Vishnu",
+        "phone": "8341298889",
+        "items": [
+            {
+                "name": "lead 50g",
+                "hsn": "",
+                "qty": 20,
+                "rate": 45.0,
+                "gst_percent": 18.0,
+                "taxable": 900.0,
+                "cgst": 81.0,
+                "sgst": 81.0,
+                "igst": 0.0,
+                "total": 900.0,
+                "item": "lead 50g",
+                "gst": 18.0
+            }
+        ],
+        "subtotal": 900.0,
+        "gst_total": 0.0,
+        "grand_total": 900.0,
+        "paid": 62.0,
+        "due": 838.0,
+        "payment_mode": "UPI"
+    },
+    {
+        "invoice_no": "INV0016",
+        "date": "2026-01-22",
+        "customer_name": "Bharat",
+        "phone": "8978308889",
+        "items": [
+            {
+                "name": "Mother Bord 755",
+                "hsn": "",
+                "qty": 1,
+                "rate": 20000.0,
+                "gst_percent": 18.0,
+                "taxable": 20000.0,
+                "cgst": 1800.0,
+                "sgst": 1800.0,
+                "igst": 0.0,
+                "total": 23600.0,
+                "item": "Mother Bord 755",
+                "gst": 18.0
+            }
+        ],
+        "subtotal": 20000.0,
+        "gst_total": 3600.0,
+        "grand_total": 23600.0,
+        "paid": 3600.0,
+        "due": 20000.0,
+        "payment_mode": "UPI"
+    },
+    {
+        "invoice_no": "INV0017",
+        "date": "2026-01-22",
+        "customer_name": "Bhatat",
+        "phone": "8978308889",
+        "items": [
+            {
+                "name": "Mother Bord 755",
+                "hsn": "",
+                "qty": 1,
+                "rate": 22000.0,
+                "gst_percent": 18.0,
+                "taxable": 22000.0,
+                "cgst": 1980.0,
+                "sgst": 1980.0,
+                "igst": 0.0,
+                "total": 25960.0,
+                "item": "Mother Bord 755",
+                "gst": 18.0
+            }
+        ],
+        "subtotal": 22000.0,
+        "gst_total": 3960.0,
+        "grand_total": 25960.0,
+        "paid": 5960.0,
+        "due": 20000.0,
+        "payment_mode": "UPI"
+    },
+    {
+        "invoice_no": "INV0018",
+        "date": "2026-01-22",
+        "customer_name": "Bharatb",
+        "phone": "8978308889",
+        "items": [
+            {
+                "name": "128gb Ram",
+                "hsn": "",
+                "qty": 1,
+                "rate": 13000.0,
+                "gst_percent": 0.0,
+                "taxable": 13000.0,
+                "cgst": 0.0,
+                "sgst": 0.0,
+                "igst": 0.0,
+                "total": 13000.0,
+                "item": "128gb Ram",
+                "gst": 0.0
+            }
+        ],
+        "subtotal": 13000.0,
+        "gst_total": 0.0,
+        "grand_total": 13000.0,
+        "paid": 3000.0,
+        "due": 10000.0,
+        "payment_mode": "UPI"
+    },
+    {
+        "invoice_no": "INV0019",
+        "date": "2026-01-23",
+        "customer_name": "Bharath",
+        "phone": "8978308889",
+        "items": [
+            {
+                "name": "Adopters",
+                "hsn": "",
+                "qty": 2,
+                "rate": 150.0,
+                "gst_percent": 18.0,
+                "taxable": 300.0,
+                "cgst": 27.0,
+                "sgst": 27.0,
+                "igst": 0.0,
+                "total": 354.0,
+                "item": "Adopters",
+                "gst": 18.0
+            }
+        ],
+        "subtotal": 300.0,
+        "gst_total": 54.0,
+        "grand_total": 354.0,
+        "paid": 154.0,
+        "due": 200.0,
+        "payment_mode": "UPI"
+    },
+    {
+        "invoice_no": "INV0020",
+        "date": "2026-01-23",
+        "customer_name": "Vishnu",
+        "phone": "8341298889",
+        "items": [
+            {
+                "name": "Cell charger",
+                "hsn": "",
+                "qty": 5,
+                "rate": 150.0,
+                "gst_percent": 18.0,
+                "taxable": 750.0,
+                "cgst": 67.5,
+                "sgst": 67.5,
+                "igst": 0.0,
+                "total": 885.0,
+                "item": "Cell charger",
+                "gst": 18.0
+            }
+        ],
+        "subtotal": 750.0,
+        "gst_total": 135.0,
+        "grand_total": 885.0,
+        "paid": 800.0,
+        "due": 85.0,
+        "payment_mode": "UPI"
+    },
+    {
+        "invoice_no": "INV0021",
+        "date": "2026-01-23",
+        "customer_name": "Vishnu",
+        "phone": "8341298889",
+        "items": [
+            {
+                "name": "Cell charger",
+                "hsn": "",
+                "qty": 5,
+                "rate": 150.0,
+                "gst_percent": 18.0,
+                "taxable": 750.0,
+                "cgst": 67.5,
+                "sgst": 67.5,
+                "igst": 0.0,
+                "total": 885.0,
+                "item": "Cell charger",
+                "gst": 18.0
+            }
+        ],
+        "subtotal": 750.0,
+        "gst_total": 135.0,
+        "grand_total": 885.0,
+        "paid": 800.0,
+        "due": 85.0,
+        "payment_mode": "UPI"
+    },
+    {
+        "invoice_no": "INV0022",
+        "date": "2026-01-23",
+        "customer_name": "Vishnu",
+        "phone": "8341298889",
+        "items": [
+            {
+                "name": "16 gb Ram",
+                "hsn": "",
+                "qty": 1,
+                "rate": 1500.0,
+                "gst_percent": 18.0,
+                "taxable": 1500.0,
+                "cgst": 135.0,
+                "sgst": 135.0,
+                "igst": 0.0,
+                "total": 1770.0,
+                "item": "16 gb Ram",
+                "gst": 18.0
+            }
+        ],
+        "subtotal": 1500.0,
+        "gst_total": 270.0,
+        "grand_total": 1770.0,
+        "paid": 1716.0,
+        "due": 54.0,
+        "payment_mode": "Due"
+    },
+    {
+        "invoice_no": "INV0023",
+        "date": "2026-01-23",
+        "customer_name": "Bharath",
+        "phone": "8978308889",
+        "items": [
+            {
+                "name": "10 Amps diodes",
+                "hsn": "",
+                "qty": 50,
+                "rate": 12.0,
+                "gst_percent": 18.0,
+                "taxable": 600.0,
+                "cgst": 54.0,
+                "sgst": 54.0,
+                "igst": 0.0,
+                "total": 708.0,
+                "item": "10 Amps diodes",
+                "gst": 18.0
+            }
+        ],
+        "subtotal": 600.0,
+        "gst_total": 108.0,
+        "grand_total": 708.0,
+        "paid": 708.0,
+        "due": 0.0,
+        "payment_mode": "Due"
+    },
+    {
+        "invoice_no": "INV0024",
+        "date": "2026-01-27",
+        "customer_name": "Bharath",
+        "phone": "8978308889",
+        "items": [
+            {
+                "name": "flat Ribbon Cables",
+                "hsn": "",
+                "qty": 10,
+                "rate": 200.0,
+                "gst_percent": 18.0,
+                "taxable": 2000.0,
+                "cgst": 180.0,
+                "sgst": 180.0,
+                "igst": 0.0,
+                "total": 2360.0,
+                "item": "flat Ribbon Cables",
+                "gst": 18.0
+            }
+        ],
+        "subtotal": 2000.0,
+        "gst_total": 360.0,
+        "grand_total": 2360.0,
+        "paid": 1360.0,
+        "due": 1000.0,
+        "payment_mode": "Due"
+    },
+    {
+        "invoice_no": "INV0025",
+        "date": "2026-01-27",
+        "customer_name": "Bharath",
+        "phone": "8978308889",
+        "items": [
+            {
+                "name": "flat Ribbon Cables",
+                "hsn": "",
+                "qty": 10,
+                "rate": 200.0,
+                "gst_percent": 18.0,
+                "taxable": 2000.0,
+                "cgst": 180.0,
+                "sgst": 180.0,
+                "igst": 0.0,
+                "total": 2360.0,
+                "item": "flat Ribbon Cables",
+                "gst": 18.0
+            }
+        ],
+        "subtotal": 2000.0,
+        "gst_total": 360.0,
+        "grand_total": 2360.0,
+        "paid": 1360.0,
+        "due": 1000.0,
+        "payment_mode": "Due"
+    },
+    {
+        "invoice_no": "INV0026",
+        "date": "2026-01-27",
+        "customer_name": "Vishnu",
+        "phone": "8341298889",
+        "items": [
+            {
+                "name": "flat Ribbon Cables",
+                "hsn": "",
+                "qty": 5,
+                "rate": 200.0,
+                "gst_percent": 18.0,
+                "taxable": 1000.0,
+                "cgst": 90.0,
+                "sgst": 90.0,
+                "igst": 0.0,
+                "total": 1180.0,
+                "item": "flat Ribbon Cables",
+                "gst": 18.0
+            }
+        ],
+        "subtotal": 1000.0,
+        "gst_total": 180.0,
+        "grand_total": 1180.0,
+        "paid": 1000.0,
+        "due": 180.0,
+        "payment_mode": "Due"
+    },
+    {
+        "invoice_no": "INV0027",
+        "date": "2026-01-27",
+        "customer_name": "Vishnu",
+        "phone": "8341298889",
+        "items": [
+            {
+                "name": "Tv Kits",
+                "hsn": "",
+                "qty": 40,
+                "rate": 2000.0,
+                "gst_percent": 18.0,
+                "taxable": 80000.0,
+                "cgst": 7200.0,
+                "sgst": 7200.0,
+                "igst": 0.0,
+                "total": 94400.0,
+                "item": "Tv Kits",
+                "gst": 18.0
+            }
+        ],
+        "subtotal": 80000.0,
+        "gst_total": 14400.0,
+        "grand_total": 94400.0,
+        "paid": 90000.0,
+        "due": 4400.0,
+        "payment_mode": "Due"
+    },
+    {
+        "invoice_no": "INV0028",
+        "date": "2026-01-27",
+        "customer_name": "Bharath",
+        "phone": "8978308889",
+        "items": [
+            {
+                "name": "Tv Kits",
+                "qty": 5,
+                "rate": 2000.0,
+                "gst_percent": 18.0,
+                "taxable": 10000.0,
+                "cgst": 900.0,
+                "sgst": 900.0,
+                "igst": 0.0,
+                "total": 11800.0,
+                "item": "Tv Kits",
+                "gst": 18.0
+            }
+        ],
+        "subtotal": 10000.0,
+        "gst_total": 1800.0,
+        "grand_total": 11800.0,
+        "paid": 11000.0,
+        "due": 800.0,
+        "payment_mode": "Due"
+    },
+    {
+        "invoice_no": "INV0029",
+        "date": "2026-01-29",
+        "customer_name": "Bharath",
+        "phone": "8978308889",
+        "items": [
+            {
+                "name": "Tv Kits",
+                "qty": 5,
+                "rate": 2000.0,
+                "gst_percent": 18.0,
+                "taxable": 10000.0,
+                "cgst": 900.0,
+                "sgst": 900.0,
+                "igst": 0.0,
+                "total": 11800.0,
+                "item": "Tv Kits",
+                "gst": 18.0
+            }
+        ],
+        "subtotal": 10000.0,
+        "gst_total": 1800.0,
+        "grand_total": 11800.0,
+        "paid": 1000.0,
+        "due": 10800.0,
+        "payment_mode": "Due"
+    },
+    {
+        "invoice_no": "INV0030",
+        "date": "2026-01-29",
+        "customer_name": "Vishnu",
+        "phone": "8341298889",
+        "items": [
+            {
+                "name": "Asus B840 Plus Motherboard",
+                "qty": 5,
+                "rate": 9500.0,
+                "gst_percent": 18.0,
+                "taxable": 47500.0,
+                "cgst": 4275.0,
+                "sgst": 4275.0,
+                "igst": 0.0,
+                "total": 56050.0,
+                "item": "Asus B840 Plus Motherboard",
+                "gst": 18.0
+            }
+        ],
+        "subtotal": 47500.0,
+        "gst_total": 8550.0,
+        "grand_total": 56050.0,
+        "paid": 6050.0,
+        "due": 50000.0,
+        "payment_mode": "Due"
+    },
+    {
+        "invoice_no": "INV0031",
+        "date": "2026-01-29",
+        "customer_name": "Vishnu",
+        "phone": "8341298889",
+        "items": [
+            {
+                "name": "Asus B840 Plus Motherboard",
+                "qty": 5,
+                "rate": 9500.0,
+                "gst_percent": 18.0,
+                "taxable": 47500.0,
+                "cgst": 4275.0,
+                "sgst": 4275.0,
+                "igst": 0.0,
+                "total": 56050.0,
+                "item": "Asus B840 Plus Motherboard",
+                "gst": 18.0
+            }
+        ],
+        "subtotal": 47500.0,
+        "gst_total": 8550.0,
+        "grand_total": 56050.0,
+        "paid": 6050.0,
+        "due": 50000.0,
+        "payment_mode": "Due"
+    },
+    {
+        "invoice_no": "INV0032",
+        "date": "2026-01-29",
+        "customer_name": "Vishnu",
+        "phone": "8341298889",
+        "items": [
+            {
+                "name": "Asus B840 Plus Motherboard",
+                "qty": 5,
+                "rate": 9500.0,
+                "gst_percent": 18.0,
+                "taxable": 47500.0,
+                "cgst": 4275.0,
+                "sgst": 4275.0,
+                "igst": 0.0,
+                "total": 56050.0,
+                "item": "Asus B840 Plus Motherboard",
+                "gst": 18.0
+            }
+        ],
+        "subtotal": 47500.0,
+        "gst_total": 8550.0,
+        "grand_total": 56050.0,
+        "paid": 6050.0,
+        "due": 50000.0,
+        "payment_mode": "Due"
+    },
+    {
+        "invoice_no": "INV0033",
+        "date": "2026-01-29",
+        "customer_name": "Vishnu",
+        "phone": "8341298889",
+        "items": [
+            {
+                "name": "Asus B840 Plus Motherboard",
+                "qty": 5,
+                "rate": 9500.0,
+                "gst_percent": 18.0,
+                "taxable": 47500.0,
+                "cgst": 4275.0,
+                "sgst": 4275.0,
+                "igst": 0.0,
+                "total": 56050.0,
+                "item": "Asus B840 Plus Motherboard",
+                "gst": 18.0
+            }
+        ],
+        "subtotal": 47500.0,
+        "gst_total": 8550.0,
+        "grand_total": 56050.0,
+        "paid": 6050.0,
+        "due": 50000.0,
+        "payment_mode": "Due"
+    },
+    {
+        "invoice_no": "INV0034",
+        "date": "2026-01-29",
+        "customer_name": "Vishnu",
+        "phone": "8341298889",
+        "items": [
+            {
+                "name": "Asus B840 Plus Motherboard",
+                "qty": 5,
+                "rate": 9500.0,
+                "gst_percent": 18.0,
+                "taxable": 47500.0,
+                "cgst": 4275.0,
+                "sgst": 4275.0,
+                "igst": 0.0,
+                "total": 56050.0,
+                "item": "Asus B840 Plus Motherboard",
+                "gst": 18.0
+            }
+        ],
+        "subtotal": 47500.0,
+        "gst_total": 8550.0,
+        "grand_total": 56050.0,
+        "paid": 6050.0,
+        "due": 50000.0,
+        "payment_mode": "Due"
+    },
+    {
+        "invoice_no": "INV0035",
+        "date": "2026-01-29",
+        "customer_name": "Vishnu",
+        "phone": "8341298889",
+        "items": [
+            {
+                "name": "Asus B840 Plus Motherboard",
+                "qty": 5,
+                "rate": 9500.0,
+                "gst_percent": 18.0,
+                "taxable": 47500.0,
+                "cgst": 4275.0,
+                "sgst": 4275.0,
+                "igst": 0.0,
+                "total": 56050.0,
+                "item": "Asus B840 Plus Motherboard",
+                "gst": 18.0
+            }
+        ],
+        "subtotal": 47500.0,
+        "gst_total": 8550.0,
+        "grand_total": 56050.0,
+        "paid": 6050.0,
+        "due": 50000.0,
+        "payment_mode": "Due"
+    },
+    {
+        "invoice_no": "INV0036",
+        "date": "2026-01-29",
+        "customer_name": "Bharath",
+        "phone": "8978308889",
+        "items": [
+            {
+                "name": "RJ45 Cable",
+                "qty": 5,
+                "rate": 50.0,
+                "gst_percent": 18.0,
+                "taxable": 250.0,
+                "cgst": 22.5,
+                "sgst": 22.5,
+                "igst": 0.0,
+                "total": 295.0,
+                "item": "RJ45 Cable",
+                "gst": 18.0
+            }
+        ],
+        "subtotal": 250.0,
+        "gst_total": 45.0,
+        "grand_total": 295.0,
+        "paid": 95.0,
+        "due": 200.0,
+        "payment_mode": "Due"
+    },
+    {
+        "invoice_no": "INV0037",
+        "date": "2026-01-29",
+        "customer_name": "vishnu",
+        "phone": "8341298889",
+        "items": [
+            {
+                "name": "Power Supply",
+                "qty": 10,
+                "rate": 150.0,
+                "gst_percent": 18.0,
+                "taxable": 1500.0,
+                "cgst": 135.0,
+                "sgst": 135.0,
+                "igst": 0.0,
+                "total": 1770.0,
+                "item": "Power Supply",
+                "gst": 18.0
+            }
+        ],
+        "subtotal": 1500.0,
+        "gst_total": 270.0,
+        "grand_total": 1770.0,
+        "paid": 770.0,
+        "due": 1000.0,
+        "payment_mode": "Due"
+    },
+    {
+        "invoice_no": "INV0038",
+        "date": "2026-01-29",
+        "customer_name": "Bharath",
+        "phone": "8978308889",
+        "items": [
+            {
+                "name": "Transisters",
+                "qty": 5,
+                "rate": 55.0,
+                "gst_percent": 18.0,
+                "taxable": 275.0,
+                "cgst": 24.75,
+                "sgst": 24.75,
+                "igst": 0.0,
+                "total": 324.5,
+                "item": "Transisters",
+                "gst": 18.0
+            }
+        ],
+        "subtotal": 275.0,
+        "gst_total": 49.5,
+        "grand_total": 324.5,
+        "paid": 0.0,
+        "due": 324.5,
+        "payment_mode": "Cash"
+    },
+    {
+        "invoice_no": "INV0039",
+        "date": "2026-01-29",
+        "customer_name": "vishnu",
+        "phone": "8341298889",
+        "items": [
+            {
+                "name": "RJ45 Cable",
+                "qty": 5,
+                "rate": 150.0,
+                "gst_percent": 18.0,
+                "taxable": 750.0,
+                "cgst": 67.5,
+                "sgst": 67.5,
+                "igst": 0.0,
+                "total": 885.0,
+                "item": "RJ45 Cable",
+                "gst": 18.0
+            }
+        ],
+        "subtotal": 750.0,
+        "gst_total": 135.0,
+        "grand_total": 885.0,
+        "paid": 85.0,
+        "due": 800.0,
+        "payment_mode": "Due"
+    },
+    {
+        "invoice_no": "INV0040",
+        "date": "2026-01-29",
+        "customer_name": "vishnu",
+        "phone": "8341298889",
+        "items": [
+            {
+                "name": "RJ45 Cable",
+                "qty": 5,
+                "rate": 150.0,
+                "gst_percent": 18.0,
+                "taxable": 750.0,
+                "cgst": 67.5,
+                "sgst": 67.5,
+                "igst": 0.0,
+                "total": 885.0,
+                "item": "RJ45 Cable",
+                "gst": 18.0
+            }
+        ],
+        "subtotal": 750.0,
+        "gst_total": 135.0,
+        "grand_total": 885.0,
+        "paid": 85.0,
+        "due": 800.0,
+        "payment_mode": "Due"
+    },
+    {
+        "invoice_no": "INV0041",
+        "date": "2026-01-29",
+        "customer_name": "vishnu",
+        "phone": "8341298889",
+        "items": [
+            {
+                "name": "Transisters",
+                "qty": 2,
+                "rate": 15.0,
+                "gst_percent": 18.0,
+                "taxable": 30.0,
+                "cgst": 2.7,
+                "sgst": 2.7,
+                "igst": 0.0,
+                "total": 35.4,
+                "item": "Transisters",
+                "gst": 18.0
+            }
+        ],
+        "subtotal": 30.0,
+        "gst_total": 5.4,
+        "grand_total": 35.4,
+        "paid": 0.0,
+        "due": 35.4,
+        "payment_mode": "Cash"
+    },
+    {
+        "invoice_no": "INV0042",
+        "date": "2026-01-29",
+        "customer_name": "Vishnu",
+        "phone": "8341298889",
+        "items": [
+            {
+                "name": "Transisters",
+                "qty": 2,
+                "rate": 15.0,
+                "gst_percent": 18.0,
+                "taxable": 30.0,
+                "cgst": 2.7,
+                "sgst": 2.7,
+                "igst": 0.0,
+                "total": 35.4,
+                "item": "Transisters",
+                "gst": 18.0
+            }
+        ],
+        "subtotal": 30.0,
+        "gst_total": 5.4,
+        "grand_total": 35.4,
+        "paid": 0.0,
+        "due": 35.4,
+        "payment_mode": "Cash"
+    },
+    {
+        "invoice_no": "INV0043",
+        "date": "2026-01-30",
+        "customer_name": "Bharath",
+        "phone": "8978308889",
+        "items": [
+            {
+                "name": "Transisters",
+                "qty": 2,
+                "rate": 15.0,
+                "gst_percent": 18.0,
+                "taxable": 30.0,
+                "cgst": 2.7,
+                "sgst": 2.7,
+                "igst": 0.0,
+                "total": 35.4,
+                "item": "Transisters",
+                "gst": 18.0
+            }
+        ],
+        "subtotal": 30.0,
+        "gst_total": 5.4,
+        "grand_total": 35.4,
+        "paid": 35.4,
+        "due": 0.0,
+        "payment_mode": "Cash"
+    },
+    {
+        "invoice_no": "INV0044",
+        "date": "2026-02-03",
+        "customer_name": "Vishnu",
+        "phone": "8341298889",
+        "items": [
+            {
+                "name": "i.c",
+                "qty": 10,
+                "rate": 75.0,
+                "gst_percent": 18.0,
+                "taxable": 750.0,
+                "cgst": 67.5,
+                "sgst": 67.5,
+                "igst": 0.0,
+                "total": 885.0,
+                "item": "i.c",
+                "gst": 18.0
+            }
+        ],
+        "subtotal": 750.0,
+        "gst_total": 135.0,
+        "grand_total": 885.0,
+        "paid": 85.0,
+        "due": 800.0,
+        "payment_mode": "Cash"
+    },
+    {
+        "invoice_no": "INV0045",
+        "date": "2026-02-03",
+        "customer_name": "Vishnu",
+        "phone": "8341298889",
+        "items": [
+            {
+                "name": "i.c",
+                "qty": 10,
+                "rate": 75.0,
+                "gst_percent": 18.0,
+                "taxable": 750.0,
+                "cgst": 67.5,
+                "sgst": 67.5,
+                "igst": 0.0,
+                "total": 885.0,
+                "item": "i.c",
+                "gst": 18.0
+            }
+        ],
+        "subtotal": 750.0,
+        "gst_total": 135.0,
+        "grand_total": 885.0,
+        "paid": 85.0,
+        "due": 800.0,
+        "payment_mode": "Cash"
+    },
+    {
+        "invoice_no": "INV0046",
+        "date": "2026-02-03",
+        "customer_name": "Vishnu",
+        "phone": "8341298889",
+        "items": [
+            {
+                "name": "i.c",
+                "qty": 10,
+                "rate": 75.0,
+                "gst_percent": 18.0,
+                "taxable": 750.0,
+                "cgst": 67.5,
+                "sgst": 67.5,
+                "igst": 0.0,
+                "total": 885.0,
+                "item": "i.c",
+                "gst": 18.0
+            }
+        ],
+        "subtotal": 750.0,
+        "gst_total": 135.0,
+        "grand_total": 885.0,
+        "paid": 85.0,
+        "due": 800.0,
+        "payment_mode": "Cash"
+    },
+    {
+        "invoice_no": "INV0047",
+        "date": "2026-02-03",
+        "customer_name": "vishnu",
+        "phone": "8341298889",
+        "items": [
+            {
+                "name": "Transisters",
+                "qty": 10,
+                "rate": 75.0,
+                "gst_percent": 18.0,
+                "taxable": 750.0,
+                "cgst": 67.5,
+                "sgst": 67.5,
+                "igst": 0.0,
+                "total": 885.0,
+                "item": "Transisters",
+                "gst": 18.0
+            }
+        ],
+        "subtotal": 750.0,
+        "gst_total": 135.0,
+        "grand_total": 885.0,
+        "paid": 0.0,
+        "due": 885.0,
+        "payment_mode": "Cash"
+    },
+    {
+        "invoice_no": "INV0048",
+        "date": "2026-02-03",
+        "customer_name": "vishnu",
+        "phone": "8341298889",
+        "items": [
+            {
+                "name": "Speakers",
+                "qty": 1,
+                "rate": 250.0,
+                "gst_percent": 18.0,
+                "taxable": 250.0,
+                "cgst": 22.5,
+                "sgst": 22.5,
+                "igst": 0.0,
+                "total": 295.0,
+                "item": "Speakers",
+                "gst": 18.0
+            }
+        ],
+        "subtotal": 250.0,
+        "gst_total": 45.0,
+        "grand_total": 295.0,
+        "paid": 0.0,
+        "due": 295.0,
+        "payment_mode": "Cash"
+    },
+    {
+        "invoice_no": "INV0049",
+        "date": "2026-02-11",
+        "customer_name": "Bharath",
+        "phone": "8978308889",
+        "items": [
+            {
+                "name": "Speakers",
+                "qty": 2,
+                "rate": 250.0,
+                "gst_percent": 0.0,
+                "taxable": 500.0,
+                "cgst": 0.0,
+                "sgst": 0.0,
+                "igst": 0.0,
+                "total": 500.0,
+                "item": "Speakers",
+                "gst": 0.0
+            }
+        ],
+        "subtotal": 500.0,
+        "gst_total": 0.0,
+        "grand_total": 500.0,
+        "paid": 0.0,
+        "due": 500.0,
+        "payment_mode": "Cash"
+    },
+    {
+        "invoice_no": "INV0050",
+        "date": "2026-02-11",
+        "customer_name": "Bharath",
+        "phone": "8978308889",
+        "items": [
+            {
+                "name": "microcontrollers",
+                "qty": 1,
+                "rate": 750.0,
+                "gst_percent": 18.0,
+                "taxable": 750.0,
+                "cgst": 67.5,
+                "sgst": 67.5,
+                "igst": 0.0,
+                "total": 885.0,
+                "item": "microcontrollers",
+                "gst": 18.0
+            }
+        ],
+        "subtotal": 750.0,
+        "gst_total": 135.0,
+        "grand_total": 885.0,
+        "paid": 0.0,
+        "due": 885.0,
+        "payment_mode": "Cash"
+    },
+    {
+        "invoice_no": "INV0051",
+        "date": "2026-02-11",
+        "customer_name": "Bharath",
+        "phone": "8978308889",
+        "items": [
+            {
+                "name": "Mouse",
+                "qty": 2,
+                "rate": 450.0,
+                "gst_percent": 18.0,
+                "taxable": 900.0,
+                "cgst": 81.0,
+                "sgst": 81.0,
+                "igst": 0.0,
+                "total": 1062.0,
+                "item": "Mouse",
+                "gst": 18.0
+            }
+        ],
+        "subtotal": 900.0,
+        "gst_total": 162.0,
+        "grand_total": 1062.0,
+        "paid": 0.0,
+        "due": 1062.0,
+        "payment_mode": "Cash"
+    },
+    {
+        "invoice_no": "INV0052",
+        "date": "2026-02-11",
+        "customer_name": "Vishnu",
+        "phone": "8341298889",
+        "items": [
+            {
+                "name": "Speakers",
+                "qty": 1,
+                "rate": 450.0,
+                "gst_percent": 18.0,
+                "taxable": 450.0,
+                "cgst": 40.5,
+                "sgst": 40.5,
+                "igst": 0.0,
+                "total": 531.0,
+                "item": "Speakers",
+                "gst": 18.0
+            }
+        ],
+        "subtotal": 450.0,
+        "gst_total": 81.0,
+        "grand_total": 531.0,
+        "paid": 0.0,
+        "due": 531.0,
+        "payment_mode": "Cash"
+    },
+    {
+        "invoice_no": "INV0053",
+        "date": "2026-02-13",
+        "customer_name": "Bharath",
+        "phone": "8978308889",
+        "items": [
+            {
+                "name": "i.c",
+                "qty": 10,
+                "rate": 55.0,
+                "gst_percent": 18.0,
+                "taxable": 550.0,
+                "cgst": 49.5,
+                "sgst": 49.5,
+                "igst": 0.0,
+                "total": 649.0,
+                "item": "i.c",
+                "gst": 18.0
+            },
+            {
+                "name": "Speakers",
+                "qty": 2,
+                "rate": 550.0,
+                "gst_percent": 18.0,
+                "taxable": 1100.0,
+                "cgst": 99.0,
+                "sgst": 99.0,
+                "igst": 0.0,
+                "total": 1298.0,
+                "item": "Speakers",
+                "gst": 18.0
+            }
+        ],
+        "subtotal": 1650.0,
+        "gst_total": 297.0,
+        "grand_total": 1947.0,
+        "paid": 947.0,
+        "due": 1000.0,
+        "payment_mode": "UPI"
+    }
+]
