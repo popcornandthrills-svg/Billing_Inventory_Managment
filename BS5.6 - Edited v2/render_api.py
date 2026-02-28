@@ -203,10 +203,12 @@ def web_app():
     .card { background:var(--card); border:1px solid var(--line); border-radius:10px; padding:14px; margin-bottom:12px; }
     h1 { margin:0 0 12px 0; font-size:22px; }
     h2 { margin:0 0 8px 0; font-size:17px; }
-    .row { display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+    h3 { margin:0 0 8px 0; font-size:15px; }
+    .row { display:flex; gap:10px; flex-wrap:wrap; align-items:center; justify-content:space-between; }
     input, button { padding:10px; border-radius:8px; border:1px solid var(--line); }
     input { min-width:260px; }
     button { background:#0f3359; color:#fff; cursor:pointer; border:0; }
+    button.secondary { background:#fff; color:#123; border:1px solid var(--line); }
     table { width:100%; border-collapse:collapse; font-size:13px; }
     th, td { border:1px solid var(--line); padding:7px; text-align:left; }
     th { background:#eef4fc; }
@@ -214,6 +216,13 @@ def web_app():
     .kpi { min-width:200px; }
     .hidden { display:none; }
     .scroll { max-height:320px; overflow:auto; }
+    .tabs { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:10px; }
+    .tabbtn { background:#dfe9f7; color:#103a67; border:1px solid #c8d7ec; padding:8px 12px; border-radius:8px; cursor:pointer; }
+    .tabbtn.active { background:#0f3359; color:#fff; border-color:#0f3359; }
+    .tab { display:none; }
+    .tab.active { display:block; }
+    .tools { display:flex; gap:8px; flex-wrap:wrap; align-items:center; margin-bottom:8px; }
+    .tools input { min-width:240px; }
   </style>
 </head>
 <body>
@@ -238,30 +247,76 @@ def web_app():
         </div>
       </div>
 
-      <div class="row">
-        <div class="card kpi"><h2>Sales Count</h2><div id="k_sales_count">-</div></div>
-        <div class="card kpi"><h2>Sales Total</h2><div id="k_sales_total">-</div></div>
-        <div class="card kpi"><h2>Sales Due</h2><div id="k_sales_due">-</div></div>
-        <div class="card kpi"><h2>Stock Value</h2><div id="k_stock_value">-</div></div>
-      </div>
-
       <div class="card">
-        <h2>Item Summary</h2>
-        <div class="scroll">
-          <table id="itemsTbl">
-            <thead><tr><th>Item</th><th>Available Qty</th><th>Purchase Price</th><th>Selling Price</th></tr></thead>
-            <tbody></tbody>
-          </table>
+        <div class="tabs">
+          <button class="tabbtn active" data-tab="summaryTab">Summary</button>
+          <button class="tabbtn" data-tab="itemsTab">Items</button>
+          <button class="tabbtn" data-tab="salesTab">Sales</button>
+          <button class="tabbtn" data-tab="purchaseTab">Purchase</button>
+          <button class="tabbtn" data-tab="dueTab">Due</button>
         </div>
-      </div>
 
-      <div class="card">
-        <h2>Recent Sales</h2>
-        <div class="scroll">
-          <table id="salesTbl">
-            <thead><tr><th>Date</th><th>Invoice</th><th>Customer</th><th>Total</th><th>Paid</th><th>Due</th></tr></thead>
-            <tbody></tbody>
-          </table>
+        <div id="summaryTab" class="tab active">
+          <div class="row">
+            <div class="card kpi"><h3>Sales Count</h3><div id="k_sales_count">-</div></div>
+            <div class="card kpi"><h3>Sales Total</h3><div id="k_sales_total">-</div></div>
+            <div class="card kpi"><h3>Sales Due</h3><div id="k_sales_due">-</div></div>
+            <div class="card kpi"><h3>Purchase Total</h3><div id="k_purchase_total">-</div></div>
+            <div class="card kpi"><h3>Purchase Due</h3><div id="k_purchase_due">-</div></div>
+            <div class="card kpi"><h3>Stock Value</h3><div id="k_stock_value">-</div></div>
+          </div>
+        </div>
+
+        <div id="itemsTab" class="tab">
+          <div class="tools">
+            <input id="itemsSearch" placeholder="Search item...">
+            <button class="secondary" id="itemsExportBtn">Export CSV</button>
+          </div>
+          <div class="scroll">
+            <table id="itemsTbl">
+              <thead><tr><th>Item</th><th>Available Qty</th><th>Purchase Price</th><th>Selling Price</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div id="salesTab" class="tab">
+          <div class="tools">
+            <input id="salesSearch" placeholder="Search invoice/customer/phone...">
+            <button class="secondary" id="salesExportBtn">Export CSV</button>
+          </div>
+          <div class="scroll">
+            <table id="salesTbl">
+              <thead><tr><th>Date</th><th>Invoice</th><th>Customer</th><th>Phone</th><th>Total</th><th>Paid</th><th>Due</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div id="purchaseTab" class="tab">
+          <div class="tools">
+            <input id="purchaseSearch" placeholder="Search purchase/supplier...">
+            <button class="secondary" id="purchaseExportBtn">Export CSV</button>
+          </div>
+          <div class="scroll">
+            <table id="purchaseTbl">
+              <thead><tr><th>Date</th><th>Purchase ID</th><th>Supplier</th><th>Total</th><th>Paid</th><th>Due</th><th>Pay Mode</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div id="dueTab" class="tab">
+          <div class="tools">
+            <input id="dueSearch" placeholder="Search due invoice/customer/phone...">
+            <button class="secondary" id="dueExportBtn">Export CSV</button>
+          </div>
+          <div class="scroll">
+            <table id="dueTbl">
+              <thead><tr><th>Date</th><th>Invoice</th><th>Customer</th><th>Phone</th><th>Total</th><th>Paid</th><th>Due</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>
@@ -269,39 +324,104 @@ def web_app():
 
   <script>
     const $ = (id) => document.getElementById(id);
+    const state = { summary:null, items:[], sales:[], purchases:[], due:[] };
     function money(v){ return Number(v||0).toFixed(2); }
 
-    async function loadDashboard() {
-      const [summaryR, itemsR, salesR] = await Promise.all([
-        fetch('/dashboard/summary'),
-        fetch('/items/summary'),
-        fetch('/sales?limit=300')
-      ]);
-      if(!summaryR.ok || !itemsR.ok || !salesR.ok){ throw new Error('Failed to load data'); }
-      const summary = await summaryR.json();
-      const items = await itemsR.json();
-      const sales = await salesR.json();
+    function setActiveTab(tabId){
+      document.querySelectorAll('.tabbtn').forEach(b => b.classList.toggle('active', b.dataset.tab===tabId));
+      document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.id===tabId));
+    }
 
-      $('k_sales_count').textContent = summary.sales.count;
-      $('k_sales_total').textContent = money(summary.sales.total);
-      $('k_sales_due').textContent = money(summary.sales.due);
-      $('k_stock_value').textContent = money(summary.stock_value);
+    function toRowText(r){ return Object.values(r||{}).join(' ').toLowerCase(); }
+    function csvEscape(v){ const s=String(v??''); return `"${s.replaceAll('"','""')}"`; }
+    function exportRowsToCsv(filename, headers, rows){
+      const lines = [headers.map(csvEscape).join(',')];
+      rows.forEach(r => lines.push(headers.map(h => csvEscape(r[h])).join(',')));
+      const blob = new Blob([lines.join('\\n')], {type:'text/csv;charset=utf-8;'});
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = filename;
+      a.click();
+      URL.revokeObjectURL(a.href);
+    }
 
-      const itemBody = $('itemsTbl').querySelector('tbody');
-      itemBody.innerHTML = '';
-      (items.items || []).forEach(r => {
+    function renderItems(){
+      const q = ($('itemsSearch').value || '').trim().toLowerCase();
+      const rows = state.items.filter(r => toRowText(r).includes(q));
+      const body = $('itemsTbl').querySelector('tbody');
+      body.innerHTML = '';
+      rows.forEach(r => {
         const tr = document.createElement('tr');
         tr.innerHTML = `<td>${r.item||''}</td><td>${money(r.available_qty)}</td><td>${money(r.purchase_price)}</td><td>${money(r.selling_price)}</td>`;
-        itemBody.appendChild(tr);
+        body.appendChild(tr);
       });
+      return rows;
+    }
 
-      const salesBody = $('salesTbl').querySelector('tbody');
-      salesBody.innerHTML = '';
-      (sales.rows || []).forEach(r => {
+    function renderSales(){
+      const q = ($('salesSearch').value || '').trim().toLowerCase();
+      const rows = state.sales.filter(r => toRowText(r).includes(q));
+      const body = $('salesTbl').querySelector('tbody');
+      body.innerHTML = '';
+      rows.forEach(r => {
         const tr = document.createElement('tr');
-        tr.innerHTML = `<td>${r.date||''}</td><td>${r.invoice_no||''}</td><td>${r.customer_name||''}</td><td>${money(r.grand_total)}</td><td>${money(r.paid||r.paid_amount)}</td><td>${money(r.due)}</td>`;
-        salesBody.appendChild(tr);
+        tr.innerHTML = `<td>${r.date||''}</td><td>${r.invoice_no||''}</td><td>${r.customer_name||''}</td><td>${r.phone||''}</td><td>${money(r.grand_total)}</td><td>${money(r.paid||r.paid_amount)}</td><td>${money(r.due)}</td>`;
+        body.appendChild(tr);
       });
+      return rows;
+    }
+
+    function renderPurchases(){
+      const q = ($('purchaseSearch').value || '').trim().toLowerCase();
+      const rows = state.purchases.filter(r => toRowText(r).includes(q));
+      const body = $('purchaseTbl').querySelector('tbody');
+      body.innerHTML = '';
+      rows.forEach(r => {
+        const total = Number(r.grand_total ?? r.total_amount ?? 0);
+        const paid = Number(r.paid_amount ?? r.paid ?? 0);
+        const due = Number(r.due ?? r.due_amount ?? Math.max(total-paid,0));
+        const tr = document.createElement('tr');
+        tr.innerHTML = `<td>${r.date||r.created_on||''}</td><td>${r.purchase_id||''}</td><td>${r.supplier_name||r.supplier||''}</td><td>${money(total)}</td><td>${money(paid)}</td><td>${money(due)}</td><td>${r.payment_mode||r.payment_type||''}</td>`;
+        body.appendChild(tr);
+      });
+      return rows;
+    }
+
+    function renderDue(){
+      const q = ($('dueSearch').value || '').trim().toLowerCase();
+      const rows = state.due.filter(r => toRowText(r).includes(q));
+      const body = $('dueTbl').querySelector('tbody');
+      body.innerHTML = '';
+      rows.forEach(r => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `<td>${r.date||''}</td><td>${r.invoice_no||''}</td><td>${r.customer_name||''}</td><td>${r.phone||''}</td><td>${money(r.grand_total)}</td><td>${money(r.paid||r.paid_amount)}</td><td>${money(r.due)}</td>`;
+        body.appendChild(tr);
+      });
+      return rows;
+    }
+
+    async function loadDashboard() {
+      const [summaryR, itemsR, salesR, purchaseR] = await Promise.all([
+        fetch('/dashboard/summary'),
+        fetch('/items/summary'),
+        fetch('/sales?limit=1000'),
+        fetch('/purchases?limit=1000')
+      ]);
+      if(!summaryR.ok || !itemsR.ok || !salesR.ok || !purchaseR.ok){ throw new Error('Failed to load data'); }
+      state.summary = await summaryR.json();
+      state.items = (await itemsR.json()).items || [];
+      state.sales = (await salesR.json()).rows || [];
+      state.purchases = (await purchaseR.json()).rows || [];
+      state.due = state.sales.filter(r => Number(r.due||0) > 0);
+
+      $('k_sales_count').textContent = state.summary.sales.count;
+      $('k_sales_total').textContent = money(state.summary.sales.total);
+      $('k_sales_due').textContent = money(state.summary.sales.due);
+      $('k_purchase_total').textContent = money(state.summary.purchase.total);
+      $('k_purchase_due').textContent = money(state.summary.purchase.due);
+      $('k_stock_value').textContent = money(state.summary.stock_value);
+
+      renderItems(); renderSales(); renderPurchases(); renderDue();
     }
 
     async function login() {
@@ -329,6 +449,29 @@ def web_app():
       $('pwd').value = '';
       $('loginMsg').textContent = 'Use your existing system password.';
     }
+
+    document.querySelectorAll('.tabbtn').forEach(btn => btn.addEventListener('click', () => setActiveTab(btn.dataset.tab)));
+    $('itemsSearch').addEventListener('input', renderItems);
+    $('salesSearch').addEventListener('input', renderSales);
+    $('purchaseSearch').addEventListener('input', renderPurchases);
+    $('dueSearch').addEventListener('input', renderDue);
+
+    $('itemsExportBtn').addEventListener('click', () => {
+      const rows = renderItems().map(r => ({Item:r.item, AvailableQty:r.available_qty, PurchasePrice:r.purchase_price, SellingPrice:r.selling_price}));
+      exportRowsToCsv('items_summary.csv', ['Item','AvailableQty','PurchasePrice','SellingPrice'], rows);
+    });
+    $('salesExportBtn').addEventListener('click', () => {
+      const rows = renderSales().map(r => ({Date:r.date, Invoice:r.invoice_no, Customer:r.customer_name, Phone:r.phone, Total:r.grand_total, Paid:(r.paid||r.paid_amount), Due:r.due}));
+      exportRowsToCsv('sales_report.csv', ['Date','Invoice','Customer','Phone','Total','Paid','Due'], rows);
+    });
+    $('purchaseExportBtn').addEventListener('click', () => {
+      const rows = renderPurchases().map(r => ({Date:(r.date||r.created_on), PurchaseID:r.purchase_id, Supplier:(r.supplier_name||r.supplier), Total:(r.grand_total??r.total_amount??0), Paid:(r.paid_amount??r.paid??0), Due:(r.due??r.due_amount??0), PaymentMode:(r.payment_mode||r.payment_type||'')}));
+      exportRowsToCsv('purchase_report.csv', ['Date','PurchaseID','Supplier','Total','Paid','Due','PaymentMode'], rows);
+    });
+    $('dueExportBtn').addEventListener('click', () => {
+      const rows = renderDue().map(r => ({Date:r.date, Invoice:r.invoice_no, Customer:r.customer_name, Phone:r.phone, Total:r.grand_total, Paid:(r.paid||r.paid_amount), Due:r.due}));
+      exportRowsToCsv('due_report.csv', ['Date','Invoice','Customer','Phone','Total','Paid','Due'], rows);
+    });
 
     $('loginBtn').addEventListener('click', login);
     $('logoutBtn').addEventListener('click', logout);
