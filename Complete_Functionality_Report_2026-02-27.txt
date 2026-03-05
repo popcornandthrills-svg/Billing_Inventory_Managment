@@ -1,0 +1,116 @@
+Complete Functionality Report
+Generated: February 27, 2026
+
+1. Scope And Method
+- Codebase reviewed: Billing & Inventory Management system under BS5.6 - Edited v2.
+- Assessment basis: current Python source modules, UI workflows, data-layer logic, validations, reporting/export, role behavior, and recent performance patches.
+- This report reflects implemented behavior (as coded), not hypothetical behavior.
+
+2. System Architecture Summary
+- Desktop application built with Tkinter UI and JSON-file persistence in data folder.
+- Main modules: Sales, Purchase, Inventory, Customer Ledger, Due Reports, Item Summary, Supplier Due, Audit Log, Export/Print/PDF.
+- Data normalization at startup via consistency layer before app UI launches.
+- Role-aware UI behavior: admin, user, shop_manager.
+
+3. Authentication And Session Behavior
+- Login passwords supported: admin123 (admin), user123 (user), sm123 (shop_manager).
+- Invalid password path shows error and blocks access.
+- Current audit user context is set after successful login and used by audit logging layer.
+- Logout clears role and returns to Login screen.
+
+4. Dashboard Navigation And View Lifecycle
+- Left navigation sections: Sales, Purchase, Item Summary, Audit, Logout.
+- Navigation click-throttle lock prevents rapid repeated view-switch storms.
+- New Invoice and New Purchase views are cached; partially-entered form data is retained when switching tabs/sections.
+- Other views are rebuilt as transient views.
+
+5. Sales (New Invoice) Functional Coverage
+- Customer details: name, phone, address with auto-suggestion and auto-fill from customer master.
+- Item entry supports typed search + dropdown list selection.
+- Item Type field exists and is blank by default (user selectable).
+- GST default is 18 and editable per row.
+- Stock availability check is enforced before add/update (prevents over-sale).
+- Cart operations: add/update, edit selected row, delete selected row.
+- Tax and totals: taxable, CGST, SGST, IGST, grand total; balance auto-calculated from paid amount.
+- Payment modes available: Cash, UPI, Card, Due.
+- Generate Invoice writes sale record, updates stock, writes audit log, updates customer master, generates invoice PDF, and enables print.
+- Enter key moves focus to next form section/field for faster data entry.
+- Quick-action lock and save lock prevent duplicate operations on rapid button pressing.
+
+6. Sales Reports And Due
+- Sales Report view shows date/invoice/customer/total/paid/due with summary totals.
+- Large sales datasets render in chunks to avoid UI freeze (non-blocking load status).
+- Due Report lists invoice-level customer dues only (due > 0) with search, total due display, export buttons.
+- Sales Excel export supported from report screen.
+
+7. Customer Ledger Functional Coverage
+- Filter inputs: customer name, phone, item, from date, to date.
+- Date input supports DD-MM-YYYY and YYYY-MM-DD parsing paths.
+- Ledger rows show invoice totals/paid/due and highlight due rows.
+- Chunked row rendering keeps UI responsive for large histories.
+- Payment receive flow: select invoice, validate amount range, update paid/due, write audit log, and add cash ledger entry.
+- Export options: Excel and PDF.
+
+8. Purchase (New Purchase) Functional Coverage
+- Supplier entry supports searchable dropdown and auto-fill of phone/address.
+- If supplier does not exist, new supplier is auto-created during save.
+- Payment mode options include Other.
+- Item entry supports typed suggestions/dropdown; GST default 18 and editable.
+- Row lifecycle: add/update, edit selected, delete selected.
+- Summary recalculates total and balance from paid amount.
+- Save Purchase writes purchase record, updates inventory stock item-wise, writes audit entry, and conditionally posts cash-out ledger entry for cash payment.
+- Enter key navigation to next field is implemented.
+
+9. Purchase Reporting And Supplier Due Coverage
+- Purchase Reports support Date-wise, Item-wise, and Supplier-wise filters.
+- Double-click on row opens detailed purchase items report path.
+- Export and print pathways are available.
+- Purchase Due Report aggregates dues supplier-wise with pending bill count and total due.
+- Supplier payment posting updates due, cash ledger, and supplier payment ledger.
+- Supplier history popup includes both purchase and payment rows; sorted latest first (reverse chronological).
+
+10. Item Summary And Role-Based Access
+- Item Summary is fixed alphabetical by item name (A-Z).
+- Shop Manager restricted view: select, item, available qty, selling price (purchase price hidden).
+- Editable columns by role: shop_manager -> available_qty, selling_price; admin -> available_qty, purchase_price, selling_price.
+- Row selection, show-selected-only, and transaction drilldown implemented.
+- Item override persistence supported through item summary override storage.
+
+11. Audit, Cash, And Traceability
+- Audit log write API captures timestamp, user, module, action, reference, before/after payload.
+- Audit viewer supports date/user/module filters and now shows reverse chronological order (latest first).
+- Cash ledger tracks cash-in and cash-out entries from sales cash receipts, customer payments, purchase cash outflows, and supplier payments.
+
+12. Data Consistency And Recovery
+- Startup consistency routine sanitizes purchase/sales records, normalizes item naming, and rebuilds inventory from transaction history.
+- Missing derived fields (paid, due, grand_total, payment_mode variants) are backfilled when possible.
+- Consistency run can skip when file signatures have not changed.
+- Rollback snapshot and restore script exist for recovery.
+
+13. Export, PDF, And Print Coverage
+- Exports include sales, due, purchase reports, purchase due supplier-wise, customer ledger, stock, and item summary (Excel).
+- PDF generation includes invoice PDF, due report PDF, purchase due PDF, purchase report PDFs, customer ledger PDF, and payment receipt pathways.
+- Direct print integration available through print helper.
+
+14. Validations And Edge Cases Handled
+- No-item save blocks in invoice and purchase screens.
+- Invalid numeric input handling with explicit error messages.
+- Insufficient stock check before sales row add.
+- Overpayment protection in customer invoice payment screen (pay must be between 1 and due).
+- Negative due values clamped to zero in core sales/purchase calculations.
+- No-data export paths return info/error instead of crashing.
+- Date parse fallback avoids hard crashes on invalid date text.
+- UI lock/debounce prevents repeated rapid clicks causing duplicate processing or temporary hangs.
+
+15. Known Behavioral Notes / Risks
+- Passwords are hardcoded in source (operationally simple, security risk for production).
+- JSON file storage has no transaction locking; concurrent external edits may cause race/overwrite risks.
+- Some legacy/backup modules remain in project and can cause maintenance confusion if invoked accidentally.
+- A few deprecated helper modules (older toplevel UIs) exist but main workflow uses current primary UI classes.
+
+16. Overall Functional Status
+- Core end-to-end business flows are present and operational: create purchase -> stock update -> create sale -> due/payment settlement -> reporting/export/audit.
+- Role visibility controls and most requested workflow refinements are implemented in current codebase.
+- Performance hardening exists for heavy report views and repeated click scenarios.
+- System is functionally complete for small/medium single-user desktop operations with JSON-backed data.
+

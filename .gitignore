@@ -1,0 +1,11 @@
+__pycache__/
+*.pyc
+build/
+dist/
+_rollback/
+.vscode/
+.idea/
+.env
+.env.*
+invoices/
+reports/
