@@ -10,7 +10,14 @@ def _client():
     uri = (os.getenv("MONGODB_URI") or "").strip()
     if not uri:
         raise RuntimeError("MONGODB_URI is not set")
-    return MongoClient(uri, serverSelectionTimeoutMS=5000)
+    return MongoClient(
+        uri,
+        serverSelectionTimeoutMS=15000,
+        connectTimeoutMS=15000,
+        socketTimeoutMS=15000,
+        tls=True,
+        retryWrites=True,
+    )
 
 
 def is_configured() -> bool:
