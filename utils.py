@@ -13,6 +13,13 @@ def app_dir():
         os.makedirs(env_base, exist_ok=True)
         return env_base
 
+    # Vercel serverless runtime has a read-only project filesystem.
+    # Use /tmp for runtime data files.
+    if os.getenv("VERCEL"):
+        vercel_tmp = "/tmp/billing_inventory_data"
+        os.makedirs(vercel_tmp, exist_ok=True)
+        return vercel_tmp
+
     if getattr(sys, "frozen", False):
         return os.path.dirname(sys.executable)
     
