@@ -568,10 +568,91 @@ def sales(limit: int = 100):
     return {"count": len(data), "rows": data[: max(1, min(limit, 1000))]}
 
 
+@app.get("/sales/{invoice_no}")
+def sales_invoice_detail(invoice_no: str, x_user_role: Optional[str] = Header(default=None)):
+    _require_role(x_user_role, ["admin", "shop_manager"])
+    key = str(invoice_no or "").strip()
+    if not key:
+        raise HTTPException(status_code=400, detail="Invoice number is required.")
+    rows = _load_sales_rows()
+    for r in rows:
+        if str(r.get("invoice_no", "")).strip() == key:
+            return {"ok": True, "row": r}
+    raise HTTPException(status_code=404, detail="Invoice not found.")
+
+
+@app.get("/sales/due-report")
+def sales_due_report(x_user_role: Optional[str] = Header(default=None)):
+    _require_role(x_user_role, ["admin", "shop_manager"])
+    rows = [r for r in _load_sales_rows() if _safe_float(r.get("due", 0)) > 0]
+    rows = _sort_rows(rows, key_name="date")
+    return {"count": len(rows), "rows": rows}
+
+
+@app.get("/ledger/customer")
+def customer_ledger(
+    customer: str = "",
+    phone: str = "",
+    item: str = "",
+    from_date: str = "",
+    to_date: str = "",
+    x_user_role: Optional[str] = Header(default=None),
+):
+    _require_role(x_user_role, ["admin", "shop_manager"])
+    c = str(customer or "").strip().lower()
+    p = str(phone or "").strip().lower()
+    it = str(item or "").strip().lower()
+    fd = str(from_date or "").strip()
+    td = str(to_date or "").strip()
+
+    rows = _load_sales_rows()
+    out = []
+    for r in rows:
+        if r.get("cancelled"):
+            continue
+        if c and c not in str(r.get("customer_name", "")).lower():
+            continue
+        if p and p not in str(r.get("phone", "")).lower():
+            continue
+        if it:
+            items_text = " ".join([str(i.get("item") or i.get("name") or "") for i in r.get("items", [])]).lower()
+            if it not in items_text:
+                continue
+        d = str(r.get("date", "")).strip()
+        if fd and d[:10] < fd:
+            continue
+        if td and d[:10] > td:
+            continue
+        out.append(r)
+    out = _sort_rows(out, key_name="date")
+    return {"count": len(out), "rows": out}
+
+
 @app.get("/purchases")
 def purchases(limit: int = 100):
     data = _sort_rows(_load_purchase_rows(), key_name="date")
     return {"count": len(data), "rows": data[: max(1, min(limit, 1000))]}
+
+
+@app.get("/purchases/{purchase_id}")
+def purchase_detail(purchase_id: str, x_user_role: Optional[str] = Header(default=None)):
+    _require_role(x_user_role, ["admin", "shop_manager"])
+    key = str(purchase_id or "").strip()
+    if not key:
+        raise HTTPException(status_code=400, detail="Purchase ID is required.")
+    rows = _load_purchase_rows()
+    for r in rows:
+        if str(r.get("purchase_id", "")).strip() == key:
+            return {"ok": True, "row": r}
+    raise HTTPException(status_code=404, detail="Purchase not found.")
+
+
+@app.get("/purchases/due-report")
+def purchase_due_report(x_user_role: Optional[str] = Header(default=None)):
+    _require_role(x_user_role, ["admin", "shop_manager"])
+    rows = [r for r in _load_purchase_rows() if _safe_float(r.get("due", r.get("due_amount", 0))) > 0]
+    rows = _sort_rows(rows, key_name="date")
+    return {"count": len(rows), "rows": rows}
 
 
 @app.post("/auth/login")
@@ -879,6 +960,8 @@ def web_app():
           <button class="tabbtn" data-tab="salesTab">Sales</button>
           <button class="tabbtn" data-tab="purchaseTab">Purchase</button>
           <button class="tabbtn" data-tab="dueTab">Due</button>
+          <button class="tabbtn" data-tab="ledgerTab">Customer Ledger</button>
+          <button class="tabbtn" data-tab="purchaseDueTab">Purchase Due</button>
           <button class="tabbtn adminOnly" data-tab="auditTab">Audit</button>
           <button class="tabbtn adminOnly" data-tab="smTab">Manage SM</button>
         </div>
@@ -993,6 +1076,32 @@ def web_app():
           </div>
         </div>
 
+        <div id="ledgerTab" class="tab">
+          <div class="tools">
+            <input id="ledgerSearch" placeholder="Search customer/phone/item...">
+            <button class="secondary" id="ledgerExportBtn">Export CSV</button>
+          </div>
+          <div class="scroll">
+            <table id="ledgerTbl">
+              <thead><tr><th>Date</th><th>Invoice</th><th>Customer</th><th>Phone</th><th>Total</th><th>Paid</th><th>Due</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div id="purchaseDueTab" class="tab">
+          <div class="tools">
+            <input id="purchaseDueSearch" placeholder="Search supplier/purchase...">
+            <button class="secondary" id="purchaseDueExportBtn">Export CSV</button>
+          </div>
+          <div class="scroll">
+            <table id="purchaseDueTbl">
+              <thead><tr><th>Date</th><th>Purchase ID</th><th>Supplier</th><th>Total</th><th>Paid</th><th>Due</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+
         <div id="auditTab" class="tab">
           <div class="tools">
             <input id="auditSearch" placeholder="Search user/module/action/reference...">
@@ -1033,7 +1142,7 @@ def web_app():
 
   <script>
     const $ = (id) => document.getElementById(id);
-    const state = { user:null, summary:null, items:[], sales:[], purchases:[], due:[], audits:[], sms:[], saleDraft:[], purchaseDraft:[] };
+    const state = { user:null, summary:null, items:[], sales:[], purchases:[], due:[], ledger:[], purchaseDue:[], audits:[], sms:[], saleDraft:[], purchaseDraft:[] };
     function money(v){ return Number(v||0).toFixed(2); }
     function setActiveTab(tabId){ document.querySelectorAll('.tabbtn').forEach(b => b.classList.toggle('active', b.dataset.tab===tabId)); document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.id===tabId)); }
     function toRowText(r){ return Object.values(r||{}).join(' ').toLowerCase(); }
@@ -1048,6 +1157,9 @@ def web_app():
       const tabBtn=document.querySelector('[data-tab=\"purchaseTab\"]');
       if(tabBtn) tabBtn.style.display = isAdmin ? '' : 'none';
       $('purchaseTab').style.display = isAdmin ? '' : 'none';
+      const dueBtn=document.querySelector('[data-tab=\"purchaseDueTab\"]');
+      if(dueBtn) dueBtn.style.display = isAdmin ? '' : 'none';
+      if($('purchaseDueTab')) $('purchaseDueTab').style.display = isAdmin ? '' : 'none';
       document.querySelectorAll('.adminOnly').forEach(el => el.style.display = isAdmin ? '' : 'none');
       if(!isAdmin){
         if($('auditTab')) $('auditTab').style.display='none';
@@ -1060,6 +1172,8 @@ def web_app():
     function renderSales(){ const q=($('salesSearch').value||'').trim().toLowerCase(); const rows=state.sales.filter(r => toRowText(r).includes(q)); const body=$('salesTbl').querySelector('tbody'); body.innerHTML=''; rows.forEach(r=>{ const tr=document.createElement('tr'); tr.innerHTML=`<td>${r.date||''}</td><td>${r.invoice_no||''}</td><td>${r.customer_name||''}</td><td>${r.phone||''}</td><td>${money(r.grand_total)}</td><td>${money(r.paid||r.paid_amount)}</td><td>${money(r.due)}</td>`; tr.addEventListener('dblclick', ()=> alert(JSON.stringify(r, null, 2))); body.appendChild(tr); }); return rows; }
     function renderPurchases(){ const q=($('purchaseSearch').value||'').trim().toLowerCase(); const rows=state.purchases.filter(r => toRowText(r).includes(q)); const body=$('purchaseTbl').querySelector('tbody'); body.innerHTML=''; rows.forEach(r=>{ const total=Number(r.grand_total ?? r.total_amount ?? 0); const paid=Number(r.paid_amount ?? r.paid ?? 0); const due=Number(r.due ?? r.due_amount ?? Math.max(total-paid,0)); const tr=document.createElement('tr'); tr.innerHTML=`<td>${r.date||r.created_on||''}</td><td>${r.purchase_id||''}</td><td>${r.supplier_name||r.supplier||''}</td><td>${money(total)}</td><td>${money(paid)}</td><td>${money(due)}</td><td>${r.payment_mode||r.payment_type||''}</td>`; tr.addEventListener('dblclick', ()=> alert(JSON.stringify(r, null, 2))); body.appendChild(tr); }); return rows; }
     function renderDue(){ const q=($('dueSearch').value||'').trim().toLowerCase(); const rows=state.due.filter(r => toRowText(r).includes(q)); const body=$('dueTbl').querySelector('tbody'); body.innerHTML=''; rows.forEach(r=>{ const tr=document.createElement('tr'); tr.innerHTML=`<td>${r.date||''}</td><td>${r.invoice_no||''}</td><td>${r.customer_name||''}</td><td>${r.phone||''}</td><td>${money(r.grand_total)}</td><td>${money(r.paid||r.paid_amount)}</td><td>${money(r.due)}</td>`; tr.addEventListener('click', ()=>{ $('dueInvoice').value=r.invoice_no||''; }); tr.addEventListener('dblclick', ()=> alert(JSON.stringify(r, null, 2))); body.appendChild(tr); }); return rows; }
+    function renderLedger(){ const q=(($('ledgerSearch')?.value)||'').trim().toLowerCase(); const rows=state.ledger.filter(r => toRowText(r).includes(q)); const body=$('ledgerTbl').querySelector('tbody'); body.innerHTML=''; rows.forEach(r=>{ const tr=document.createElement('tr'); tr.innerHTML=`<td>${r.date||''}</td><td>${r.invoice_no||''}</td><td>${r.customer_name||''}</td><td>${r.phone||''}</td><td>${money(r.grand_total)}</td><td>${money(r.paid||r.paid_amount)}</td><td>${money(r.due)}</td>`; tr.addEventListener('dblclick', ()=> alert(JSON.stringify(r, null, 2))); body.appendChild(tr); }); return rows; }
+    function renderPurchaseDue(){ const q=(($('purchaseDueSearch')?.value)||'').trim().toLowerCase(); const rows=state.purchaseDue.filter(r => toRowText(r).includes(q)); const body=$('purchaseDueTbl').querySelector('tbody'); body.innerHTML=''; rows.forEach(r=>{ const total=Number(r.grand_total ?? r.total_amount ?? 0); const paid=Number(r.paid_amount ?? r.paid ?? 0); const due=Number(r.due ?? r.due_amount ?? Math.max(total-paid,0)); const tr=document.createElement('tr'); tr.innerHTML=`<td>${r.date||''}</td><td>${r.purchase_id||''}</td><td>${r.supplier_name||r.supplier||''}</td><td>${money(total)}</td><td>${money(paid)}</td><td>${money(due)}</td>`; tr.addEventListener('dblclick', ()=> alert(JSON.stringify(r, null, 2))); body.appendChild(tr); }); return rows; }
     function renderAudit(){ const q=(($('auditSearch')?.value)||'').trim().toLowerCase(); const rows=state.audits.filter(r => toRowText(r).includes(q)); const body=$('auditTbl').querySelector('tbody'); body.innerHTML=''; rows.forEach(r=>{ const tr=document.createElement('tr'); tr.innerHTML=`<td>${r.timestamp||''}</td><td>${r.user||''}</td><td>${r.module||''}</td><td>${r.action||''}</td><td>${r.reference||''}</td>`; body.appendChild(tr); }); return rows; }
     function renderSms(){
       const body=$('smTbl').querySelector('tbody'); body.innerHTML='';
@@ -1069,9 +1183,9 @@ def web_app():
     async function loadSmDirect(){ try{ const out=await api('/admin/sm'); state.sms=(out&&out.rows)||[]; renderSms(); } catch(e){ state.sms=[{username:'SM-DEFAULT', is_active:true, created_on:'', last_login:''}]; renderSms(); setMsg('smMsg', e.message||'Failed to load SM list.', true); } }
     async function loadDashboard(){
       const isAdmin = state.user && state.user.role === 'admin';
-      const core = await Promise.all([api('/dashboard/summary'), api('/items/summary'), api('/sales?limit=1000'), api('/purchases?limit=1000')]);
-      const [summary, items, sales, purchases] = core;
-      state.summary=summary; state.items=items.items||[]; state.sales=sales.rows||[]; state.purchases=purchases.rows||[]; state.due=state.sales.filter(r => Number(r.due||0)>0);
+      const core = await Promise.all([api('/dashboard/summary'), api('/items/summary'), api('/sales?limit=1000'), api('/purchases?limit=1000'), api('/ledger/customer'), api('/purchases/due-report')]);
+      const [summary, items, sales, purchases, ledger, purchaseDue] = core;
+      state.summary=summary; state.items=items.items||[]; state.sales=sales.rows||[]; state.purchases=purchases.rows||[]; state.due=state.sales.filter(r => Number(r.due||0)>0); state.ledger=(ledger&&ledger.rows)||[]; state.purchaseDue=(purchaseDue&&purchaseDue.rows)||[];
       state.audits=[]; state.sms=[];
       if(isAdmin){
         const extra = await Promise.allSettled([api('/audit/logs?limit=500'), api('/admin/sm')]);
@@ -1082,12 +1196,12 @@ def web_app():
         }
       }
       $('k_sales_count').textContent=state.summary.sales.count; $('k_sales_total').textContent=money(state.summary.sales.total); $('k_sales_due').textContent=money(state.summary.sales.due); $('k_purchase_total').textContent=money(state.summary.purchase.total); $('k_purchase_due').textContent=money(state.summary.purchase.due); $('k_stock_value').textContent=money(state.summary.stock_value);
-      renderItems(); renderSales(); renderPurchases(); renderDue(); if(isAdmin){ renderAudit(); renderSms(); }
+      renderItems(); renderSales(); renderPurchases(); renderDue(); renderLedger(); renderPurchaseDue(); if(isAdmin){ renderAudit(); renderSms(); }
     }
     async function login(){ const pwd=$('pwd').value.trim(); if(!pwd){ $('loginMsg').textContent='Enter password.'; return; } $('loginMsg').textContent='Authenticating...'; try{ const data=await api('/auth/login',{method:'POST', body:JSON.stringify({password:pwd})}); state.user=data; localStorage.setItem('im_user', JSON.stringify(data)); $('who').textContent=`${data.user} (${data.role})`; $('loginCard').classList.add('hidden'); $('appCard').classList.remove('hidden'); applyRoleUi(); await loadDashboard(); } catch(e){ $('loginMsg').textContent=e.message||'Invalid credentials.'; } }
     function logout(){ localStorage.removeItem('im_user'); state.user=null; $('appCard').classList.add('hidden'); $('loginCard').classList.remove('hidden'); $('pwd').value=''; $('loginMsg').textContent='Use your existing system password.'; }
     document.querySelectorAll('.tabbtn').forEach(btn => btn.addEventListener('click', async () => { setActiveTab(btn.dataset.tab); if(btn.dataset.tab==='smTab' && state.user && state.user.role==='admin'){ await loadSmDirect(); } }));
-    $('itemsSearch').addEventListener('input', debounce(renderItems, 120)); $('salesSearch').addEventListener('input', debounce(renderSales, 120)); $('purchaseSearch').addEventListener('input', debounce(renderPurchases, 120)); $('dueSearch').addEventListener('input', debounce(renderDue, 120)); if($('auditSearch')) $('auditSearch').addEventListener('input', debounce(renderAudit, 120));
+    $('itemsSearch').addEventListener('input', debounce(renderItems, 120)); $('salesSearch').addEventListener('input', debounce(renderSales, 120)); $('purchaseSearch').addEventListener('input', debounce(renderPurchases, 120)); $('dueSearch').addEventListener('input', debounce(renderDue, 120)); if($('ledgerSearch')) $('ledgerSearch').addEventListener('input', debounce(renderLedger, 120)); if($('purchaseDueSearch')) $('purchaseDueSearch').addEventListener('input', debounce(renderPurchaseDue, 120)); if($('auditSearch')) $('auditSearch').addEventListener('input', debounce(renderAudit, 120));
     $('saleAddItemBtn').addEventListener('click', () => addDraft('sale', 'saleDraft')); $('saleClearItemsBtn').addEventListener('click', () => { state.saleDraft=[]; drawDraft('saleDraftTbl', state.saleDraft); setMsg('saleMsg','Draft cleared.'); });
     $('purAddItemBtn').addEventListener('click', () => addDraft('pur', 'purchaseDraft')); $('purClearItemsBtn').addEventListener('click', () => { state.purchaseDraft=[]; drawDraft('purDraftTbl', state.purchaseDraft); setMsg('purMsg','Draft cleared.'); });
     $('saleSaveBtn').addEventListener('click', () => withLock('saleSaveBtn', async () => { const payload={customer_name:$('saleCustomer').value.trim(), phone:$('salePhone').value.trim(), items:state.saleDraft, payment_mode:$('salePayMode').value, paid_amount:Number($('salePaid').value||0), discount_percent:Number($('saleDiscount').value||0)}; if(!payload.customer_name || !payload.phone || !payload.items.length){ setMsg('saleMsg','Customer, phone and items required.', true); return; } try{ const out=await api('/sales/create',{method:'POST',body:JSON.stringify(payload)}); setMsg('saleMsg','Saved ' + out.invoice_no); state.saleDraft=[]; drawDraft('saleDraftTbl', state.saleDraft); $('saleCustomer').value=''; $('salePhone').value=''; $('salePaid').value=''; $('saleDiscount').value=''; await loadDashboard(); } catch(e){ setMsg('saleMsg', e.message, true); } }));
@@ -1100,6 +1214,8 @@ def web_app():
     $('salesExportBtn').addEventListener('click', () => { const rows=renderSales().map(r => ({Date:r.date, Invoice:r.invoice_no, Customer:r.customer_name, Phone:r.phone, Total:r.grand_total, Paid:(r.paid||r.paid_amount), Due:r.due})); exportRowsToCsv('sales_report.csv', ['Date','Invoice','Customer','Phone','Total','Paid','Due'], rows); });
     $('purchaseExportBtn').addEventListener('click', () => { const rows=renderPurchases().map(r => ({Date:(r.date||r.created_on), PurchaseID:r.purchase_id, Supplier:(r.supplier_name||r.supplier), Total:(r.grand_total??r.total_amount??0), Paid:(r.paid_amount??r.paid??0), Due:(r.due??r.due_amount??0), PaymentMode:(r.payment_mode||r.payment_type||'')})); exportRowsToCsv('purchase_report.csv', ['Date','PurchaseID','Supplier','Total','Paid','Due','PaymentMode'], rows); });
     $('dueExportBtn').addEventListener('click', () => { const rows=renderDue().map(r => ({Date:r.date, Invoice:r.invoice_no, Customer:r.customer_name, Phone:r.phone, Total:r.grand_total, Paid:(r.paid||r.paid_amount), Due:r.due})); exportRowsToCsv('due_report.csv', ['Date','Invoice','Customer','Phone','Total','Paid','Due'], rows); });
+    if($('ledgerExportBtn')) $('ledgerExportBtn').addEventListener('click', () => { const rows=renderLedger().map(r => ({Date:r.date, Invoice:r.invoice_no, Customer:r.customer_name, Phone:r.phone, Total:r.grand_total, Paid:(r.paid||r.paid_amount), Due:r.due})); exportRowsToCsv('customer_ledger.csv', ['Date','Invoice','Customer','Phone','Total','Paid','Due'], rows); });
+    if($('purchaseDueExportBtn')) $('purchaseDueExportBtn').addEventListener('click', () => { const rows=renderPurchaseDue().map(r => ({Date:r.date, PurchaseID:r.purchase_id, Supplier:(r.supplier_name||r.supplier), Total:(r.grand_total??r.total_amount??0), Paid:(r.paid_amount??r.paid??0), Due:(r.due??r.due_amount??0)})); exportRowsToCsv('purchase_due_report.csv', ['Date','PurchaseID','Supplier','Total','Paid','Due'], rows); });
     if($('auditExportBtn')) $('auditExportBtn').addEventListener('click', () => { const rows=renderAudit().map(r => ({Timestamp:r.timestamp, User:r.user, Module:r.module, Action:r.action, Reference:r.reference})); exportRowsToCsv('audit_log.csv', ['Timestamp','User','Module','Action','Reference'], rows); });
     $('loginBtn').addEventListener('click', login); $('logoutBtn').addEventListener('click', logout); $('pwd').addEventListener('keydown', (e) => { if(e.key === 'Enter') login(); });
     (async () => { const saved=localStorage.getItem('im_user'); if(!saved) return; try{ const user=JSON.parse(saved); state.user=user; $('who').textContent=`${user.user} (${user.role})`; $('loginCard').classList.add('hidden'); $('appCard').classList.remove('hidden'); applyRoleUi(); await loadDashboard(); } catch (_) {} })();
