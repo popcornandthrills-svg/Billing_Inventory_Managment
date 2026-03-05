@@ -2,26 +2,29 @@ from typing import Optional, List
 import os
 import json
 from datetime import datetime
+from pathlib import Path
 
 from fastapi import FastAPI, Header, HTTPException
-from fastapi.responses import HTMLResponse
+from fastapi.responses import HTMLResponse, FileResponse
 from pydantic import BaseModel
 
-from data_consistency import ensure_data_consistency
-from item_summary_report import get_item_summary_report
-from inventory import get_total_stock_value, add_stock, get_item_stock
-from purchase import load_purchases, create_purchase
-from sales import load_sales, save_sales, create_sale
 from cash_ledger import add_cash_entry
 from audit_log import write_audit_log
 from item_summary_report import adjust_item_summary_available_qty, set_item_summary_override
 from utils import app_dir
 
 try:
-    from mongo_api import is_configured as mongo_is_configured, collection as mongo_collection
+    from mongo_api import (
+        is_configured as mongo_is_configured,
+        collection as mongo_collection,
+        ensure_indexes as mongo_ensure_indexes,
+        ping as mongo_ping,
+    )
 except Exception:
     mongo_is_configured = None
     mongo_collection = None
+    mongo_ensure_indexes = None
+    mongo_ping = None
 
 
 app = FastAPI(
@@ -29,6 +32,16 @@ app = FastAPI(
     version="1.0.0",
     description="Render deployment API for the desktop inventory system backend data.",
 )
+
+
+@app.on_event("startup")
+def _startup_init_indexes():
+    if _mongo_enabled() and mongo_ensure_indexes:
+        try:
+            mongo_ensure_indexes()
+        except Exception:
+            # Keep API booting; /health will show degraded if mongo is unreachable.
+            pass
 
 
 ADMIN_PASSWORD = "admin123"
@@ -74,7 +87,16 @@ def _mongo_enabled() -> bool:
     return bool(mongo_is_configured and mongo_collection and mongo_is_configured())
 
 
+def _require_mongo():
+    if not _mongo_enabled():
+        raise HTTPException(
+            status_code=500,
+            detail="MongoDB is not configured. Set MONGODB_URI and MONGODB_DB_NAME.",
+        )
+
+
 def _mongo_load_rows(coll_name: str) -> List[dict]:
+    _require_mongo()
     rows = []
     for rec in mongo_collection(coll_name).find({}):
         if "_id" in rec:
@@ -84,6 +106,7 @@ def _mongo_load_rows(coll_name: str) -> List[dict]:
 
 
 def _mongo_replace_rows(coll_name: str, rows: List[dict]):
+    _require_mongo()
     col = mongo_collection(coll_name)
     col.delete_many({})
     if rows:
@@ -91,76 +114,53 @@ def _mongo_replace_rows(coll_name: str, rows: List[dict]):
 
 
 def _load_sales_rows() -> List[dict]:
-    if _mongo_enabled():
-        return _mongo_load_rows("sales")
-    return load_sales()
+    return _mongo_load_rows("sales")
 
 
 def _save_sales_rows(rows: List[dict]):
-    if _mongo_enabled():
-        _mongo_replace_rows("sales", rows)
-        return
-    save_sales(rows)
+    _mongo_replace_rows("sales", rows)
 
 
 def _load_purchase_rows() -> List[dict]:
-    if _mongo_enabled():
-        return _mongo_load_rows("purchases")
-    return load_purchases()
+    return _mongo_load_rows("purchases")
 
 
 def _save_purchase_rows(rows: List[dict]):
-    if _mongo_enabled():
-        _mongo_replace_rows("purchases", rows)
-        return
-    from purchase import save_purchases
-    save_purchases(rows)
+    _mongo_replace_rows("purchases", rows)
 
 
 def _load_inventory_map() -> dict:
-    if _mongo_enabled():
-        inv = {}
-        for rec in _mongo_load_rows("inventory"):
-            item = str(rec.get("item", "")).strip()
-            if not item:
-                continue
-            inv[item] = {
-                "stock": _safe_float(rec.get("stock", 0)),
-                "rate": _safe_float(rec.get("rate", 0)),
-            }
-        return inv
-    from inventory import load_inventory
-    return load_inventory()
+    inv = {}
+    for rec in _mongo_load_rows("inventory"):
+        item = str(rec.get("item", "")).strip()
+        if not item:
+            continue
+        inv[item] = {
+            "stock": _safe_float(rec.get("stock", 0)),
+            "rate": _safe_float(rec.get("rate", 0)),
+        }
+    return inv
 
 
 def _save_inventory_map(inv: dict):
-    if _mongo_enabled():
-        rows = []
-        for item, rec in inv.items():
-            rows.append(
-                {
-                    "item": item,
-                    "stock": round(_safe_float(rec.get("stock", 0)), 2),
-                    "rate": round(_safe_float(rec.get("rate", 0)), 2),
-                }
-            )
-        _mongo_replace_rows("inventory", rows)
-        return
-    from inventory import save_inventory
-    save_inventory(inv)
+    rows = []
+    for item, rec in inv.items():
+        rows.append(
+            {
+                "item": item,
+                "stock": round(_safe_float(rec.get("stock", 0)), 2),
+                "rate": round(_safe_float(rec.get("rate", 0)), 2),
+            }
+        )
+    _mongo_replace_rows("inventory", rows)
 
 
 def _get_item_stock_api(item_name: str) -> float:
-    if not _mongo_enabled():
-        return _safe_float(get_item_stock(item_name))
     inv = _load_inventory_map()
     return _safe_float(inv.get(item_name, {}).get("stock", 0))
 
 
 def _add_stock_api(item_name: str, qty: float, rate: float = 0.0):
-    if not _mongo_enabled():
-        add_stock(item_name=item_name, qty=qty, rate=rate)
-        return
     inv = _load_inventory_map()
     before = inv.get(item_name, {"stock": 0.0, "rate": 0.0})
     inv[item_name] = {
@@ -171,8 +171,6 @@ def _add_stock_api(item_name: str, qty: float, rate: float = 0.0):
 
 
 def _get_total_stock_value_api() -> float:
-    if not _mongo_enabled():
-        return _safe_float(get_total_stock_value())
     total = 0.0
     for _, rec in _load_inventory_map().items():
         qty = max(_safe_float(rec.get("stock", 0)), 0.0)
@@ -201,16 +199,6 @@ def _generate_seq_id(prefix: str, rows: List[dict], key: str) -> str:
 
 
 def _create_sale_api(customer_name, phone, items, payment_mode, paid_amount, discount_percent):
-    if not _mongo_enabled():
-        return create_sale(
-            customer_name=customer_name,
-            phone=phone,
-            items=items,
-            payment_mode=payment_mode,
-            paid_amount=paid_amount,
-            discount_percent=discount_percent,
-        )
-
     sales_rows = _load_sales_rows()
     inv = _load_inventory_map()
 
@@ -265,15 +253,6 @@ def _create_sale_api(customer_name, phone, items, payment_mode, paid_amount, dis
 
 
 def _create_purchase_api(supplier_id, supplier_name, items, payment_mode, paid_amount):
-    if not _mongo_enabled():
-        return create_purchase(
-            supplier_id=supplier_id,
-            supplier_name=supplier_name,
-            items=items,
-            payment_type=payment_mode,
-            paid_amount=paid_amount,
-        )
-
     purchases = _load_purchase_rows()
     inv = _load_inventory_map()
     purchase_id = _generate_seq_id("P", purchases, "purchase_id")
@@ -308,8 +287,6 @@ def _create_purchase_api(supplier_id, supplier_name, items, payment_mode, paid_a
 
 
 def _item_summary_api():
-    if not _mongo_enabled():
-        return get_item_summary_report()
     sales = _load_sales_rows()
     purchases = _load_purchase_rows()
     inv = _load_inventory_map()
@@ -346,6 +323,43 @@ def _item_summary_api():
             }
         )
     return rows
+
+
+def _jsonable_doc(rec: dict) -> dict:
+    out = {}
+    for k, v in rec.items():
+        if k == "_id":
+            continue
+        if isinstance(v, datetime):
+            out[k] = v.isoformat()
+        else:
+            out[k] = v
+    return out
+
+
+def _mongo_backup_file() -> str:
+    _require_mongo()
+    stamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+    out_dir = Path("/tmp")
+    out_dir.mkdir(parents=True, exist_ok=True)
+    out_path = out_dir / f"billing_inventory_backup_{stamp}.json"
+    collections = [
+        "sales",
+        "purchases",
+        "inventory",
+        "customers",
+        "suppliers",
+        "audit_log",
+        "cash_ledger",
+        "shop_managers",
+    ]
+    payload = {"generated_at": datetime.now().isoformat(), "db": os.getenv("MONGODB_DB_NAME", ""), "collections": {}}
+    for cname in collections:
+        docs = [_jsonable_doc(d) for d in mongo_collection(cname).find({})]
+        payload["collections"][cname] = docs
+    with open(out_path, "w", encoding="utf-8") as f:
+        json.dump(payload, f, indent=2)
+    return str(out_path)
 
 
 def _safe_float(value):
@@ -483,13 +497,21 @@ def root():
 
 @app.get("/health")
 def health():
-    return {"status": "healthy"}
+    configured = _mongo_enabled()
+    alive = bool(configured and mongo_ping and mongo_ping())
+    return {
+        "status": "healthy" if alive else "degraded",
+        "mongo_configured": configured,
+        "mongo_ping": alive,
+    }
 
 
 @app.post("/admin/reconcile")
 def reconcile_data(x_api_key: Optional[str] = Header(default=None)):
     _require_api_key(x_api_key)
-    return ensure_data_consistency()
+    _require_mongo()
+    created = mongo_ensure_indexes() if mongo_ensure_indexes else {}
+    return {"ok": True, "mongo_only": True, "indexes": created}
 
 
 @app.get("/dashboard/summary")
@@ -607,11 +629,8 @@ def purchases_create(
         payment_mode=_normalize_mode(payload.payment_mode),
         paid_amount=paid,
     )
-    if not _mongo_enabled():
-        for i in items:
-            _add_stock_api(item_name=i["item"], qty=i["qty"], rate=i["rate"])
-            adjust_item_summary_available_qty(i["item"], i["qty"])
-            set_item_summary_override(i["item"], available_qty=_get_item_stock_api(i["item"]))
+    for i in items:
+        _add_stock_api(item_name=i["item"], qty=i["qty"], rate=i["rate"])
     write_audit_log(
         user=(x_user_name or "web_user"),
         module="purchase",
@@ -675,6 +694,18 @@ def sales_pay_due(
         after={"paid": target["paid"], "due": target["due"], "payment_mode": mode},
     )
     return {"ok": True, "invoice_no": invoice_no, "paid": target["paid"], "due": target["due"]}
+
+
+@app.get("/admin/mongo/backup")
+def mongo_backup(x_api_key: Optional[str] = Header(default=None)):
+    _require_api_key(x_api_key)
+    _require_mongo()
+    path = _mongo_backup_file()
+    return FileResponse(
+        path=path,
+        media_type="application/json",
+        filename=os.path.basename(path),
+    )
 
 
 @app.get("/app", response_class=HTMLResponse)
