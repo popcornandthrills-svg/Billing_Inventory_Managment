@@ -10,8 +10,6 @@ from pydantic import BaseModel
 
 from cash_ledger import add_cash_entry
 from audit_log import write_audit_log
-from item_summary_report import adjust_item_summary_available_qty, set_item_summary_override
-from utils import app_dir
 
 try:
     from mongo_api import (
@@ -46,7 +44,6 @@ def _startup_init_indexes():
 
 ADMIN_PASSWORD = "admin123"
 SHOP_MANAGER_PASSWORD = "sm123"
-SHOP_MANAGER_USERS_FILE = os.path.join(app_dir(), "data", "shop_manager_users.json")
 
 
 class LoginRequest(BaseModel):
@@ -81,6 +78,16 @@ class DuePaymentRequest(BaseModel):
     invoice_no: str
     pay_amount: float
     payment_mode: str = "Cash"
+
+
+class SmCreateRequest(BaseModel):
+    username: str
+    password: str
+
+
+class SmResetRequest(BaseModel):
+    username: str
+    new_password: str
 
 
 def _mongo_enabled() -> bool:
@@ -362,6 +369,46 @@ def _mongo_backup_file() -> str:
     return str(out_path)
 
 
+def _load_shop_manager_accounts():
+    rows = []
+    for rec in _mongo_load_rows("shop_managers"):
+        if not isinstance(rec, dict):
+            continue
+        pwd = str(rec.get("password", "")).strip()
+        if not pwd:
+            continue
+        rows.append(
+            {
+                "username": str(rec.get("username", "")).strip() or "shop_manager",
+                "password": pwd,
+                "is_active": bool(rec.get("is_active", True)),
+                "is_deleted": bool(rec.get("is_deleted", False)),
+                "created_on": str(rec.get("created_on", "")).strip(),
+                "last_login": str(rec.get("last_login", "")).strip(),
+            }
+        )
+    rows.sort(key=lambda r: str(r.get("username", "")).lower())
+    return rows
+
+
+def _save_shop_manager_accounts(rows: List[dict]):
+    safe = []
+    for r in rows:
+        if not isinstance(r, dict):
+            continue
+        safe.append(
+            {
+                "username": str(r.get("username", "")).strip(),
+                "password": str(r.get("password", "")).strip(),
+                "is_active": bool(r.get("is_active", True)),
+                "is_deleted": bool(r.get("is_deleted", False)),
+                "created_on": str(r.get("created_on", "")).strip(),
+                "last_login": str(r.get("last_login", "")).strip(),
+            }
+        )
+    _mongo_replace_rows("shop_managers", safe)
+
+
 def _safe_float(value):
     try:
         return float(value)
@@ -437,52 +484,6 @@ def _require_api_key(x_api_key: Optional[str]):
         return
     if (x_api_key or "").strip() != expected:
         raise HTTPException(status_code=401, detail="Invalid API key.")
-
-
-def _load_shop_manager_accounts():
-    if not os.path.exists(SHOP_MANAGER_USERS_FILE):
-        return []
-    try:
-        with open(SHOP_MANAGER_USERS_FILE, "r", encoding="utf-8") as f:
-            data = json.load(f)
-    except Exception:
-        return []
-    if not isinstance(data, list):
-        return []
-
-    # Backward compatibility: list of plain passwords.
-    if data and isinstance(data[0], str):
-        rows = []
-        for idx, pwd in enumerate(data, start=1):
-            text = str(pwd or "").strip()
-            if not text:
-                continue
-            rows.append(
-                {
-                    "username": f"SM-{idx:03d}",
-                    "password": text,
-                    "is_active": True,
-                    "is_deleted": False,
-                }
-            )
-        return rows
-
-    rows = []
-    for rec in data:
-        if not isinstance(rec, dict):
-            continue
-        pwd = str(rec.get("password", "")).strip()
-        if not pwd:
-            continue
-        rows.append(
-            {
-                "username": str(rec.get("username", "")).strip() or "shop_manager",
-                "password": pwd,
-                "is_active": bool(rec.get("is_active", True)),
-                "is_deleted": bool(rec.get("is_deleted", False)),
-            }
-        )
-    return rows
 
 
 @app.get("/")
@@ -708,6 +709,84 @@ def mongo_backup(x_api_key: Optional[str] = Header(default=None)):
     )
 
 
+@app.get("/audit/logs")
+def audit_logs(limit: int = 200, x_user_role: Optional[str] = Header(default=None)):
+    _require_role(x_user_role, ["admin", "shop_manager"])
+    rows = _sort_rows(_mongo_load_rows("audit_log"), key_name="timestamp")
+    max_rows = max(1, min(limit, 2000))
+    return {"count": len(rows), "rows": rows[:max_rows]}
+
+
+@app.get("/admin/sm")
+def sm_list(x_user_role: Optional[str] = Header(default=None)):
+    _require_role(x_user_role, ["admin"])
+    rows = _load_shop_manager_accounts()
+    for r in rows:
+        r["password"] = "********"
+    return {"count": len(rows), "rows": rows}
+
+
+@app.post("/admin/sm/create")
+def sm_create(payload: SmCreateRequest, x_user_role: Optional[str] = Header(default=None), x_user_name: Optional[str] = Header(default=None)):
+    _require_role(x_user_role, ["admin"])
+    uname = str(payload.username or "").strip()
+    pwd = str(payload.password or "").strip()
+    if not uname or not pwd:
+        raise HTTPException(status_code=400, detail="Username and password are required.")
+    rows = _load_shop_manager_accounts()
+    if any(str(r.get("username", "")).strip().lower() == uname.lower() and not r.get("is_deleted", False) for r in rows):
+        raise HTTPException(status_code=400, detail="Username already exists.")
+    if any(str(r.get("password", "")).strip() == pwd and not r.get("is_deleted", False) for r in rows):
+        raise HTTPException(status_code=400, detail="Password already exists.")
+    rows.append(
+        {
+            "username": uname,
+            "password": pwd,
+            "is_active": True,
+            "is_deleted": False,
+            "created_on": datetime.now().strftime("%d-%m-%Y %H:%M:%S"),
+            "last_login": "",
+        }
+    )
+    _save_shop_manager_accounts(rows)
+    write_audit_log(user=(x_user_name or "web_user"), module="shop_manager_accounts", action="create", reference=uname)
+    return {"ok": True, "username": uname}
+
+
+@app.post("/admin/sm/reset")
+def sm_reset(payload: SmResetRequest, x_user_role: Optional[str] = Header(default=None), x_user_name: Optional[str] = Header(default=None)):
+    _require_role(x_user_role, ["admin"])
+    uname = str(payload.username or "").strip()
+    new_pwd = str(payload.new_password or "").strip()
+    if not uname or not new_pwd:
+        raise HTTPException(status_code=400, detail="Username and new password are required.")
+    rows = _load_shop_manager_accounts()
+    target = None
+    for r in rows:
+        if str(r.get("username", "")).strip().lower() == uname.lower() and not r.get("is_deleted", False):
+            target = r
+            break
+    if not target:
+        raise HTTPException(status_code=404, detail="Shop manager not found.")
+    target["password"] = new_pwd
+    _save_shop_manager_accounts(rows)
+    write_audit_log(user=(x_user_name or "web_user"), module="shop_manager_accounts", action="reset_password", reference=uname)
+    return {"ok": True, "username": uname}
+
+
+@app.delete("/admin/sm/{username}")
+def sm_delete(username: str, x_user_role: Optional[str] = Header(default=None), x_user_name: Optional[str] = Header(default=None)):
+    _require_role(x_user_role, ["admin"])
+    uname = str(username or "").strip()
+    rows = _load_shop_manager_accounts()
+    kept = [r for r in rows if str(r.get("username", "")).strip().lower() != uname.lower()]
+    if len(kept) == len(rows):
+        raise HTTPException(status_code=404, detail="Shop manager not found.")
+    _save_shop_manager_accounts(kept)
+    write_audit_log(user=(x_user_name or "web_user"), module="shop_manager_accounts", action="delete", reference=uname)
+    return {"ok": True, "username": uname}
+
+
 @app.get("/app", response_class=HTMLResponse)
 def web_app():
     return HTMLResponse(
@@ -777,6 +856,8 @@ def web_app():
           <button class="tabbtn" data-tab="salesTab">Sales</button>
           <button class="tabbtn" data-tab="purchaseTab">Purchase</button>
           <button class="tabbtn" data-tab="dueTab">Due</button>
+          <button class="tabbtn adminOnly" data-tab="auditTab">Audit</button>
+          <button class="tabbtn adminOnly" data-tab="smTab">Manage SM</button>
         </div>
 
         <div id="summaryTab" class="tab active">
@@ -888,13 +969,48 @@ def web_app():
             </table>
           </div>
         </div>
+
+        <div id="auditTab" class="tab">
+          <div class="tools">
+            <input id="auditSearch" placeholder="Search user/module/action/reference...">
+            <button class="secondary" id="auditExportBtn">Export CSV</button>
+          </div>
+          <div class="scroll">
+            <table id="auditTbl">
+              <thead><tr><th>Timestamp</th><th>User</th><th>Module</th><th>Action</th><th>Reference</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
+
+        <div id="smTab" class="tab">
+          <div class="tools">
+            <input id="smUser" placeholder="SM Username">
+            <input id="smPass" placeholder="SM Password">
+            <button id="smCreateBtn">Create SM</button>
+          </div>
+          <div class="tools">
+            <input id="smResetUser" placeholder="Username to reset">
+            <input id="smResetPass" placeholder="New password">
+            <button class="secondary" id="smResetBtn">Reset Password</button>
+            <input id="smDeleteUser" placeholder="Username to delete">
+            <button class="secondary" id="smDeleteBtn">Delete SM</button>
+            <span class="muted" id="smMsg"></span>
+          </div>
+          <div class="scroll">
+            <table id="smTbl">
+              <thead><tr><th>Username</th><th>Status</th><th>Created</th><th>Last Login</th></tr></thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
   <script>
     const $ = (id) => document.getElementById(id);
-    const state = { user:null, summary:null, items:[], sales:[], purchases:[], due:[], saleDraft:[], purchaseDraft:[] };
+    const state = { user:null, summary:null, items:[], sales:[], purchases:[], due:[], audits:[], sms:[], saleDraft:[], purchaseDraft:[] };
     function money(v){ return Number(v||0).toFixed(2); }
     function setActiveTab(tabId){ document.querySelectorAll('.tabbtn').forEach(b => b.classList.toggle('active', b.dataset.tab===tabId)); document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.id===tabId)); }
     function toRowText(r){ return Object.values(r||{}).join(' ').toLowerCase(); }
@@ -904,27 +1020,53 @@ def web_app():
     function setMsg(id, text, isErr=false){ const el=$(id); if(!el) return; el.textContent=text||''; el.style.color=isErr ? '#b00020' : ''; }
     async function api(path, opts={}){ const headers=Object.assign({'Content-Type':'application/json'}, opts.headers||{}); if(state.user){ headers['x-user-role']=state.user.role; headers['x-user-name']=state.user.user; } const res=await fetch(path, Object.assign({}, opts, {headers})); if(!res.ok){ let msg='Request failed'; try{ const j=await res.json(); msg=j.detail||msg; }catch(_){ } throw new Error(msg); } return res.json(); }
     async function withLock(btnId, fn){ const btn=$(btnId); if(btn && btn.disabled) return; if(btn) btn.disabled=true; try{ await fn(); } finally { if(btn) btn.disabled=false; } }
-    function applyRoleUi(){ const isAdmin = state.user && state.user.role === 'admin'; const tabBtn=document.querySelector('[data-tab=\"purchaseTab\"]'); if(tabBtn) tabBtn.style.display = isAdmin ? '' : 'none'; $('purchaseTab').style.display = isAdmin ? '' : 'none'; }
+    function applyRoleUi(){
+      const isAdmin = state.user && state.user.role === 'admin';
+      const tabBtn=document.querySelector('[data-tab=\"purchaseTab\"]');
+      if(tabBtn) tabBtn.style.display = isAdmin ? '' : 'none';
+      $('purchaseTab').style.display = isAdmin ? '' : 'none';
+      document.querySelectorAll('.adminOnly').forEach(el => el.style.display = isAdmin ? '' : 'none');
+      if(!isAdmin){
+        if($('auditTab')) $('auditTab').style.display='none';
+        if($('smTab')) $('smTab').style.display='none';
+      }
+    }
     function drawDraft(tblId, rows){ const body=$(tblId).querySelector('tbody'); body.innerHTML=''; rows.forEach(r=>{ const tr=document.createElement('tr'); tr.innerHTML=`<td>${r.item}</td><td>${money(r.qty)}</td><td>${money(r.rate)}</td><td>${money(r.gst)}</td>`; body.appendChild(tr); }); }
     function addDraft(prefix, key){ const item=$(prefix+'Item').value.trim(); const qty=Number($(prefix+'Qty').value||0); const rate=Number($(prefix+'Rate').value||0); const gst=Number($(prefix+'Gst').value||18); const msgId=(prefix==='sale')?'saleMsg':'purMsg'; if(!item || qty<=0 || rate<0 || gst<0 || gst>100){ setMsg(msgId, 'Enter valid item/qty/rate/gst.', true); return; } state[key].push({item,qty,rate,gst}); drawDraft(prefix==='sale'?'saleDraftTbl':'purDraftTbl', state[key]); $(prefix+'Item').value=''; $(prefix+'Qty').value=''; $(prefix+'Rate').value=''; $(prefix+'Gst').value='18'; setMsg(msgId, state[key].length + ' item(s) ready.'); }
     function renderItems(){ const q=($('itemsSearch').value||'').trim().toLowerCase(); const rows=state.items.filter(r => toRowText(r).includes(q)); const isAdmin = state.user && state.user.role === 'admin'; const head=$('itemsTbl').querySelector('thead tr'); head.innerHTML = isAdmin ? '<th>Item</th><th>Available Qty</th><th>Purchase Price</th><th>Selling Price</th>' : '<th>Item</th><th>Available Qty</th><th>Selling Price</th>'; const body=$('itemsTbl').querySelector('tbody'); body.innerHTML=''; rows.forEach(r=>{ const tr=document.createElement('tr'); tr.innerHTML = isAdmin ? `<td>${r.item||''}</td><td>${money(r.available_qty)}</td><td>${money(r.purchase_price)}</td><td>${money(r.selling_price)}</td>` : `<td>${r.item||''}</td><td>${money(r.available_qty)}</td><td>${money(r.selling_price)}</td>`; body.appendChild(tr); }); return rows; }
-    function renderSales(){ const q=($('salesSearch').value||'').trim().toLowerCase(); const rows=state.sales.filter(r => toRowText(r).includes(q)); const body=$('salesTbl').querySelector('tbody'); body.innerHTML=''; rows.forEach(r=>{ const tr=document.createElement('tr'); tr.innerHTML=`<td>${r.date||''}</td><td>${r.invoice_no||''}</td><td>${r.customer_name||''}</td><td>${r.phone||''}</td><td>${money(r.grand_total)}</td><td>${money(r.paid||r.paid_amount)}</td><td>${money(r.due)}</td>`; body.appendChild(tr); }); return rows; }
-    function renderPurchases(){ const q=($('purchaseSearch').value||'').trim().toLowerCase(); const rows=state.purchases.filter(r => toRowText(r).includes(q)); const body=$('purchaseTbl').querySelector('tbody'); body.innerHTML=''; rows.forEach(r=>{ const total=Number(r.grand_total ?? r.total_amount ?? 0); const paid=Number(r.paid_amount ?? r.paid ?? 0); const due=Number(r.due ?? r.due_amount ?? Math.max(total-paid,0)); const tr=document.createElement('tr'); tr.innerHTML=`<td>${r.date||r.created_on||''}</td><td>${r.purchase_id||''}</td><td>${r.supplier_name||r.supplier||''}</td><td>${money(total)}</td><td>${money(paid)}</td><td>${money(due)}</td><td>${r.payment_mode||r.payment_type||''}</td>`; body.appendChild(tr); }); return rows; }
-    function renderDue(){ const q=($('dueSearch').value||'').trim().toLowerCase(); const rows=state.due.filter(r => toRowText(r).includes(q)); const body=$('dueTbl').querySelector('tbody'); body.innerHTML=''; rows.forEach(r=>{ const tr=document.createElement('tr'); tr.innerHTML=`<td>${r.date||''}</td><td>${r.invoice_no||''}</td><td>${r.customer_name||''}</td><td>${r.phone||''}</td><td>${money(r.grand_total)}</td><td>${money(r.paid||r.paid_amount)}</td><td>${money(r.due)}</td>`; tr.addEventListener('click', ()=>{ $('dueInvoice').value=r.invoice_no||''; }); body.appendChild(tr); }); return rows; }
-    async function loadDashboard(){ const [summary, items, sales, purchases] = await Promise.all([api('/dashboard/summary'), api('/items/summary'), api('/sales?limit=1000'), api('/purchases?limit=1000')]); state.summary=summary; state.items=items.items||[]; state.sales=sales.rows||[]; state.purchases=purchases.rows||[]; state.due=state.sales.filter(r => Number(r.due||0)>0); $('k_sales_count').textContent=state.summary.sales.count; $('k_sales_total').textContent=money(state.summary.sales.total); $('k_sales_due').textContent=money(state.summary.sales.due); $('k_purchase_total').textContent=money(state.summary.purchase.total); $('k_purchase_due').textContent=money(state.summary.purchase.due); $('k_stock_value').textContent=money(state.summary.stock_value); renderItems(); renderSales(); renderPurchases(); renderDue(); }
+    function renderSales(){ const q=($('salesSearch').value||'').trim().toLowerCase(); const rows=state.sales.filter(r => toRowText(r).includes(q)); const body=$('salesTbl').querySelector('tbody'); body.innerHTML=''; rows.forEach(r=>{ const tr=document.createElement('tr'); tr.innerHTML=`<td>${r.date||''}</td><td>${r.invoice_no||''}</td><td>${r.customer_name||''}</td><td>${r.phone||''}</td><td>${money(r.grand_total)}</td><td>${money(r.paid||r.paid_amount)}</td><td>${money(r.due)}</td>`; tr.addEventListener('dblclick', ()=> alert(JSON.stringify(r, null, 2))); body.appendChild(tr); }); return rows; }
+    function renderPurchases(){ const q=($('purchaseSearch').value||'').trim().toLowerCase(); const rows=state.purchases.filter(r => toRowText(r).includes(q)); const body=$('purchaseTbl').querySelector('tbody'); body.innerHTML=''; rows.forEach(r=>{ const total=Number(r.grand_total ?? r.total_amount ?? 0); const paid=Number(r.paid_amount ?? r.paid ?? 0); const due=Number(r.due ?? r.due_amount ?? Math.max(total-paid,0)); const tr=document.createElement('tr'); tr.innerHTML=`<td>${r.date||r.created_on||''}</td><td>${r.purchase_id||''}</td><td>${r.supplier_name||r.supplier||''}</td><td>${money(total)}</td><td>${money(paid)}</td><td>${money(due)}</td><td>${r.payment_mode||r.payment_type||''}</td>`; tr.addEventListener('dblclick', ()=> alert(JSON.stringify(r, null, 2))); body.appendChild(tr); }); return rows; }
+    function renderDue(){ const q=($('dueSearch').value||'').trim().toLowerCase(); const rows=state.due.filter(r => toRowText(r).includes(q)); const body=$('dueTbl').querySelector('tbody'); body.innerHTML=''; rows.forEach(r=>{ const tr=document.createElement('tr'); tr.innerHTML=`<td>${r.date||''}</td><td>${r.invoice_no||''}</td><td>${r.customer_name||''}</td><td>${r.phone||''}</td><td>${money(r.grand_total)}</td><td>${money(r.paid||r.paid_amount)}</td><td>${money(r.due)}</td>`; tr.addEventListener('click', ()=>{ $('dueInvoice').value=r.invoice_no||''; }); tr.addEventListener('dblclick', ()=> alert(JSON.stringify(r, null, 2))); body.appendChild(tr); }); return rows; }
+    function renderAudit(){ const q=(($('auditSearch')?.value)||'').trim().toLowerCase(); const rows=state.audits.filter(r => toRowText(r).includes(q)); const body=$('auditTbl').querySelector('tbody'); body.innerHTML=''; rows.forEach(r=>{ const tr=document.createElement('tr'); tr.innerHTML=`<td>${r.timestamp||''}</td><td>${r.user||''}</td><td>${r.module||''}</td><td>${r.action||''}</td><td>${r.reference||''}</td>`; body.appendChild(tr); }); return rows; }
+    function renderSms(){ const body=$('smTbl').querySelector('tbody'); body.innerHTML=''; state.sms.forEach(r=>{ const tr=document.createElement('tr'); tr.innerHTML=`<td>${r.username||''}</td><td>${(r.is_active===false)?'Inactive':'Active'}</td><td>${r.created_on||''}</td><td>${r.last_login||''}</td>`; tr.addEventListener('click', ()=>{ $('smResetUser').value=r.username||''; $('smDeleteUser').value=r.username||''; }); body.appendChild(tr); }); }
+    async function loadDashboard(){
+      const isAdmin = state.user && state.user.role === 'admin';
+      const requests=[api('/dashboard/summary'), api('/items/summary'), api('/sales?limit=1000'), api('/purchases?limit=1000')];
+      if(isAdmin){ requests.push(api('/audit/logs?limit=500')); requests.push(api('/admin/sm')); }
+      const out = await Promise.all(requests);
+      const [summary, items, sales, purchases, audits, sms] = out;
+      state.summary=summary; state.items=items.items||[]; state.sales=sales.rows||[]; state.purchases=purchases.rows||[]; state.due=state.sales.filter(r => Number(r.due||0)>0);
+      state.audits=(audits&&audits.rows)||[]; state.sms=(sms&&sms.rows)||[];
+      $('k_sales_count').textContent=state.summary.sales.count; $('k_sales_total').textContent=money(state.summary.sales.total); $('k_sales_due').textContent=money(state.summary.sales.due); $('k_purchase_total').textContent=money(state.summary.purchase.total); $('k_purchase_due').textContent=money(state.summary.purchase.due); $('k_stock_value').textContent=money(state.summary.stock_value);
+      renderItems(); renderSales(); renderPurchases(); renderDue(); if(isAdmin){ renderAudit(); renderSms(); }
+    }
     async function login(){ const pwd=$('pwd').value.trim(); if(!pwd){ $('loginMsg').textContent='Enter password.'; return; } $('loginMsg').textContent='Authenticating...'; try{ const data=await api('/auth/login',{method:'POST', body:JSON.stringify({password:pwd})}); state.user=data; localStorage.setItem('im_user', JSON.stringify(data)); $('who').textContent=`${data.user} (${data.role})`; $('loginCard').classList.add('hidden'); $('appCard').classList.remove('hidden'); applyRoleUi(); await loadDashboard(); } catch(e){ $('loginMsg').textContent=e.message||'Invalid credentials.'; } }
     function logout(){ localStorage.removeItem('im_user'); state.user=null; $('appCard').classList.add('hidden'); $('loginCard').classList.remove('hidden'); $('pwd').value=''; $('loginMsg').textContent='Use your existing system password.'; }
     document.querySelectorAll('.tabbtn').forEach(btn => btn.addEventListener('click', () => setActiveTab(btn.dataset.tab)));
-    $('itemsSearch').addEventListener('input', debounce(renderItems, 120)); $('salesSearch').addEventListener('input', debounce(renderSales, 120)); $('purchaseSearch').addEventListener('input', debounce(renderPurchases, 120)); $('dueSearch').addEventListener('input', debounce(renderDue, 120));
+    $('itemsSearch').addEventListener('input', debounce(renderItems, 120)); $('salesSearch').addEventListener('input', debounce(renderSales, 120)); $('purchaseSearch').addEventListener('input', debounce(renderPurchases, 120)); $('dueSearch').addEventListener('input', debounce(renderDue, 120)); if($('auditSearch')) $('auditSearch').addEventListener('input', debounce(renderAudit, 120));
     $('saleAddItemBtn').addEventListener('click', () => addDraft('sale', 'saleDraft')); $('saleClearItemsBtn').addEventListener('click', () => { state.saleDraft=[]; drawDraft('saleDraftTbl', state.saleDraft); setMsg('saleMsg','Draft cleared.'); });
     $('purAddItemBtn').addEventListener('click', () => addDraft('pur', 'purchaseDraft')); $('purClearItemsBtn').addEventListener('click', () => { state.purchaseDraft=[]; drawDraft('purDraftTbl', state.purchaseDraft); setMsg('purMsg','Draft cleared.'); });
     $('saleSaveBtn').addEventListener('click', () => withLock('saleSaveBtn', async () => { const payload={customer_name:$('saleCustomer').value.trim(), phone:$('salePhone').value.trim(), items:state.saleDraft, payment_mode:$('salePayMode').value, paid_amount:Number($('salePaid').value||0), discount_percent:Number($('saleDiscount').value||0)}; if(!payload.customer_name || !payload.phone || !payload.items.length){ setMsg('saleMsg','Customer, phone and items required.', true); return; } try{ const out=await api('/sales/create',{method:'POST',body:JSON.stringify(payload)}); setMsg('saleMsg','Saved ' + out.invoice_no); state.saleDraft=[]; drawDraft('saleDraftTbl', state.saleDraft); $('saleCustomer').value=''; $('salePhone').value=''; $('salePaid').value=''; $('saleDiscount').value=''; await loadDashboard(); } catch(e){ setMsg('saleMsg', e.message, true); } }));
     $('purSaveBtn').addEventListener('click', () => withLock('purSaveBtn', async () => { const payload={supplier_name:$('purSupplier').value.trim(), items:state.purchaseDraft, payment_mode:$('purPayMode').value, paid_amount:Number($('purPaid').value||0)}; if(!payload.supplier_name || !payload.items.length){ setMsg('purMsg','Supplier and items required.', true); return; } try{ const out=await api('/purchases/create',{method:'POST',body:JSON.stringify(payload)}); setMsg('purMsg','Saved ' + out.purchase_id); state.purchaseDraft=[]; drawDraft('purDraftTbl', state.purchaseDraft); $('purSupplier').value=''; $('purPaid').value=''; await loadDashboard(); } catch(e){ setMsg('purMsg', e.message, true); } }));
     $('duePayBtn').addEventListener('click', () => withLock('duePayBtn', async () => { const payload={invoice_no:$('dueInvoice').value.trim(), pay_amount:Number($('duePayAmount').value||0), payment_mode:$('duePayMode').value}; if(!payload.invoice_no || payload.pay_amount<=0){ setMsg('dueMsg','Invoice and valid pay amount required.', true); return; } try{ const out=await api('/sales/pay-due',{method:'POST',body:JSON.stringify(payload)}); setMsg('dueMsg',`Updated ${out.invoice_no}. Due ${money(out.due)}`); $('duePayAmount').value=''; await loadDashboard(); } catch(e){ setMsg('dueMsg', e.message, true); } }));
+    if($('smCreateBtn')) $('smCreateBtn').addEventListener('click', () => withLock('smCreateBtn', async () => { const payload={username:$('smUser').value.trim(), password:$('smPass').value.trim()}; if(!payload.username || !payload.password){ setMsg('smMsg','Username and password required.', true); return; } try{ await api('/admin/sm/create',{method:'POST', body:JSON.stringify(payload)}); setMsg('smMsg','SM created.'); $('smUser').value=''; $('smPass').value=''; await loadDashboard(); } catch(e){ setMsg('smMsg', e.message, true); } }));
+    if($('smResetBtn')) $('smResetBtn').addEventListener('click', () => withLock('smResetBtn', async () => { const payload={username:$('smResetUser').value.trim(), new_password:$('smResetPass').value.trim()}; if(!payload.username || !payload.new_password){ setMsg('smMsg','Username and new password required.', true); return; } try{ await api('/admin/sm/reset',{method:'POST', body:JSON.stringify(payload)}); setMsg('smMsg','Password reset done.'); $('smResetPass').value=''; await loadDashboard(); } catch(e){ setMsg('smMsg', e.message, true); } }));
+    if($('smDeleteBtn')) $('smDeleteBtn').addEventListener('click', () => withLock('smDeleteBtn', async () => { const u=$('smDeleteUser').value.trim(); if(!u){ setMsg('smMsg','Username required to delete.', true); return; } if(!confirm('Delete SM ' + u + ' ?')) return; try{ await api('/admin/sm/'+encodeURIComponent(u), {method:'DELETE'}); setMsg('smMsg','SM deleted.'); $('smDeleteUser').value=''; await loadDashboard(); } catch(e){ setMsg('smMsg', e.message, true); } }));
     $('itemsExportBtn').addEventListener('click', () => { const isAdmin=state.user && state.user.role==='admin'; const rows=renderItems().map(r => isAdmin ? ({Item:r.item, AvailableQty:r.available_qty, PurchasePrice:r.purchase_price, SellingPrice:r.selling_price}) : ({Item:r.item, AvailableQty:r.available_qty, SellingPrice:r.selling_price})); const headers=isAdmin ? ['Item','AvailableQty','PurchasePrice','SellingPrice'] : ['Item','AvailableQty','SellingPrice']; exportRowsToCsv('items_summary.csv', headers, rows); });
     $('salesExportBtn').addEventListener('click', () => { const rows=renderSales().map(r => ({Date:r.date, Invoice:r.invoice_no, Customer:r.customer_name, Phone:r.phone, Total:r.grand_total, Paid:(r.paid||r.paid_amount), Due:r.due})); exportRowsToCsv('sales_report.csv', ['Date','Invoice','Customer','Phone','Total','Paid','Due'], rows); });
     $('purchaseExportBtn').addEventListener('click', () => { const rows=renderPurchases().map(r => ({Date:(r.date||r.created_on), PurchaseID:r.purchase_id, Supplier:(r.supplier_name||r.supplier), Total:(r.grand_total??r.total_amount??0), Paid:(r.paid_amount??r.paid??0), Due:(r.due??r.due_amount??0), PaymentMode:(r.payment_mode||r.payment_type||'')})); exportRowsToCsv('purchase_report.csv', ['Date','PurchaseID','Supplier','Total','Paid','Due','PaymentMode'], rows); });
     $('dueExportBtn').addEventListener('click', () => { const rows=renderDue().map(r => ({Date:r.date, Invoice:r.invoice_no, Customer:r.customer_name, Phone:r.phone, Total:r.grand_total, Paid:(r.paid||r.paid_amount), Due:r.due})); exportRowsToCsv('due_report.csv', ['Date','Invoice','Customer','Phone','Total','Paid','Due'], rows); });
+    if($('auditExportBtn')) $('auditExportBtn').addEventListener('click', () => { const rows=renderAudit().map(r => ({Timestamp:r.timestamp, User:r.user, Module:r.module, Action:r.action, Reference:r.reference})); exportRowsToCsv('audit_log.csv', ['Timestamp','User','Module','Action','Reference'], rows); });
     $('loginBtn').addEventListener('click', login); $('logoutBtn').addEventListener('click', logout); $('pwd').addEventListener('keydown', (e) => { if(e.key === 'Enter') login(); });
     (async () => { const saved=localStorage.getItem('im_user'); if(!saved) return; try{ const user=JSON.parse(saved); state.user=user; $('who').textContent=`${user.user} (${user.role})`; $('loginCard').classList.add('hidden'); $('appCard').classList.remove('hidden'); applyRoleUi(); await loadDashboard(); } catch (_) {} })();
   </script>
