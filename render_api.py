@@ -388,6 +388,17 @@ def _load_shop_manager_accounts():
             }
         )
     rows.sort(key=lambda r: str(r.get("username", "")).lower())
+    if not rows:
+        rows.append(
+            {
+                "username": "SM-DEFAULT",
+                "password": SHOP_MANAGER_PASSWORD,
+                "is_active": True,
+                "is_deleted": False,
+                "created_on": "",
+                "last_login": "",
+            }
+        )
     return rows
 
 
